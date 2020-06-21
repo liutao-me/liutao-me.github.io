@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>LAMP 搭建 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="LAMP 搭建" />
+<meta property="og:description" content="LAMP通常是指Linux&#43;Apache&#43;MySQL&#43;PHP组合形成的一套可以运行PHP程序的体系，并不是一个软件的名称。没有安装MySQL的服务器依然可以在其它条件完备的情况下运行不涉及MySQL数据库读写操作的PHP程序，另外PHP并非只支持MySQL一种数据库产品，还支持其他的数据库产品。并非只有Apache可以通过扩展支持PHP的解析，Nginx，LightHttpd等其它软件同样可以。
+ https://linux.cn/article-7463-1.html https://linux.cn/article-3164-1.html
+ 网络设置 sudo vi /etc/network/interfaces 增加以下内容
+ auto enp0s7 iface enp0s7 inet static address 192.168.20.227 netmask 255.255.255.0 gateway 192.168.20.1 dns-nameserver 192.168.20.1
+ sudo vi /etc/resolvconf/resolv.conf.d/base
+增加以下内容
+ nameserver 8.8.8.8 nameserver 114.114.114.114
+ 保存后执行 sudo resolvconf -u
+用以下命令使网络设置生效
+service networking restart sudo /etc/init.d/networking restart LAMP环境安装总结 如果选择安装城市为中国，则不需要更改源，默认源配置中的资源会自动使用阿里云的
+sudo apt update Apache sudo apt install apache2 -y sudo systemctl start apache2.service sudo systemctl enable apache2.service sudo systemctl status apache2.service 防火墙设置" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/lamp/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="LAMP 搭建">
+<meta itemprop="description" content="LAMP通常是指Linux&#43;Apache&#43;MySQL&#43;PHP组合形成的一套可以运行PHP程序的体系，并不是一个软件的名称。没有安装MySQL的服务器依然可以在其它条件完备的情况下运行不涉及MySQL数据库读写操作的PHP程序，另外PHP并非只支持MySQL一种数据库产品，还支持其他的数据库产品。并非只有Apache可以通过扩展支持PHP的解析，Nginx，LightHttpd等其它软件同样可以。
+ https://linux.cn/article-7463-1.html https://linux.cn/article-3164-1.html
+ 网络设置 sudo vi /etc/network/interfaces 增加以下内容
+ auto enp0s7 iface enp0s7 inet static address 192.168.20.227 netmask 255.255.255.0 gateway 192.168.20.1 dns-nameserver 192.168.20.1
+ sudo vi /etc/resolvconf/resolv.conf.d/base
+增加以下内容
+ nameserver 8.8.8.8 nameserver 114.114.114.114
+ 保存后执行 sudo resolvconf -u
+用以下命令使网络设置生效
+service networking restart sudo /etc/init.d/networking restart LAMP环境安装总结 如果选择安装城市为中国，则不需要更改源，默认源配置中的资源会自动使用阿里云的
+sudo apt update Apache sudo apt install apache2 -y sudo systemctl start apache2.service sudo systemctl enable apache2.service sudo systemctl status apache2.service 防火墙设置">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="147">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LAMP 搭建"/>
+<meta name="twitter:description" content="LAMP通常是指Linux&#43;Apache&#43;MySQL&#43;PHP组合形成的一套可以运行PHP程序的体系，并不是一个软件的名称。没有安装MySQL的服务器依然可以在其它条件完备的情况下运行不涉及MySQL数据库读写操作的PHP程序，另外PHP并非只支持MySQL一种数据库产品，还支持其他的数据库产品。并非只有Apache可以通过扩展支持PHP的解析，Nginx，LightHttpd等其它软件同样可以。
+ https://linux.cn/article-7463-1.html https://linux.cn/article-3164-1.html
+ 网络设置 sudo vi /etc/network/interfaces 增加以下内容
+ auto enp0s7 iface enp0s7 inet static address 192.168.20.227 netmask 255.255.255.0 gateway 192.168.20.1 dns-nameserver 192.168.20.1
+ sudo vi /etc/resolvconf/resolv.conf.d/base
+增加以下内容
+ nameserver 8.8.8.8 nameserver 114.114.114.114
+ 保存后执行 sudo resolvconf -u
+用以下命令使网络设置生效
+service networking restart sudo /etc/init.d/networking restart LAMP环境安装总结 如果选择安装城市为中国，则不需要更改源，默认源配置中的资源会自动使用阿里云的
+sudo apt update Apache sudo apt install apache2 -y sudo systemctl start apache2.service sudo systemctl enable apache2.service sudo systemctl status apache2.service 防火墙设置"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">LAMP 搭建</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><p>LAMP通常是指Linux+Apache+MySQL+PHP组合形成的一套可以运行PHP程序的体系，并不是一个软件的名称。没有安装MySQL的服务器依然可以在其它条件完备的情况下运行不涉及MySQL数据库读写操作的PHP程序，另外PHP并非只支持MySQL一种数据库产品，还支持其他的数据库产品。并非只有Apache可以通过扩展支持PHP的解析，Nginx，LightHttpd等其它软件同样可以。</p>
+<blockquote>
+<p><a href="https://linux.cn/article-7463-1.html">https://linux.cn/article-7463-1.html</a>
+<a href="https://linux.cn/article-3164-1.html">https://linux.cn/article-3164-1.html</a></p>
+</blockquote>
+<h2 id="网络设置">网络设置</h2>
+<p><code>sudo vi /etc/network/interfaces</code>
+增加以下内容</p>
+<blockquote>
+<p>auto enp0s7
+iface enp0s7 inet static
+address 192.168.20.227
+netmask 255.255.255.0
+gateway 192.168.20.1
+dns-nameserver 192.168.20.1</p>
+</blockquote>
+<p><code>sudo vi /etc/resolvconf/resolv.conf.d/base</code></p>
+<p>增加以下内容</p>
+<blockquote>
+<p>nameserver 8.8.8.8
+nameserver 114.114.114.114</p>
+</blockquote>
+<p>保存后执行 <code>sudo resolvconf -u</code></p>
+<p>用以下命令使网络设置生效</p>
+<pre><code>service networking restart
+sudo /etc/init.d/networking restart
+</code></pre><h2 id="lamp环境安装总结">LAMP环境安装总结</h2>
+<p>如果选择安装城市为中国，则不需要更改源，默认源配置中的资源会自动使用阿里云的</p>
+<pre><code>sudo apt update
+</code></pre><h3 id="apache">Apache</h3>
+<pre><code>sudo apt install apache2 -y
+sudo systemctl start apache2.service
+sudo systemctl enable apache2.service
+sudo systemctl status apache2.service
+</code></pre><p>防火墙设置</p>
+<pre><code>sudo ufw status
+sudo ufw allow in 'Apache Full'
+</code></pre><p>浏览器中访问服务器，可正常工作</p>
+<h3 id="mysql-server-57">MySQL Server 5.7</h3>
+<pre><code>sudo apt install mysql-server mysql-client
+</code></pre><p>安装过程会要求设置密码</p>
+<pre><code>sudo systemctl status mysql.service
+</code></pre><h3 id="mariadb-server">MariaDB Server</h3>
+<pre><code>sudo apt install mariadb-server
+#运行如下的命令来设置 MariaDB root 帐户的密码，还可以用来关闭某些选项，比如关闭远程登录功能
+sudo mysql_secure_installation
+</code></pre><h3 id="php7">PHP7</h3>
+<pre><code>sudo apt install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0
+#创建一个info.php，并移动到服务器目录，即可成功访问此文件
+sudo mv samplepage.php /var/www/html/
+</code></pre><h3 id="phpmyadmin">phpMyAdmin</h3>
+<pre><code>sudo apt install php-mbstring php7.0-mbstring php-gettext
+sudo systemctl restart apache2.service
+sudo apt install phpmyadmin
+</code></pre><p>在安装过程中，会有:
+* 提示我们选择 phpMyAdmin 运行的目标服务器，选择 Apache2 并点击确定。
+* 配置 phpMyAdmin 管理的数据库
+* 指定 phpMyAdmin 向数据库服务器注册时所用的密码</p>
+<p>访问http://Server_IP_OR_Host_Name/phpmyadmin ，可正常访问</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

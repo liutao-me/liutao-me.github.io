@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Mysql 主从设置 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Mysql 主从设置" />
+<meta property="og:description" content="#主数据库设置 server-id = 1 log_bin = /var/log/mysql/mysql-bin.log expire_logs_days = 10 max_binlog_size = 100M binlog_do_db = important_db #binlog_ignore_db = include_database_name  CREATE USER &#39;slave&#39;@&#39;%&#39; IDENTIFIED BY &#39;mysql&#39;; GRANT SELECT,REPLICATION SLAVE ON *.* TO &#39;slave&#39;@&#39;%&#39;; #查询主数据库状态 mysql&gt; show master status; &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; | File | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set | &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; | mysql-bin.000001 | 154 | important_db | | | &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; 1 row in set (0.00 sec) #从数据库设置 server-id = 2 log_bin = /var/log/mysql/mysql-bin." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/mysql_master_and_slave/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="Mysql 主从设置">
+<meta itemprop="description" content="#主数据库设置 server-id = 1 log_bin = /var/log/mysql/mysql-bin.log expire_logs_days = 10 max_binlog_size = 100M binlog_do_db = important_db #binlog_ignore_db = include_database_name  CREATE USER &#39;slave&#39;@&#39;%&#39; IDENTIFIED BY &#39;mysql&#39;; GRANT SELECT,REPLICATION SLAVE ON *.* TO &#39;slave&#39;@&#39;%&#39;; #查询主数据库状态 mysql&gt; show master status; &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; | File | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set | &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; | mysql-bin.000001 | 154 | important_db | | | &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; 1 row in set (0.00 sec) #从数据库设置 server-id = 2 log_bin = /var/log/mysql/mysql-bin.">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="406">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mysql 主从设置"/>
+<meta name="twitter:description" content="#主数据库设置 server-id = 1 log_bin = /var/log/mysql/mysql-bin.log expire_logs_days = 10 max_binlog_size = 100M binlog_do_db = important_db #binlog_ignore_db = include_database_name  CREATE USER &#39;slave&#39;@&#39;%&#39; IDENTIFIED BY &#39;mysql&#39;; GRANT SELECT,REPLICATION SLAVE ON *.* TO &#39;slave&#39;@&#39;%&#39;; #查询主数据库状态 mysql&gt; show master status; &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; | File | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set | &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; | mysql-bin.000001 | 154 | important_db | | | &#43;------------------&#43;----------&#43;--------------&#43;------------------&#43;-------------------&#43; 1 row in set (0.00 sec) #从数据库设置 server-id = 2 log_bin = /var/log/mysql/mysql-bin."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">Mysql 主从设置</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><pre><code>#主数据库设置
+server-id               = 1
+log_bin                 = /var/log/mysql/mysql-bin.log
+expire_logs_days        = 10
+max_binlog_size   = 100M
+binlog_do_db            = important_db
+#binlog_ignore_db       = include_database_name
+</code></pre><pre><code>
+CREATE USER 'slave'@'%' IDENTIFIED BY 'mysql'; 
+
+GRANT SELECT,REPLICATION SLAVE ON *.* TO 'slave'@'%'; 
+
+#查询主数据库状态
+mysql&gt; show master status;
++------------------+----------+--------------+------------------+-------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++------------------+----------+--------------+------------------+-------------------+
+| mysql-bin.000001 |      154 | important_db |                  |                   |
++------------------+----------+--------------+------------------+-------------------+
+1 row in set (0.00 sec)
+</code></pre><pre><code>#从数据库设置
+server-id               = 2
+log_bin                 = /var/log/mysql/mysql-bin.log
+expire_logs_days        = 10
+max_binlog_size   = 100M
+#binlog_do_db           = include_database_name
+#binlog_ignore_db       = include_database_name
+
+
+
+
+change master to
+master_host='192.168.20.227',
+master_user='slave',
+master_password='mysql',
+master_log_file='mysql-bin.000004',
+master_log_pos=154;
+
+change master to
+master_host='192.168.20.227',
+master_user='slave',
+master_password='mysql',
+master_log_file='mysql-bin.000006',
+master_log_pos=154;
+
+START SLAVE;
+
+#停止复制命令（一般不会用）
+STOP SLAVE;
+
+
+#主库查看
+show slave hosts;
++-----------+------+------+-----------+--------------------------------------+
+| Server_id | Host | Port | Master_id | Slave_UUID                           |
++-----------+------+------+-----------+--------------------------------------+
+|         2 |      | 3306 |         1 | 2bceb603-ad46-11e6-87fa-001c42ab617d |
++-----------+------+------+-----------+--------------------------------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+</code></pre><pre><code>SHOW SLAVE STATUS\G;
+*************************** 1. row ***************************
+               Slave_IO_State:
+                  Master_Host: 192.168.20.227
+                  Master_User: slave
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: mysql-bin.000001
+          Read_Master_Log_Pos: 154
+               Relay_Log_File: TalliuUbuntuServer16-relay-bin.000001
+                Relay_Log_Pos: 4
+        Relay_Master_Log_File: mysql-bin.000001
+             Slave_IO_Running: No
+            Slave_SQL_Running: Yes
+              Replicate_Do_DB:
+          Replicate_Ignore_DB:
+           Replicate_Do_Table:
+       Replicate_Ignore_Table:
+      Replicate_Wild_Do_Table:
+  Replicate_Wild_Ignore_Table:
+                   Last_Errno: 0
+                   Last_Error:
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 154
+              Relay_Log_Space: 154
+              Until_Condition: None
+               Until_Log_File:
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File:
+           Master_SSL_CA_Path:
+              Master_SSL_Cert:
+            Master_SSL_Cipher:
+               Master_SSL_Key:
+        Seconds_Behind_Master: NULL
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 1593
+                Last_IO_Error: Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work.
+               Last_SQL_Errno: 0
+               Last_SQL_Error:
+  Replicate_Ignore_Server_Ids:
+             Master_Server_Id: 1
+                  Master_UUID:
+             Master_Info_File: /var/lib/mysql/master.info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+      Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
+           Master_Retry_Count: 86400
+                  Master_Bind:
+      Last_IO_Error_Timestamp: 161121 11:17:20
+     Last_SQL_Error_Timestamp:
+               Master_SSL_Crl:
+           Master_SSL_Crlpath:
+           Retrieved_Gtid_Set:
+            Executed_Gtid_Set:
+                Auto_Position: 0
+         Replicate_Rewrite_DB:
+                 Channel_Name:
+           Master_TLS_Version:
+1 row in set (0.00 sec)
+
+</code></pre><p><strong>Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work.</strong></p>
+<pre><code>#master
+mysql&gt; show variables like 'server_id';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| server_id     | 1     |
++---------------+-------+
+1 row in set (0.07 sec)
+
+#slave
+mysql&gt; show variables like 'server_id';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| server_id     | 2     |
++---------------+-------+
+1 row in set (2.33 sec)
+
+
+mysql&gt; show variables like 'data%';
++---------------+-----------------+
+| Variable_name | Value           |
++---------------+-----------------+
+| datadir       | /var/lib/mysql/ |
++---------------+-----------------+
+1 row in set (0.00 sec)
+
+#master
+jobs@TalliuUbuntuServer16:/etc/mysql$ sudo cat /var/lib/mysql/auto.cnf
+[auto]
+server-uuid=2bceb603-ad46-11e6-87fa-001c42ab617d
+
+#slave
+jobs@TalliuUbuntuServer16:/etc/mysql$ sudo cat /var/lib/mysql/auto.cnf
+[sudo] password for jobs:
+[auto]
+server-uuid=2bceb603-ad46-11e6-87fa-001c42ab617d
+
+</code></pre><pre><code>sudo rm cat /var/lib/mysql/auto.cnf
+sudo service mysql restart
+
+jobs@TalliuUbuntuServer16:/etc/mysql$ sudo cat /var/lib/mysql/auto.cnf
+[auto]
+server-uuid=c069c892-af9a-11e6-9416-001c42ab617d
+</code></pre><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>系统学习Docker 践行DevOps理念 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="系统学习Docker 践行DevOps理念" />
+<meta property="og:description" content="本文来源于 慕课网课程 《系统学习Docker 践行DevOps理念》 本课程发布于2018年，部分知识可能已过时
+ 第3章 Vagrant 部署 sudo ip link add veth-test1 type veth peer name veth-test2 sudo ip netns add test1 sudo ip link set veth-test1 netns test1 sudo ip netns exec test1 ip link sudo ip netns add test2 sudo ip link set veth-test2 netns test2 sudo ip netns exec test1 ip addr add 192.168.1.1/24 dev veth-test1 sudo ip netns exec test2 ip addr add 192." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/imooc_docker_devops/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="系统学习Docker 践行DevOps理念">
+<meta itemprop="description" content="本文来源于 慕课网课程 《系统学习Docker 践行DevOps理念》 本课程发布于2018年，部分知识可能已过时
+ 第3章 Vagrant 部署 sudo ip link add veth-test1 type veth peer name veth-test2 sudo ip netns add test1 sudo ip link set veth-test1 netns test1 sudo ip netns exec test1 ip link sudo ip netns add test2 sudo ip link set veth-test2 netns test2 sudo ip netns exec test1 ip addr add 192.168.1.1/24 dev veth-test1 sudo ip netns exec test2 ip addr add 192.">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="855">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="系统学习Docker 践行DevOps理念"/>
+<meta name="twitter:description" content="本文来源于 慕课网课程 《系统学习Docker 践行DevOps理念》 本课程发布于2018年，部分知识可能已过时
+ 第3章 Vagrant 部署 sudo ip link add veth-test1 type veth peer name veth-test2 sudo ip netns add test1 sudo ip link set veth-test1 netns test1 sudo ip netns exec test1 ip link sudo ip netns add test2 sudo ip link set veth-test2 netns test2 sudo ip netns exec test1 ip addr add 192.168.1.1/24 dev veth-test1 sudo ip netns exec test2 ip addr add 192."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">系统学习Docker 践行DevOps理念</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><blockquote>
+<p>本文来源于 慕课网课程 《系统学习Docker 践行DevOps理念》
+本课程发布于2018年，部分知识可能已过时</p>
+</blockquote>
+<h2 id="第3章-vagrant-部署">第3章 Vagrant 部署</h2>
+<pre><code>sudo ip link add veth-test1 type veth peer name veth-test2
+
+sudo ip netns add test1
+
+sudo ip link set veth-test1 netns test1
+
+sudo ip netns exec test1 ip link
+
+sudo ip netns add test2
+
+sudo ip link set veth-test2 netns test2
+
+
+sudo ip netns exec test1 ip addr add 192.168.1.1/24 dev veth-test1
+sudo ip netns exec test2 ip addr add 192.168.1.2/24 dev veth-test2
+
+
+sudo ip netns exec test1 ip link set dev veth-test1 up
+sudo ip netns exec test2 ip link set dev veth-test2 up
+
+sudo ip netns exec test1 ping 192.168.1.2
+sudo ip netns exec test2 ping 192.168.1.1
+
+
+</code></pre><pre><code>docker run -d --name test1 busybox /bin/sh -c &quot;while true; do sleep 3600;done&quot;
+docker network inspect bridge
+brctl show
+ip a
+
+
+docker run -d --name test2 busybox /bin/sh -c &quot;while true; do sleep 3600;done&quot;
+
+
+</code></pre><p>docker 容器间的 link 功能，略</p>
+<h2 id="第4章-网络">第4章 网络</h2>
+<h3 id="bridge">bridge</h3>
+<pre><code>docker network create -d bridge my-bridge
+brctl show
+
+docker run -d --name test3 --network my-bridge busybox /bin/sh -c &quot;while true; do sleep 3600;done&quot;
+docker network inspect my-bridge
+docker network connect my-bridge test2
+docker network inspect my-bridge
+
+</code></pre><h3 id="none">none</h3>
+<p>创建的容器没有 ip 地址</p>
+<h3 id="host">host</h3>
+<p>共用主机的网络</p>
+<h3 id="多容器部署示例">多容器部署示例</h3>
+<pre><code>docker run -d --name redis redis
+docker build -t tao/flask-redis .
+docker run -d --link redis --name flask-redis -e REDIS_HOST=redis tao/flask-redis
+docker exec -it flask-redis /bin/bash
+env
+curl 127.0.0.1:5000
+exit
+docker stop flask-redis
+docker rm flask-redis
+
+docker run -d --link redis --name flask-redis -p 5000:5000 -e REDIS_HOST=redis tao/flask-redis
+curl 127.0.0.1:5000
+
+</code></pre><h3 id="多机网络">多机网络</h3>
+<blockquote>
+<p>vxlan
+underlay
+overlay</p>
+</blockquote>
+<h4 id="etcd">etcd</h4>
+<pre><code>
+sudo yum install -y etcd
+
+nohup etcd --name docker-node1 --initial-advertise-pe│ er-urls http://192.168.205.10:2380 --listen-peer-urls http://192.168.205.10:2380 --listen-client-urls │ http://192.168.205.10:2379,http://127.0.0.1:2379 --advertise-client-urls http://192.168.205.10:2379 --│ initial-cluster-token etcd-cluster --initial-cluster docker-node1=http://192.168.205.10:2380,docker-no│ de2=http://192.168.205.11:2380 --initial-cluster-state new&amp;
+nohup etcd --name docker-node2 --initial-advertise-peer-urls http://192.168.205.11:2380 --listen-peer-urls http://192.168.205.11:2380 --listen-client-urls http://192.168.205.11:2379,http://127.0.0.1:2379 --advertise-client-urls http://192.168.205.11:2379 --initial-cluster-token etcd-cluster --initial-cluster docker-node1=http://192.168.205.10:2380,docker-node2=http://192.168.205.11:2380 --initial-cluster-state new&amp;
+
+etcdctl cluster-health
+
+
+
+
+sudo service docker stop
+sudo /usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=etcd://192.168.205.10:2379 --cluster-advertise=192.168.205.10:2375&amp;
+
+sudo service docker stop
+sudo /usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=etcd://192.168.205.11:2379 --cluster-advertise=192.168.205.11:2375&amp;
+</code></pre><pre><code>docker network create -d overlay demo
+docker network inspect demo
+docker run -d --name test1 --net demo busybox sh -c &quot;while true; do sleep 3600; done&quot;
+
+
+</code></pre><h2 id="第5章-数据持久化">第5章 数据持久化</h2>
+<pre><code>vagrant plugin install vagrant-scp
+vagrant scp ./test docker-node1:/home/vagrant/xxx/
+
+
+</code></pre><p>docker volumn 略</p>
+<h2 id="第6章-docker-compose">第6章 docker compose</h2>
+<p>水平扩展容器</p>
+<pre><code>docker-compose up --scale web=3 -d
+</code></pre><h3 id="haproxy-负载均衡">HAProxy 负载均衡</h3>
+<p>略</p>
+<h2 id="第7章-容器编排-swarm">第7章 容器编排 swarm</h2>
+<pre><code>docker swarm --help
+docker swarm init --help
+
+docker swarm init --advertise-addr=192.168.205.10
+
+
+docker swarm join --token SWMTKN-1-44mgja8j469rh7i9mc81r6ug6szxkhutctx4c4hufq4rtyxtv2-00tid7ndxfqkzj6dyk1ucxb52 192.168.205.10:2377
+
+docker node ls
+
+
+
+docker service create --name demo busybox sh -c &quot;while true;do sleep 3600;done&quot;
+
+docker service ls
+
+docker service ps demo
+
+docker service scale demo=5
+
+
+docker service rm demo
+
+</code></pre><h3 id="部署示例-wordpress">部署示例 （wordpress）</h3>
+<pre><code>docker network create -d overlay demo
+
+
+docker service create --name mysql --env MYSQL_ROOT_PASSWORD=root --env MYSQL_DATABASE=wordpress --network demo --mount type=volume,source=mysql-data,destination=/var/lib/mysql mysql
+
+docker service create --name wordpress -p 80:80 --env WORDPRESS_DB_PASSWORD=root --env WORDPRESS_DB_HOST=mysql --network demo wordpress
+
+
+docker service create --name whoami -p 8000:8000 --network demo -d jwilder/whoami
+
+curl 127.0.0.1:8000
+
+docker service create --name client -d --network demo busybox sh -c &quot;while true;do sleep 3600;done&quot;
+
+docker service ps client
+
+
+docker service create --name whoami -p 8000:8000 --network demo -d jwilder/whoami
+docker service ps whoami
+docker service scale whoami=2
+
+nslookup tasks.whoami
+
+
+</code></pre><p>扩展 ： lvs + keeplived</p>
+<h3 id="ingress-network">ingress network</h3>
+<p>负载均衡
+转发</p>
+<h3 id="docker-stack">docker stack</h3>
+<pre><code>docker stack deploy wordpress --compose-file=docker-compose.yml
+docker stack ls
+docker stack ps wordpress
+docker stack services wordpress
+</code></pre><pre><code>docker stack deploy example --compose-file=docker-compose.yml
+docker stack ls
+docker stack services example
+docker service example scale example_vote=3
+</code></pre><h3 id="docker--visualizer">docker  visualizer</h3>
+<p>dockersamples/visualizer</p>
+<h3 id="docker-secret">docker secret</h3>
+<pre><code>echo &quot;adminadmin&quot; | docker secret create my-password -
+
+
+
+</code></pre><h3 id="docker-service-热更新">docker service 热更新</h3>
+<pre><code>docker service create --name web --publish 8080:5000 --network demo xiaopeng163/python-flask-demo:1.0
+
+docker service ps web
+docker service scale web=2
+
+curl 127.0.0.1:8080
+
+sh -c &quot;while true;do curl 127.0.0.1:8080 &amp;&amp; sleep 1; done&quot;
+
+
+docker service update --image xiaopeng163/python-flask-demo:2.0 web
+
+docker service update --publish-rm 8080:5000 --publish-add 8088:5000 web
+
+</code></pre><h2 id="第8章-docker-企业版">第8章 docker 企业版</h2>
+<h2 id="第9章-k8s">第9章 k8s</h2>
+<pre><code>brew install minikube
+kubectl version --client
+minikube version
+minikube start
+minikube start --image-mirror-country=cn --registry-mirror=https://b3uey254.mirror.aliyuncs.com
+
+
+
+kubectl config view
+
+kubectl config get-contexts
+
+kubectl cluster-info
+
+
+kubectl create -f pod_nginx.yml
+
+kubectl get pods
+kubectl get pods -o wide
+
+
+kubectl exec -it nginx sh
+
+kubectl port-forward nginx 8080:80
+
+kubectl delete -f pod_nginx.yml
+
+kubectl create -f rc_nginx.yml
+
+kubectl get rc
+
+kubectl delete pods nginx-5q46s
+
+kubectl scale rc nginx --replicas=2
+kubectl get pods
+kubectl scale rc nginx --replicas=4
+kubectl get pods
+
+kubectl get pods -o wide
+
+kubectl delete -f rc_nginx.yml
+
+kubectl create -f deployment_nginx.yml
+kubectl get deployment
+kubectl get rs
+kubectl get pods
+
+kubectl set image deployment nginx-deployment nginx=nginx:1.13
+
+kubectl rollout history deployment nginx-deployment
+
+
+kubectl rollout undo deployment nginx-deployment
+
+
+kubectl get node
+kubectl get node -o wide
+
+
+kubectl expose deployment nginx-deployment --type=NodePort
+
+
+kubectl get svc
+
+
+</code></pre><pre><code>
+
+
+
+
+</code></pre><h3 id="tectonic-sandbox">tectonic sandbox</h3>
+<pre><code>
+source &lt;(kubectl completion zsh)
+
+</code></pre><h4 id="flannel-是一种-k8s-网络插件">Flannel (是一种 k8s 网络插件)</h4>
+<p>Flannel 是 CoreOS 团队针对 Kubernetes 设计的一个覆盖网络（Overlay Network）工具，其目的在于帮助每一个使用 Kuberentes 的 CoreOS 主机拥有一个完整的子网。这次的分享内容将从Flannel的介绍、工作原理及安装和配置三方面来介绍这个工具的使用方法。<br>
+Flannel通过给每台宿主机分配一个子网的方式为容器提供虚拟网络，它基于Linux TUN/TAP，使用UDP封装IP包来创建overlay网络，并借助etcd维护网络的分配情况。<br>
+Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.</p>
+<h3 id="services">Services</h3>
+<h3 id="kops">kops</h3>
+<h4 id="dig-命令">dig 命令</h4>
+<pre><code>dig +short imooc.com ns
+dig +short imooc.com soa 
+</code></pre><h2 id="第10章-容器运维监控">第10章 容器运维、监控</h2>
+<pre><code>docker top 容器名
+docker stats
+
+
+</code></pre><h3 id="weave-scope">Weave Scope</h3>
+<p><a href="https://github.com/weaveworks/scope">GitHub - weaveworks/scope: Monitoring, visualisation &amp; management for Docker &amp; Kubernetes</a></p>
+<h3 id="k8s-heapstergrafanainfluxdb">k8s Heapster+Grafana+InfluxDB</h3>
+<p>Heapster 已废弃</p>
+<h3 id="压测-wrk--或-ab">压测 wrk （ 或 ab）</h3>
+<h3 id="水平扩展-autoscaler">水平扩展 autoscaler</h3>
+<h3 id="log">log</h3>
+<ul>
+<li>docker logs</li>
+<li>kubectl logs</li>
+</ul>
+<p>生产环境下：</p>
+<ul>
+<li>
+<p>ELK</p>
+</li>
+<li>
+<p>云服务商 log 服务</p>
+</li>
+<li>
+<p>Fluented （log 转发）</p>
+</li>
+<li>
+<p>ElasticSearch （log Index)</p>
+</li>
+<li>
+<p>Kibana (log 可视化)</p>
+</li>
+<li>
+<p>LogTrail （log ui 查看，Kibana 的插件）</p>
+</li>
+</ul>
+<h3 id="日志监控-prometheus">日志监控 Prometheus</h3>
+<h2 id="第11章-cicd">第11章 CI/CD</h2>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

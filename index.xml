@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Personal Blog on Liu Tao</title>
+    <link>/</link>
+    <description>Recent content in My Personal Blog on Liu Tao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 20 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MacBook Pro 2015 更换电池记录</title>
+      <link>/posts/replace_battery_of_mbp_2015/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/replace_battery_of_mbp_2015/</guid>
+      <description>电脑特别卡，无意中发现电池鼓包严重 此款笔记本 2015 年上市，已使用 4 年多了。 近段时间以来，电脑越来越卡，浏览器开几个网页就卡。尝试过清理垃圾、清理内存、升级系统，均不起作用，真想使用重装系统大法。活动（进程）监视器中有两个进程占用了特别高的使用率，分别是 WindowServer 和 kernal_task。
+查询得知，WindowServer 负责渲染，但我只开几个网页，也会卡到爆，换做以前开二三十个网页都没问题；kernal_task 控制风扇的，当它觉得电脑太热时，会占用较高资源，让风扇疯狂转起来。
+笔记本散热不好，我是知道的。大部分情况下，我会开好几个程序，因此风扇一直都是以较大功率运行着。这几年都是这个情况。 可是现在什么都没做，电脑都会卡到爆炸，就百思不得其解了。
+直到近日，想着给电脑散散热，取下了电脑保护壳（ A面、D面有保护壳），才发现 D 面（底面）中部已经鼓起来了。D 面有 4 个触点，正常情况下，正好可以水平放置。因为中部凸起，导致有一个点已经悬空，手掌按压，能感受到鼓起来的部分还比较严重。这只能说明电池鼓包很严重，吓得我赶紧关机了。
+此款笔记本，去年（2019 年）苹果出了一个电池召回计划，说是电池有隐患（会爆炸的那种），提供免费更换服务。我去了，但是没换成。因为 2017 年北京突如其来了一场特大暴雨，我护机不利，导致电脑进了很多水，差点就寿终正寝了。 维修人员说不能更换，理由是更换电池会连着主板一起换，我的主板进水了，所以不能免费更换了。我就很纳闷，电池和主板一般情况下都是分开的，怎么会需要连着一起换呢。查了一些资料（增加了拆机相关的知识储备），发现有很多人就是自己买电池，自行更换成功的。那时，电脑还能正常使用，就没纠结着电池的事了。
+现在电池出了这么大的问题，首先我是不会去售后的啦，按照那换主板的价格，足够买一个二手的了。我赶紧根据电脑型号（A1398）在网上下单买了某品牌电池（原装电池是没办法买到的）。
+更换过程（详细过程请找本文最后的参考资料）： 电池回来以后，发现虽然电脑型号都一样，但我的电脑比别人的拆机图多了一个部件，正好卡在电池表面（图中，电池中部那黑色长条部分）。多番研究，最终还是在客服的指导下，才明白黑色的是触控板的排线。而这个排线是使用双面胶粘在电池排线上，我胆战心惊的清理了很久才拆分开来。 触控板排线拆下来以后，就是拆电池了。电池也是双面胶粘上去的，需要耐心清理，同时也需要使很大的劲。唯一需要注意的是，中间的那两块电池下方是触控板，需要小心一点。
+小心翼翼的清理了很久（顺便清理了一下灰尘），然后更换上新的电池，装好排线。同时内心不停的祈祷，不要出现问题（此过程属实煎熬）。好在开机一次点亮，如释重负。查看系统消息，一切正常，电池也确实是新的。
+庆幸之余，发现电脑不卡了，性能和以前一样了，继续使用三五年是没问题啦。看来更换电池会使电脑运行流畅是有道理的。
+以下多图：
+参考资料：  亲历，Mac Pro 电池充不进电，检测及自己更换电池，省钱！ - 简书
+ </description>
+    </item>
+    
+    <item>
+      <title>mac docker desktop 安装 kubernetes</title>
+      <link>/posts/mac_docker_desktop_install_kubernetes/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/mac_docker_desktop_install_kubernetes/</guid>
+      <description>git clone https://github.com/AliyunContainerService/k8s-for-docker-desktop cd k8s-for-docker-desktop git checkout v1.15.5 ./load_images.sh 如果出现以下错误，重启docker，重新执行命令即可
+images.properties found. Error response from daemon: Get https://registry.cn-hangzhou.aliyuncs.com/v2/: net/http: TLS handshake timeout Error response from daemon: No such image: registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 Error: No such image: registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 Error response from daemon: Get https://registry.cn-hangzhou.aliyuncs.com/v2/: net/http: TLS handshake timeout Error response from daemon: No such image: registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.5 Error: No such image: registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.5 Error response from daemon: Get https://registry.cn-hangzhou.aliyuncs.com/v2/: net/http: TLS handshake timeout Error response from daemon: No such image: registry.</description>
+    </item>
+    
+    <item>
+      <title>dnsmasq &#43; laradock 本地开发自动解析域名，无需添加 hosts</title>
+      <link>/posts/dnsmasq_and_laradock/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/dnsmasq_and_laradock/</guid>
+      <description>使用场景 实际工作中有一些本地的域名需要修改 hosts 才可以访问，例如:test.laravel，develop.test。
+实现的目的： 在指定目录下新建 laravel 项目（比如 test）后，可以直接在浏览器中访问 http://test.laravel，无需再修改 hosts 文件
+基本原理：
+ 使用 dnsmasq 将 .laravel 域名代理到本地解析 使用 nginx 实现目录下的 泛域名解析  学习本文，你需要具备以下基本技能：
+ 程序员必备的基本技能（比如 vi/vim，终端命令） nginx dnsmasq （跟着本文即可知道大致用法） laradock （需要很熟练，需要会配置 nginx）  本文将以 .laravel 为例来说明。 在开始前，可以先 ping test.laravel,看一下结果（结果肯定是 ping 不通啦）
+dnsmasq brew install dnsmasq echo &amp;quot;address=/laravel/127.0.0.1&amp;quot; &amp;gt;&amp;gt; /usr/local/etc/dnsmasq.conf address=/laravel/127.0.0.1， 意思是访问 .laravel 直接引导到 127.0.0.1
+sudo mkdir -p /etc/resolver sudo tee /etc/resolver/laravel &amp;lt;&amp;lt;&amp;lt; &amp;quot;nameserver 127.0.0.1&amp;quot; 这里新建的文件叫 laravel , 因为我配置的域名结尾是 .</description>
+    </item>
+    
+    <item>
+      <title>Boostnote 内容导入到 hugo</title>
+      <link>/posts/import_posts_to_hugo_from_boostnote/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/import_posts_to_hugo_from_boostnote/</guid>
+      <description>我为什么使用 boostnote 第一，开源，自己的内容就是自己的，可以各种导出； 第二，对 Vim 支持良好（Vim 已中毒）。
+缺点也是有的，Vim 模拟的并不全。 后面我会往 org-mode 迁移。 本博客所记内容大部分是使用 Boostnote 记录的。
+内容管理软件大致是这个样子： 思路   首先需要导入的文章，我会给其一个 publicBlog 的标签（tag）。
+  hugo 的文章需要一个 url，因此，我在每篇文章开头会加入几个元数据（格式与 org-mode 保持一致，我定的规矩）。因多次更换过内容管理软件，导致文章的写作时间已经无法准确区分了，因此这些缺失的时间会统一暂定为 2019-10-01
+  #+AUTHOR: Liu Tao #+EMAIL: i@liutao.me #+DATE: 2019-10-01 #+EXPORT_FILE_NAME: this_is_title 推送文章到 github  实践  找出 tag 为 publicBlog 的文章 获取元数据 处理数据，生成 markdown 文件 git 管理，然后推送至 github  完整代码 代码使用 python 编写：
+import os import shutil import cson boostnote_path = r&amp;quot;/Users/tao/Google Drive/sync/Boostnote/notes&amp;quot; blog_path = r&amp;quot;/Users/tao/Work/mine/blog&amp;quot; posts_path = blog_path + &amp;quot;/content/posts&amp;quot; local_public_path = blog_path + &#39;/public&#39; line_break = &amp;quot;\n&amp;quot; def generate_posts_from_boostnote(): os.</description>
+    </item>
+    
+    <item>
+      <title>Anaconda 升级与 Spyder 升级命令</title>
+      <link>/posts/update_anaconda_and_update_spyder/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/update_anaconda_and_update_spyder/</guid>
+      <description>升级conda(升级Anaconda前需要先升级conda)命令为：
+conda update conda 升级anconda命令为：
+conda update anaconda 升级spyder命令为：
+conda update spyder </description>
+    </item>
+    
+    <item>
+      <title>bilibili 视频下载</title>
+      <link>/posts/download_videos_from_bilibili/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/download_videos_from_bilibili/</guid>
+      <description>Chrome 浏览器 安装油猴插件 安装脚本（ GitHub - the1812/Bilibili-Evolved: 强大的哔哩哔哩增强脚本: 下载视频, 音乐, 封面, 弹幕 / 简化直播间, 评论区, 首页 / 自定义顶栏, 删除广告, 夜间模式 / 触屏设备支持 ） 打开 bilibili 网站视频，点击屏幕左侧图标，找到下载选项 可单个下载，也可批量下载  我本机已经配置好了 aria2，下载选项选择 aria2 RPC，然后 aria2 就开始下载了。完成！！！
+重点步骤如下图：</description>
+    </item>
+    
+    <item>
+      <title>brew 错误 Error: Permission denied @ apply2files</title>
+      <link>/posts/permission_denied_of_brew_error/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/permission_denied_of_brew_error/</guid>
+      <description>如果有类似以下错误:
+Error: Permission denied @ apply2files - /usr/local/share/Library/Caches/Yarn/v4/npm-@tarojs-components-1.3.9-2a2b36a74d441eb7d2b149a4e97eefcefe9e78ea/node_modules/@tarojs/components/src/components/.DS_Store 解决办法：
+方法 1 sudo yarn cache clean brew cleanup 方法 2 卸载，重装
+ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&amp;quot; ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 如果没作用的话，可以从下面这个 issue 找下解决方案: brew cleanup: Error: Permission denied @ apply2files · Issue #45009 · Homebrew/homebrew-core · GitHub</description>
+    </item>
+    
+    <item>
+      <title>centos 7</title>
+      <link>/posts/install_centos_7/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/install_centos_7/</guid>
+      <description>默认安装了防火墙 firewalld
+firewall-cmd --permanent --add-port=8080-8085/tcp firewall-cmd --reload firewall-cmd --permanent --remove-port=8080-8085/tcp firewall-cmd --permanent --list-services 安装docker yum -y update yum install -y docker service docker start service docker stop service docker restart docker 阿里镜像 加速器 sudo mkdir -p /etc/docker sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&amp;#39;EOF&amp;#39; { &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://wi8ogj05.mirror.aliyuncs.com&amp;#34;] } EOF sudo systemctl daemon-reload sudo systemctl restart docker docker pull docker.io/java docker save docker.io/java &amp;gt; /home/java.tar.gz docker rmi docker.io/java docker load &amp;lt; /home/java.tar.gz docker images docker tag docker.</description>
+    </item>
+    
+    <item>
+      <title>conda 安装 pip 的包 (conda install package from pip)</title>
+      <link>/posts/conda_install_package_from_pip_packages/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/conda_install_package_from_pip_packages/</guid>
+      <description>conda install pip ~/opt/anaconda3/envs/py3.7/bin/pip install massedit </description>
+    </item>
+    
+    <item>
+      <title>docker desktop for mac 配置</title>
+      <link>/posts/config_of_docker_desktop_for_mac/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/config_of_docker_desktop_for_mac/</guid>
+      <description>{ &amp;quot;insecure-registries&amp;quot;: [ &amp;quot;registry.qingliuyun.com:99&amp;quot; ], &amp;quot;debug&amp;quot;: true, &amp;quot;experimental&amp;quot;: true, &amp;quot;registry-mirrors&amp;quot;: [ &amp;quot;https://wi8ogj05.mirror.aliyuncs.com&amp;quot; ] } </description>
+    </item>
+    
+    <item>
+      <title>docker 镜像加速地址</title>
+      <link>/posts/docker_mirror_urls/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/docker_mirror_urls/</guid>
+      <description>https://wi8ogj05.mirror.aliyuncs.com http://36f9ca45.m.daocloud.io </description>
+    </item>
+    
+    <item>
+      <title>git clone/pull/fetch 太慢，解决方法</title>
+      <link>/posts/solution_of_slow_git/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/solution_of_slow_git/</guid>
+      <description>git config --global http.https://github.com.proxy socks5://127.0.0.1:1086 git config --global https.https://github.com.proxy socks5://127.0.0.1:1086 附上 http 代理（未测试）：
+git config --global http.https://github.com.proxy https://127.0.0.1:1080 git config --global https.https://github.com.proxy https://127.0.0.1:1080 取消代理：
+git config --global --unset http.proxy git config --global --unset https.proxy  git clone一个github上的仓库，太慢，经常连接失败，但是github官网流畅访问，为什么？ - 知乎 https://blog.csdn.net/Hydra_xyc/article/details/90554067
+ </description>
+    </item>
+    
+    <item>
+      <title>Git 删除当前分支下的所有历史版本 log</title>
+      <link>/posts/git_delete_all_logs/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/git_delete_all_logs/</guid>
+      <description>场景 保留大量的历史版本会加重负荷，有时候我们需要删除之前的所有历史版本与log，仅保留当前版本的文件；或者你想将代码开源又不想共享历史信息。
+方案 核心是 git checkout --orphan master
+git checkout develop git add . git commit -m &amp;quot;commint&amp;quot; git branch -d master git checkout --orphan master git add . git commit -m &amp;quot;publish posts to github&amp;quot; git push -f origin master git checkout develop </description>
+    </item>
+    
+    <item>
+      <title>github 多账号配置</title>
+      <link>/posts/githbu_multi_accounts_config/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/githbu_multi_accounts_config/</guid>
+      <description>我的配置文件位于: ~/.ssh/config
+git clone git@github.com:liutao-me/web_homepage.git 上述命令需替换为如下：
+git clone liutao-me.github.com:liutao-me/web_homepage.git  多个git账号的登录与切换 - 精 的博客 - CSDN博客
+ </description>
+    </item>
+    
+    <item>
+      <title>gvm</title>
+      <link>/posts/mac_install_gvm/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/mac_install_gvm/</guid>
+      <description>xcode-select --install brew update brew install mercurial zsh &amp;lt; &amp;lt;(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer) source ~/.gvm/scripts/gvm </description>
+    </item>
+    
+    <item>
+      <title>idea ( phpstorm, vim) 如何将一对单引号替换为双引号</title>
+      <link>/posts/replace_single_quote_with_double_quotes/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/replace_single_quote_with_double_quotes/</guid>
+      <description>前提条件： 安装 ideaVim （ideaVim 默认安装了 surround.vim 插件）
+启用 surround.vim 在编辑器中临时启用 surround ：
+:set surround 或者将其写入配置文件中 ~/.ideavimrc:
+set surround 然后：
+cs&#39;&amp;quot; 其他使用方法见 surround.vim 的文档。
+surround.vim 常见用法 Surround.vim is all about &amp;ldquo;surroundings&amp;rdquo;: parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+It&amp;rsquo;s easiest to explain with examples. Presscs&amp;quot;&#39;inside
+&amp;quot;Hello world!&amp;quot;  to change it to
+&#39;Hello world!&#39;  Now presscs&#39;&amp;lt;q&amp;gt;to change it to</description>
+    </item>
+    
+    <item>
+      <title>idea 配置 go run main.go</title>
+      <link>/posts/config_go_run_main_in_idea/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/config_go_run_main_in_idea/</guid>
+      <description>Add Bash build option with: Script: run Interpreter path: /usr/local/bin/go Program arguments: main.go Working directory:  https://blog.jetbrains.com/go/2017/11/21/goland-eap-20-go-build-run-configuration-and-other-improvements/
+ </description>
+    </item>
+    
+    <item>
+      <title>install spacemacs</title>
+      <link>/posts/mac_install_spacemacs/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/mac_install_spacemacs/</guid>
+      <description>brew tap d12frosted/emacs-plus brew install emacs-plus ln -s /usr/local/Cellar/emacs-plus/*/Emacs.app/ /Applications/ git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d Install Source Code Pro font Once Emacs is installed, run the following commands in the terminal to install the default Source Code Pro font:
+brew tap caskroom/fonts brew cask install font-source-code-pro custom .spacemacs.d 如果你需要更方便的管理你自己的配置, 可以创建 ~/.spacemacs.d 目录, 然后将 ~/.spacemacs 文件移动到该目录中并重命名为 init.el.
+mkdir .spacemacs.d mv .spacemacs .spacemacs.d/init.el change source dotspacemacs/user-init() 中： develop 分支
+(setq configuration-layer-elpa-archives &amp;#39;((&amp;#34;melpa-cn&amp;#34; .</description>
+    </item>
+    
+    <item>
+      <title>JMeter</title>
+      <link>/posts/jmeter/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/jmeter/</guid>
+      <description>性能测试整体认知 性能测试的分类  负载测试：通过逐步加压的方法，达到既定的性能阈值的目标。阈值的设定应是小于等于某个值，如 cpu 使用率小于等于80% 压力测试：通过逐步加压的方法，使得系统的某些资源达到饱和，甚至失效的状态，简单粗暴的解释就是什么条件能把系统压崩溃 并发测试：在同一时间内，多个虚拟用户同时访问同一模块、同一功能，通常的测试方法是设置集合点 容量测试：通常是指数据库层面的，目标是获取数据库的最佳容量的能力。又称之为容量预估。具体测试方法为在一定的并发用户，不同的基础数量量下，观察数据库的处理能力，即获取数据库的各项性能指标 可靠性测试：又称之为稳定性测试或疲劳测试。是指系统在高压情况下，长时间的运行系统是否稳定。如 cpu 使用率在80%以上，7*24 小时运行，系统是否稳定。 异常测试：又称之为失败测试。是指系统架构方面的测试。如果在负载均衡架构中，要测试宕机、节点挂掉等情况系统的反映  性能测试的工作流程  需求分析 性能指标制定 脚本开发 场景设置 监控部署 测试执行 性能分析 性能调优 测试报告  测试执行-》性能分析-》性能调优，此步骤循环执行，不断调优
+常见系统应用分层架构 显示层（view）：
+ web android ios H5  逻辑控制层（controller）：
+ Api  数据存储层（model）：
+ mysql mongodb redis &amp;hellip;  性能测试指标定义 事务 从客户端发起的一个或多个请求（这些请求组成一个完整的操作），到客户端接收到从服务器返回的响应
+TPS( Transaction Per Second) 每秒钟系统能够处理的事务数
+请求响应时间 从客户端发起的一个请求开始，到客户端接收到从服务器返回的响应。整个过程所耗费的时间
+事务响应时间 事务可能是一个或多个请求组成的，事务响应时间主要是针对于用户的角度而言，如转账
+并发  没有严格意义上的并发。并发总有先后，无论差距是1毫秒或者是1微秒，总有一个时间差。所以并发讲的是一个时间范围内，比如1秒内 多用户在系统上进行同一操作，比如双十一时，大家都真的同一种商品进行秒杀 多用户在系统上进行不同操作，比如双十一时，大家针对不同商品进行秒杀，或者是大家有进行其他不同的操作，比如商品浏览  并发用户数 同一单位时间内对系统发起请求的用户数量
+吞吐量 一次性能测试过程中网络上传输的数据量的总和
+吞吐率 单位时间内网络上传输的数据量 吞吐率=吞吐量/传输时间</description>
+    </item>
+    
+    <item>
+      <title>LAMP 搭建</title>
+      <link>/posts/lamp/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/lamp/</guid>
+      <description>LAMP通常是指Linux+Apache+MySQL+PHP组合形成的一套可以运行PHP程序的体系，并不是一个软件的名称。没有安装MySQL的服务器依然可以在其它条件完备的情况下运行不涉及MySQL数据库读写操作的PHP程序，另外PHP并非只支持MySQL一种数据库产品，还支持其他的数据库产品。并非只有Apache可以通过扩展支持PHP的解析，Nginx，LightHttpd等其它软件同样可以。
+ https://linux.cn/article-7463-1.html https://linux.cn/article-3164-1.html
+ 网络设置 sudo vi /etc/network/interfaces 增加以下内容
+ auto enp0s7 iface enp0s7 inet static address 192.168.20.227 netmask 255.255.255.0 gateway 192.168.20.1 dns-nameserver 192.168.20.1
+ sudo vi /etc/resolvconf/resolv.conf.d/base
+增加以下内容
+ nameserver 8.8.8.8 nameserver 114.114.114.114
+ 保存后执行 sudo resolvconf -u
+用以下命令使网络设置生效
+service networking restart sudo /etc/init.d/networking restart LAMP环境安装总结 如果选择安装城市为中国，则不需要更改源，默认源配置中的资源会自动使用阿里云的
+sudo apt update Apache sudo apt install apache2 -y sudo systemctl start apache2.service sudo systemctl enable apache2.service sudo systemctl status apache2.service 防火墙设置</description>
+    </item>
+    
+    <item>
+      <title>Laravel 修改未登录状态跳转的路由</title>
+      <link>/posts/laravel_guest_redirect/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/laravel_guest_redirect/</guid>
+      <description>app/Exceptions/Handler.php 里新增以下方法：
+use Illuminate\Auth\AuthenticationException; protected function unauthenticated($request, AuthenticationException $exception) { if ($request-&amp;gt;expectsJson()) { return response()-&amp;gt;json([&amp;#39;error&amp;#39; =&amp;gt; &amp;#39;Unauthenticated.&amp;#39;], 401); } return redirect()-&amp;gt;guest(&amp;#39;login&amp;#39;); //&amp;lt;----- 修改这里 } </description>
+    </item>
+    
+    <item>
+      <title>Leanote导出Markdown</title>
+      <link>/posts/leanote_export_to_markdown/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/leanote_export_to_markdown/</guid>
+      <description>Leanote导出Markdown-Wander
+ 核心步骤 resources\app\public\plugins\export_html\tpl\markdown.tpl,将内容全部删除，修改为 {content}
+resources\app\public\plugins\export_html\plugin.js, 从320行开始,修改为
+var name = note.Title ? note.Title: getMsg(&#39;Untitled&#39;); name+=note.IsMarkdown?&#39;.md&#39;:&#39;.html&#39;; name = me.fixFilename(name); 关闭leanote后在启动(注意新版的leanote不是点右上角的X就关闭的),这样以后就能导出纯markdown了</description>
+    </item>
+    
+    <item>
+      <title>LVS 与 Nginx</title>
+      <link>/posts/lvs_vs_nginx/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/lvs_vs_nginx/</guid>
+      <description>什么时候用？ 先说结论：项目前期使用 Nginx + Keepalived 足以应付很多场景
+  网站建设初期（每日 PV 小于 100 万），可以选用 Nigix 作为反向代理负载均衡，因为其配置简单，性能也能满足一般的业务场景。如果考虑到负载均衡器是有单点问题，可以采用 Nginx + Keepalived 避免负载均衡器自身的单点问题
+  网站并发达到一定程度之后，为了提高稳定性和转发效率，可以使用 LVS、毕竟 LVS 比 Nginx 要更稳定，转发效率也更高。不过维护 LVS 对维护人员的要求也会更高，投入成本也更大
+  区别 参见以下文章：
+ LVS 与 Nginx 区别 - 简书 lvs与nginx区别 - 随心朝阳 - 博客园
+ haproxy HAproxy 多用于 mysql 集群，作 mysql 读取负载；
+LVS、Nginx、haproxy 特点  LVS Nginx 负载均衡区别 - 01234567 - 博客园
+ </description>
+    </item>
+    
+    <item>
+      <title>Mac DNS 错误 域名解析不了 ping: cannot resolve Unknown host</title>
+      <link>/posts/cannot_resolve_unknown_host/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/cannot_resolve_unknown_host/</guid>
+      <description>如果出现
+ ping: cannot resolve www.baidu.com: Unknown host 连上网络后却无法访问 唤醒后无法上网  可通过如下命令解决：
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist 上述简化为一条命令：
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist &amp;amp;&amp;amp; sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist  Mac DNS 错误 域名解析不了 解决方式 - 简书
+ </description>
+    </item>
+    
+    <item>
+      <title>Magento 安装</title>
+      <link>/posts/install_magento/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/install_magento/</guid>
+      <description>LAMP 安装简略步骤 服务器环境 Ubuntu 16.04
+sudo apt install apache2 -y #sudo systemctl start apache2.service #sudo systemctl enable apache2.service #sudo systemctl status apache2.service #sudo systemctl restart apache2.service sudo apt install mysql-server mysql-client sudo apt install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 sudo apt install php7.0-gd php7.0-mcrypt php7.0-intl php7.0-xsl php7.0-mbstring php7.0-zip sudo apt install php-xml apache 相关操作
+  新建一个 apache 站点，步骤略
+  apache 开启 rewrite
+a. 软链接 rewrite 模块 (详细命令，你懂的) b.</description>
+    </item>
+    
+    <item>
+      <title>Mysql 主从设置</title>
+      <link>/posts/mysql_master_and_slave/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/mysql_master_and_slave/</guid>
+      <description>#主数据库设置 server-id = 1 log_bin = /var/log/mysql/mysql-bin.log expire_logs_days = 10 max_binlog_size = 100M binlog_do_db = important_db #binlog_ignore_db = include_database_name  CREATE USER &#39;slave&#39;@&#39;%&#39; IDENTIFIED BY &#39;mysql&#39;; GRANT SELECT,REPLICATION SLAVE ON *.* TO &#39;slave&#39;@&#39;%&#39;; #查询主数据库状态 mysql&amp;gt; show master status; +------------------+----------+--------------+------------------+-------------------+ | File | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set | +------------------+----------+--------------+------------------+-------------------+ | mysql-bin.000001 | 154 | important_db | | | +------------------+----------+--------------+------------------+-------------------+ 1 row in set (0.00 sec) #从数据库设置 server-id = 2 log_bin = /var/log/mysql/mysql-bin.</description>
+    </item>
+    
+    <item>
+      <title>nginx 基本配置</title>
+      <link>/posts/introduction_of_nginx/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/introduction_of_nginx/</guid>
+      <description>http://ninghao.net/blog/2087
+ nginx 是由一些模块组成的，不同的模块定义了各自的一些指令（Directives），指令控制了模块的行为，在 nginx 的配置文件里可以去配置这些指令。主要的配置文件是 nginx.conf ，在这个配置文件里，会用到 include 指令，把其它地方的配置文件包含到这个主要的配置文件里，用这种方法可以让配置文件更有条理，也更容易维护。
+找到 nginx.conf 在不同的系统下 nginx.conf 的位置可能不太一样，使用搜索可以很容易找到它：
+find / -name nginx.conf 意思是从根目录开始搜索 nginx.conf 文件的位置。在 CentOS 7 里，这个文件是在：
+/etc/nginx/nginx.conf 打开 /etc/nginx ，在这个目录下面，会包含一些其它的文件， .default 结尾的文件应该是原文件的备份，比如 nginx.conf 是真正用的配置文件，nginx.conf.default 是这个文件的一个备份，如果 nginx.conf 出了问题，你可以把 nginx.conf.default 重命名为 nginx.conf 代替原来的文件。
+理解配置文件 打开 nginx.conf，你会看到 nginx 的配置文件的样式，里面有些说明，这些内容前面都有 # 号，表示这是注释内容，nginx 不会理会这些用 # 开头的内容。真正生效的配置，是不带 # 号开头的。这些配置一般就是一个指令的名字，后面一个空格，再加上这个指令的参数值，结尾用一个分号。
+main user nginx; user 是指令的名字，这个指令可以设置系统运行 nginx 时候用的用户名，这里设置成了 nginx 这个用户。
+worker_processes 1; worker_processes 指令设置了 nginx 同时运行的进程数，或者叫 nginx 的实例。nginx 有一个 master 进程，还有一些 worker 进程。master 进程的主要工作是读取和鉴定配置，维护 worker 进程。真正提供服务的是 worker 进程，nginx 用了一种有效的方式，把请求分布到不同的 worker 进程上去处理。worker_processes 指令设置的就是这个 woker 进程的数量，这个数量可以根据服务器的 CPU 核心数来设定，8 核的 CPU 就设置成 8 个 worker 进程。</description>
+    </item>
+    
+    <item>
+      <title>nginx 端口转发</title>
+      <link>/posts/reverse_proxy_of_nginx/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/reverse_proxy_of_nginx/</guid>
+      <description>http-server 示例 http-server， 用于在本地搭建 web 服务器，亦可使用 nginx 或其他 web 服务器。我为什么要用这个？因为开启 web 服务简单、轻便。
+安装 http-server 略
+mkdir test &amp;amp;&amp;amp; cd test echo &amp;quot;hello,, this is a local website&amp;quot; &amp;gt; index.html http-server -p 80 ./ 现在访问 http://localhost，就能看到我们写入 index.htnl 中的内容了。
+nginx 反向代理 开启两个端口的 web 服务 此小节会将 http://test1.laravel 代理到 8081, http://test2.laravel 代理到 8082
+mkdir web1 &amp;amp;&amp;amp; tee ./web1/index.html &amp;lt;&amp;lt;&amp;lt; &#39;this is web 1&#39; mkdir web2 &amp;amp;&amp;amp; tee ./web2/index.html &amp;lt;&amp;lt;&amp;lt; &#39;this is web 2&#39; http-server -p 8081 .</description>
+    </item>
+    
+    <item>
+      <title>pyenv</title>
+      <link>/posts/pyenv/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/pyenv/</guid>
+      <description>$ brew install pyenv To enable pyenv in your Bash shell, you need to run: $ eval &amp;#34;$(pyenv init -)&amp;#34; To do this automatically for Bash upon startup, add that line to your ~/.bash_profile. 1 Usage: Once you have installed pyenv and activated it, you can install different versions of python and choose which one you can use. Example: $ pyenv install 2.7.5 You can check the versions you have installed with: $ pyenv versions And you can switch between python versions with the command: $ pyenv global 3.</description>
+    </item>
+    
+    <item>
+      <title>spacemacs magit 笔记</title>
+      <link>/posts/spacemacs_magit/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/spacemacs_magit/</guid>
+      <description>SPC g s，弹出新窗口，在新窗口中：
+   命令 描述     s stage file   u unstage file   c commit   p push       命令 描述     SPC g s git status   SPC g S git add    SPC g u git add -u     </description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 16.04 交换分区</title>
+      <link>/posts/ubuntu_16.04_swapfile/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ubuntu_16.04_swapfile/</guid>
+      <description>sudo swapon --show free -h sudo fallocate -l 4G /swapfile ls -lh /swapfile sudo chmod 600 /swapfile ls -lh /swapfile sudo mkswap /swapfile sudo swapon /swapfile sudo swapon --show free -h sudo cp /etc/fstab /etc/fstab.bak echo &#39;/swapfile none swap sw 0 0&#39; | sudo tee -a /etc/fstab  https://blog.csdn.net/u010429286/article/details/79219230
+ </description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 16.04 安装  MariaDB 10.4</title>
+      <link>/posts/ubuntu_16.04_install_mariadb_10.04/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ubuntu_16.04_install_mariadb_10.04/</guid>
+      <description>我的安装方法 摘自官网:
+ MariaDB Package Repository Setup and Usage - MariaDB Knowledge Base
+ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash sudo apt-get install mariadb-server mariadb-client root 密码是什么？ 按照其他人的教程，会有提示输入密码（见上图）。可是，什么提示都没有，就告诉我安装完了!!!
+然后，使用 mysql -uroot -p ，会提示输入密码，可是根本就没有让我们输入过密码，怎么试都不对。
+结论 我找的安装教程，都是 10.4之前的版本。可能是因为新版本改了，也有可能是我的安装方法稍有不同导致的。但最终的解决方法如下：
+ sudo mysql_secure_installation  NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY! In order to log into MariaDB to secure it, we&#39;ll need the current password for the root user.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 16.04 安装 ansible</title>
+      <link>/posts/ubuntu_16.04_install_ansible/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ubuntu_16.04_install_ansible/</guid>
+      <description>安装 sudo apt update sudo apt install software-properties-common sudo apt-add-repository --yes --update ppa:ansible/ansible sudo apt install ansible pip install ansible brew install ansible ansible --version ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.1 ssh-copy-id -i ~/.ssh/id_rsa.pub jobs@10.37.129.201 配置 Hosts 文件： /etc/ansible/hosts 需要去官网下载示例配置
+ansible all -m ping ansible 10.37.129.201 -m ping --user=jobs ansible 10.37.129.201 -m shell -a &amp;quot;ls /home&amp;quot; --user=jobs ansible 10.37.129.201 -m shell -a &amp;quot;ls /home&amp;quot; --user=root --ask-pass ERROR! to use the &amp;lsquo;ssh&amp;rsquo; connection type with passwords, you must install the sshpass program</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 16.04 安装 pyenv</title>
+      <link>/posts/ubuntu_16.04_install_pyenv/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ubuntu_16.04_install_pyenv/</guid>
+      <description>curl https://pyenv.run | bash export PATH=&amp;quot;/home/ubuntu/.pyenv/bin:$PATH&amp;quot; eval &amp;quot;$(pyenv init -)&amp;quot; eval &amp;quot;$(pyenv virtualenv-init -)&amp;quot; pyenv install 3.6.9 -v pyenv install --list </description>
+    </item>
+    
+    <item>
+      <title>ubuntu install docker</title>
+      <link>/posts/ubuntu_install_docker/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/ubuntu_install_docker/</guid>
+      <description>Set up the repository  Set up the Docker CE repository on Ubuntu. The lsb_release -cs sub-command prints the name of your Ubuntu version, like xenial or trusty.
+sudo apt-get -y install \ apt-transport-https \ ca-certificates \ curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - #此处官方文档没有提及 sudo apt-get install python-software-properties sudo apt-get install software-properties-common sudo add-apt-repository \ &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&amp;quot; sudo apt-get update Get Docker CE  Install the latest version of Docker CE on Ubuntu:</description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>/posts/mac_install_vagrant/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/mac_install_vagrant/</guid>
+      <description>vagrant 卸载 rm -rf /opt/vagrant rm -f /usr/local/bin/vagrant sudo pkgutil --forget com.vagrant.vagrant virtualbox 卸载 打开下载安装包，找到卸载程序
+安装 brew cask install virtualbox brew cask install vagrant </description>
+    </item>
+    
+    <item>
+      <title>vagrant 安装</title>
+      <link>/posts/install_vagrant/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/install_vagrant/</guid>
+      <description>mac下，vagrant桥接，选择“en0: 以太网”无法启动虚拟机解决方案 http://www.th7.cn/system/mac/201511/141081.shtml
+以下方法根据homestead，可供参考  下载安装virtualbox和vagrant 安装box  LiangXueFengdeiMac:test liutao$ vagrant box add homestead_0.4.4 ~/Work/Vagrant/box/ .DS_Store virtualbox.box LiangXueFengdeiMac:test liutao$ vagrant box add homestead_0.4.4 ~/Work/Vagrant/box/virtualbox.box ==&amp;gt; box: Box file was not detected as metadata. Adding it directly... ==&amp;gt; box: Adding box &#39;homestead_0.4.4&#39; (v0) for provider: box: Unpacking necessary files from: file:///Users/liutao/Work/Vagrant/box/virtualbox.box ==&amp;gt; box: Successfully added box &#39;homestead_0.4.4&#39; (v0) for &#39;virtualbox&#39;! #在指定目录下安装。（全局安装会在用户目录下） LiangXueFengdeiMac:test liutao$ cd ~/Work/Vagrant/CRM/ LiangXueFengdeiMac:CRM liutao$ composer require laravel/homestead --dev LiangXueFengdeiMac:CRM liutao$ vagrant init A `Vagrantfile` has been placed in this directory.</description>
+    </item>
+    
+    <item>
+      <title>WPS Office for Mac 去掉登录</title>
+      <link>/posts/wps_office_for_mac_remove_login/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/wps_office_for_mac_remove_login/</guid>
+      <description>这个软件的登录框太麻烦了。明明我不想登录，它还一直纠缠我。
+解决方法：
+cd /Applications/wpsoffice.app/Contents/Frameworks/office6 mv kqingaccountsdk.framework kqingaccountsdk.framework.bak </description>
+    </item>
+    
+    <item>
+      <title>yabai skhd</title>
+      <link>/posts/mac_install_yabai_and_skhd/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/mac_install_yabai_and_skhd/</guid>
+      <description>首先关闭 sip
+brew tap koekeishiya/formulae brew install yabai sudo yabai --install-sa brew install skhd cp /usr/local/opt/yabai/share/yabai/examples/yabairc ~/.yabairc cp /usr/local/opt/yabai/share/yabai/examples/skhdrc ~/.skhdrc brew services start skhd brew services start yabai yabai --version yabai-v2.0.1 skhd --version skhd version 0.3.4 </description>
+    </item>
+    
+    <item>
+      <title>zabbix 学习</title>
+      <link>/posts/zabbix_learning/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/zabbix_learning/</guid>
+      <description>主动模式与被动模式，用哪个？ 一、zabbix agent主动模式与被动模式的区别 zabbix agent的运行模式有以下两种：
+1、被动模式：此模式为zabbix默认的工作模式，由zabbix server 向zabbix agent 发出指令获取数据，zabbix agent被动地去获取数据并返回给zabbix server，zabbix server会周期性地向agent索取数据。此模式的最大问题就是会增加zabbix server的工作量，在大量的服务器环境下，zabbix server不能及时获取到最新的数据。
+2、主动模式：即由zabbix agent 主动采集数据并返回给zabbix server，不需要zabbix server 的另行干预，因此使用主动模式能在一定程序上减轻zabbix server的压力。
+一些文章提到如下：
+zabbix_server端当主机数量过多的时候，由Server端去收集数据，Zabbix会出现严重的性能问题，主要表现如下： 1、当被监控端到达一个量级的时候，Web操作很卡，容易出现502 2、图层断裂 3、开启的进程（Pollar）太多，即使减少item数量，以后加入一定量的机器也会有问题 所以下面主要往两个优化方向考虑： 1、添加Proxy节点或者Node模式做分布式监控 2、调整Agentd为主动模式 第一个方案需要增加物理机器。另一篇文章中也提到，如果zabbix_server端当主机数量过多的时候，虽然可以通过增加代理的方式来进行收集数据，但是需要增加proxy机
+所以在预算有限的情况下，使用第二种方案
+如何配置 agent 的主动模式  zabbix agent的主动模式与被动模式及zabbix proxy - 简书
+  Zabbix3.X&amp;mdash;Zabbix _Agent主动模式的监控（Active） - 背锅浩的博客 - CSDN博客
+  Zabbix Agent active批量调整客户端为主动模式监控 - reblue520的专栏 - CSDN博客
+ </description>
+    </item>
+    
+    <item>
+      <title>【mac 小技巧】mac 为特定 app 设置不同的语言</title>
+      <link>/posts/set_language_for_different_apps/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/set_language_for_different_apps/</guid>
+      <description>有一些 app 虽然支持不同的语言，但默认以系统语言为准，完全没有提供切换语言的选项。一些开发人员的系统语言可能是英文（没错，说的就是我），当想使用中文版本的 app 时，就会茫然无措。
+解决办法： 10.15，在 system -&amp;gt; Language &amp;amp; Region -&amp;gt; Apps， 点击右下方的『+』 号，选择 app，然后为其设置语言即可。
+10.15 以前，你可能需要使用软件 language switcher （我没试过）。有心的人可以了解一下</description>
+    </item>
+    
+    <item>
+      <title>中小型企业通用自动化运维架构 学习笔记</title>
+      <link>/posts/imooc_auto_operation_note/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/imooc_auto_operation_note/</guid>
+      <description>此课程涉及到的技术：ansible + zabbix + jumpServer（堡垒机） + ELK + Jenkins + Gogs(Git 服务器，占用资源少)
+自动化运维的好处：
+ 批量管理 及时监控报警 项目的持续集成 运维数据的处理、统计、分析  机器管理：
+ansible -&amp;gt; 运行日志 -&amp;gt; zabbix 监控 -&amp;gt; 触发器 -&amp;gt; 报警 | | ELK -&amp;gt; 统计、分析 ELK 收集数据：
+Logstash 收集数据 -&amp;gt; 数据整理 -&amp;gt; Elasticsearch -&amp;gt; Kibana -&amp;gt; 统计、分析、查询 持续集成:
+Git 提交 -&amp;gt; hook 钩子 -&amp;gt; Jenkins -&amp;gt; 自动构建 Jenkins 构建日志 -&amp;gt; Zabbix 监控 Jenkins 构建日志 -&amp;gt; ELK -&amp;gt; 统计 ansible /etc/ansible/hosts 文件示例：</description>
+    </item>
+    
+    <item>
+      <title>前端框架总结 笔记</title>
+      <link>/posts/summary_of_frontend_frameworks/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/summary_of_frontend_frameworks/</guid>
+      <description>前端框架及项目面试_聚焦Vue、React、Webpack-慕课网实战
+ 第1章 常见面试流程 一面：基础知识
+ js 基础知识 框架基本使用  二面：高级特性 + 原理
+ 框架高级特性 框架原理  三面：设计 + 经验
+ 项目设计能力 工作经验和环境  第2章 先看几个面试题 Vue 面试题  v-show 和 v-if 的区别 为何 v-for 中要用 key 描述 Vue 组件生命周期（有父子组件的情况） Vue 组件如何通讯 描述组件渲染和更新的过程 双向数据绑定 v-model 的实现原理  React 面试题  React 组件如何通讯 jsx 本质是什么 context 是什么，有何用途 shouldComponentUpdate 的用途 描述 redux 单项数据流 setState 是同步还是异步？  框架综合应用  基于 React 设计一个 todolist （组件结构，redux state 数据结构） 基于 Vue 设计一个购物车（ 组件结构，vuex state 数据结构）  webpack 面试题  前端代码为何要进行构建和打包？ module chunk bundle 分别什么意思，有何区别 loader 和 plugin 的区别 webpack 如何实现懒加载 webpack 常见性能优化 babel-runtime 和babel-polyfill 的区别  如何应对？  框架的使用 框架的原理 框架的实际应用，即设计能力  第3章 Vue 使用 基本使用 vue-cli 创建项目 指令、插值 computed、watch computed 有缓存，data 不变则不会重新计算 watch 如何深度监听？(handler(oldVal,val){},deep:true) watch 监听引用类型时，拿不到 oldValue</description>
+    </item>
+    
+    <item>
+      <title>填充数据（有关联关系）</title>
+      <link>/posts/larave_factory_seeder/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/larave_factory_seeder/</guid>
+      <description>database/factories/StatusFactory.php
+&amp;lt;?php use Faker\Generator as Faker; $factory-&amp;gt;define(App\Models\Status::class, function (Faker $faker) { $date_time = $faker-&amp;gt;date . &amp;#39; &amp;#39; . $faker-&amp;gt;time; return [ &amp;#39;content&amp;#39; =&amp;gt; $faker-&amp;gt;text(), &amp;#39;created_at&amp;#39; =&amp;gt; $date_time, &amp;#39;updated_at&amp;#39; =&amp;gt; $date_time, ]; }); class StatusesTableSeeder extends Seeder { /** * Run the database seeds. * * @return void */ public function run() { $user_ids = [&amp;#39;1&amp;#39;,&amp;#39;2&amp;#39;,&amp;#39;3&amp;#39;]; $faker = app(Faker\Generator::class); $statuses = factory(Status::class)-&amp;gt;times(100)-&amp;gt;make()-&amp;gt;each(function ($status) use ($faker, $user_ids) { $status-&amp;gt;user_id = $faker-&amp;gt;randomElement($user_ids); }); Status::insert($statuses-&amp;gt;toArray()); } } </description>
+    </item>
+    
+    <item>
+      <title>安装 phpunit 9</title>
+      <link>/posts/install_phpunit_9/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/install_phpunit_9/</guid>
+      <description>方法一
+brew install phpunit 方法二
+wget -O phpunit https://phar.phpunit.de/phpunit-9.phar chmod +x phpunit sudo mv phpunit /usr/local/bin/ phpunit --version </description>
+    </item>
+    
+    <item>
+      <title>安装 powerline 的字体</title>
+      <link>/posts/install_powerline_fonts/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/install_powerline_fonts/</guid>
+      <description>git clone https://github.com/powerline/fonts ./install.sh http://www.darcysong.com/2015/09/11/powerline-font/index.html</description>
+    </item>
+    
+    <item>
+      <title>我的树莓派配置</title>
+      <link>/posts/config_of_my_raspberry_pi/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/config_of_my_raspberry_pi/</guid>
+      <description>sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq git clone https://github.com/oblique/create_ap.git cd create_ap sudo make install #sudo create_ap wlan0 eth0 热点名 密码 sudo create_ap wlan0 eth0 a0 12345678..​ sudo create_ap --dhcp-hosts ./dhcp_hosts.conf wlan0 eth0 a0 12345678..​ sudo create_ap -w 2 -g 192.168.222.1 --dhcp-hosts ./dhcp_hosts.conf --daemon wlan0 eth0 a0 12345678..​ 把上述的启动命令添加到/etc/rc.local dhcp-range=192.168.222.200,192.168.222.260 dhcp-host:98:01:a7:b3:24:95,192.168.222.222 create_ap --dhcp-hosts ./dhcp_hosts.conf -g 192.168.1.1 MyAccessPoint 12345678 sudo create_ap --dhcp-hosts ./dhcp_hosts.conf -g 192.168.1.1 wlan0 eth0 a0 12345678.</description>
+    </item>
+    
+    <item>
+      <title>数据填充来批量生成假用户</title>
+      <link>/posts/laravel_faker/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/laravel_faker/</guid>
+      <description>$factory-&amp;gt;define(App\Models\User::class, function (Faker $faker) { $date_time = $faker-&amp;gt;date . &amp;#39; &amp;#39; . $faker-&amp;gt;time; static $password; return [ &amp;#39;name&amp;#39; =&amp;gt; $faker-&amp;gt;name, &amp;#39;email&amp;#39; =&amp;gt; $faker-&amp;gt;safeEmail, &amp;#39;password&amp;#39; =&amp;gt; $password ?: $password = bcrypt(&amp;#39;secret&amp;#39;), &amp;#39;remember_token&amp;#39; =&amp;gt; str_random(10), &amp;#39;created_at&amp;#39; =&amp;gt; $date_time, &amp;#39;updated_at&amp;#39; =&amp;gt; $date_time, ]; }); php artisan make:seeder UsersTableSeeder class UsersTableSeeder extends Seeder { /** * Run the database seeds. * * @return void */ public function run() { $users = factory(User::class)-&amp;gt;times(50)-&amp;gt;make(); User::insert($users-&amp;gt;makeVisible([&amp;#39;password&amp;#39;, &amp;#39;remember_token&amp;#39;])-&amp;gt;toArray()); $user = User::find(1); $user-&amp;gt;name = &amp;#39;Aufree&amp;#39;; $user-&amp;gt;email = &amp;#39;aufree@yousails.</description>
+    </item>
+    
+    <item>
+      <title>数据库水平拆分</title>
+      <link>/posts/mysql_split_horizon/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/mysql_split_horizon/</guid>
+      <description>在大中型项目中，在数据库设计的时候，考虑到数据库最大承受数据量，通常会把数据库或者数据表水平切分，以降低单个库，单个表的压力。我这里介绍两个我们项目中常用的数据表切分方法。当然这些方法都是在程序中使用一定的技巧来路由到具体的表的。首先我们要确认根据什么来水平切分？在我们的系统（SNS）中，用户的UID贯穿系统，唯一自增长，根据这个字段分表，再好不过。 方法一：使用MD5哈希 做法是对UID进行md5加密，然后取前几位（我们这里取前两位），然后就可以将不同的UID哈希到不同的用户表（user_xx）中了。
+function getTable( $uid ){ $ext = substr ( md5($uid) ,0 ,2 ); return &amp;quot;user_&amp;quot;.$ext; } 通过这个技巧，我们可以将不同的UID分散到256中用户表中，分别是user_00,user_01 &amp;hellip;&amp;hellip; user_ff。因为UID是数字且递增，根据md5的算法，可以将用户数据几乎很均匀的分别到不同的user表中。 但是这里有个问题是，如果我们的系统的用户越来越多，势必单张表的数据量越来越大，而且根据这种算法无法扩展表，这又会回到文章开头出现的问题了。 方法二：使用移位 具体方法是：
+public function getTable( $uid ) { return &amp;quot;user_&amp;quot; . sprintf( &amp;quot;%04d&amp;quot;, ($uid &amp;gt;&amp;gt; 20) ); } 这里，我们将uid向右移动20位，这样我们就可以把大约前100万的用户数据放在第一个表user_0000,第二个100万的用户数据放在第二个表user_0001中，这样一直下去，如果我们的用户越来越多，直接添加用户表就行了。由于我们保留的表后缀是四位，这里我们可以添加1万张用户表，即user_0000,user_0001 &amp;hellip;&amp;hellip; user_9999。一万张表，每张表100万数据，我们可以存100亿条用户记录。当然，如果你的用户数据比这还多，也不要紧，你只要改变保留表后缀来增加可以扩展的表就行了，如如果有1000亿条数据，每个表存100万，那么你需要10万张表，我们只要保留表后缀为6位即可。 上面的算法还可以写的灵活点：
+/** * 根据UID分表算法 * * @param int $uid //用户ID * @param int $bit //表后缀保留几位 * @param int $seed //向右移动位数 */ function getTable( $uid , $bit , $seed ){ return &amp;quot;user_&amp;quot; .</description>
+    </item>
+    
+    <item>
+      <title>文献管理/知识管理 zotero</title>
+      <link>/posts/install_zotero/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/install_zotero/</guid>
+      <description>下载  方法1（仅适用于 mac ，且懂得 brew cask 的【高端】人士）：  brew cask install zotero 方法2： 官网下载 https://www.zotero.org/download/  chrome 插件 https://www.zotero.org/download/connectors 也支持 firefox 和 safari</description>
+    </item>
+    
+    <item>
+      <title>漫画算法 笔记</title>
+      <link>/posts/man_hua_suan_fa/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/man_hua_suan_fa/</guid>
+      <description>复杂度 时间复杂度 是对一个算法运行时间长短的量度，用大O表示，记作T(n) = O(f(n))
+推导出时间复杂度，有如下几个原则：
+ 如果运行时间是常数量级，则用常数1表示 只保留时间函数中的最高阶项 如果最高阶项存在，则省去最高阶项前面的系数  常见算法的时间复杂度的比较：
+O(1) &amp;lt; O(logn) &amp;lt; O(n) &amp;lt; O(n²)
+空间复杂度 是对一个算法在运行过程中临时占用存储空间大小的度量，用大O表示，记作S(n) = O(f(n))
+ 常量空间：O(1)，存储空间大小固定，和输入规模没有直接关系 线性空间：O(n)，空间是一个线性的集合（比如数组），并且集合大小和输入规模n成正比 二维空间：O(n²)空间是一个二维数组集合，并且集合的长度和宽度都与输入规模n成正比 递归空间：执行递归操作所需的内存空间和递归的深度成正比。纯粹的递归操作的空间复杂度也是线性的，如果递归的深度是n，那么空间复杂度就是O(n)  数据结构基础    * 查找 更新 插入 删除     数组 O(1) O(1) O(n) O(n)   链表 O(n) O(1) O(1) O(1)    可见： 对于读操作多、写操作少的场景来说，数组更适合一些； 如果需要在尾部频繁插入、删除元素，用链表更适合一些。
+   - - -     逻辑结构 线性结构（比如：顺序表、栈、队列） 非线性结构（比如：树、图）   物理结构 顺序存储结构（比如：数组） 链式存储结构（比如：链表）    排序算法    排序算法 平均时间复杂度 空间复杂度 是否稳定排序     冒泡排序 O(n^2) O(n^2) O(1)   鸡尾酒排序 O(n^2) O(n^2) O(1)   快速排序 O(nlogn) O(n^2) O(logn)   堆排序 O(nlogn) O(nlogn) O(1)   计数排序 O(n+m) O(n+m) O(m)   桶排序 O(n) O(nlogn) O(n)    重要参考 《漫画算法》笔记-上篇 - ESnail - 博客园</description>
+    </item>
+    
+    <item>
+      <title>状态码</title>
+      <link>/posts/common_http_status_code/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/common_http_status_code/</guid>
+      <description>200 OK - 对成功的 GET、PUT、PATCH 或 DELETE 操作进行响应。也可以被用在不创建新资源的 POST 操作上 201 Created - 对创建新资源的 POST 操作进行响应。应该带着指向新资源地址的 Location 头 202 Accepted - 服务器接受了请求，但是还未处理，响应中应该包含相应的指示信息，告诉客户端该去哪里查询关于本次请求的信息 204 No Content - 对不会返回响应体的成功请求进行响应（比如 DELETE 请求） 304 Not Modified - HTTP缓存header生效的时候用 400 Bad Request - 请求异常，比如请求中的body无法解析 401 Unauthorized - 没有进行认证或者认证非法 403 Forbidden - 服务器已经理解请求，但是拒绝执行它 404 Not Found - 请求一个不存在的资源 405 Method Not Allowed - 所请求的 HTTP 方法不允许当前认证用户访问 410 Gone - 表示当前请求的资源不再可用。当调用老版本 API 的时候很有用 415 Unsupported Media Type - 如果请求中的内容类型是错误的 422 Unprocessable Entity - 用来表示校验错误 429 Too Many Requests - 由于请求频次达到上限而被拒绝访问</description>
+    </item>
+    
+    <item>
+      <title>系统学习Docker 践行DevOps理念</title>
+      <link>/posts/imooc_docker_devops/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/imooc_docker_devops/</guid>
+      <description>本文来源于 慕课网课程 《系统学习Docker 践行DevOps理念》 本课程发布于2018年，部分知识可能已过时
+ 第3章 Vagrant 部署 sudo ip link add veth-test1 type veth peer name veth-test2 sudo ip netns add test1 sudo ip link set veth-test1 netns test1 sudo ip netns exec test1 ip link sudo ip netns add test2 sudo ip link set veth-test2 netns test2 sudo ip netns exec test1 ip addr add 192.168.1.1/24 dev veth-test1 sudo ip netns exec test2 ip addr add 192.</description>
+    </item>
+    
+    <item>
+      <title>统一代码风格 editorconfig</title>
+      <link>/posts/editorconfig/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/editorconfig/</guid>
+      <description>在 Laravel 应用的根目录下添加 .editorconfig 文件，并写入如下的配置信息：
+ root = true [*] indent_style = space indent_size = 4 end_of_line = lf charset = utf-8 trim_trailing_whitespace = true insert_final_newline = false [*.{js,html,blade.php,css,scss}] indent_style = space indent_size = 4 [*.md] trim_trailing_whitespace = false </description>
+    </item>
+    
+    <item>
+      <title>网页热刷新</title>
+      <link>/posts/webpage_auot_refresh/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/webpage_auot_refresh/</guid>
+      <description>!!! 此文已废弃
+yarn add -D browser-sync browser-sync-webpack-plugin mix.js(&#39;resources/js/app.js&#39;, &#39;public/js&#39;) .sass(&#39;resources/sass/app.scss&#39;, &#39;public/css&#39;) .browserSync(&#39;todo-vue-tailwind.mine.test&#39;) .options({ processCssUrls: false, postCss: [tailwindcss(&#39;./tailwind.config.js&#39;)], }) </description>
+    </item>
+    
+    <item>
+      <title>自定义 github pages 域名</title>
+      <link>/posts/custom_domain_of_github_pages/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/custom_domain_of_github_pages/</guid>
+      <description>在域名服务商处，添加四条 A 记录:
+185.199.108.153 185.199.109.153 185.199.110.153 185.199.111.153 查看是否解析成功（EXAMPLE.COM 替换为自己的域名）
+dig EXAMPLE.COM +noall +answer 成功的话，会有如下记录
+&amp;gt; EXAMPLE.COM 3600 IN A 185.199.108.153 &amp;gt; EXAMPLE.COM 3600 IN A 185.199.109.153 &amp;gt; EXAMPLE.COM 3600 IN A 185.199.110.153 &amp;gt; EXAMPLE.COM 3600 IN A 185.199.111.153 启用 https 若 Enforce HTTPS 选项，无法勾选，并且提示: Not yet available for your site because the certificate has not finished being issued.
+等待 24 小时吧，然后就可以勾选了。
+ Managing a custom domain for your GitHub Pages site - GitHub Help</description>
+    </item>
+    
+    <item>
+      <title>获取表字段 get all columns</title>
+      <link>/posts/laravel_get_all_columns_of_a_table/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/laravel_get_all_columns_of_a_table/</guid>
+      <description>$columns = \Illuminate\Support\Facades\Schema::getColumnListing(&amp;#39;eplayb_course_activities&amp;#39;); </description>
+    </item>
+    
+    <item>
+      <title>使用 github actions 自动部署博客</title>
+      <link>/posts/github_actions_deploy_blog/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/github_actions_deploy_blog/</guid>
+      <description>！！！ ** 时间太长，方法可能有所不同了**
+以我的博客（liutao-me.github.io）为例，自动部署通常有两种：
+ 源码在 master 分支，部署后的在 gh-pages 分支 源码在仓库 A（可以是私有的），部署后在仓库 B (名称通常为 liutao-me.github.io)  第一种部署会方便一些。
+第一种  本机生成公钥和私钥  ssh-keygen -t rsa -b 4096 -C &amp;quot;$(git config user.email)&amp;quot; -f gh-pages -N &amp;quot;&amp;quot; Deploy keys 设置 仓库的 Settings -&amp;gt; Deploy keys -&amp;gt; Add deploy key, Title 填 ACTIONS_DEPLOY_KEY ， Key 填写上方生成的 gh-pages.pub 的内容 Secrets 设置 仓库的 Settings -&amp;gt; Secrets -&amp;gt; Add a new secret, Name 填 ACTIONS_DEPLOY_KEY ， Value 填写上方生成的 gh-pages 的内容 配置文件 新建文件 .</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Email: i@liutao.me</description>
+    </item>
+    
+    <item>
+      <title>Git &#39;themes/terminal&#39; already exists in the index 解决方法</title>
+      <link>/posts/solution_of_already_exists_in_the_index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/solution_of_already_exists_in_the_index/</guid>
+      <description>git rm -r --cached themes/terminal </description>
+    </item>
+    
+    <item>
+      <title>Install Hugo</title>
+      <link>/posts/install_hugo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/install_hugo/</guid>
+      <description>按照官方文档操作即可，不再赘述。 https://gohugo.io/getting-started/quick-start/
+ brew install hugo hugo version hugo new site blog cd blog git init git submodule add https://github.com/panr/hugo-theme-terminal.git themes/terminal echo &#39;theme = &amp;quot;terminal&amp;quot;&#39; &amp;gt;&amp;gt; config.toml hugo new posts/install_hugo.md hugo server -D Deploy to GitHub Page  参考 https://segmentfault.com/a/1190000012975914
+ 需注意，配置项中有一处错误，正确的如下
+script: hugo  备用参考： https://axdlog.com/zh/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/
+ Add travis-ci badge 获取链接，将其写入 readme 即可。获取方法如下：
+Use private repository of github travis-ci 需要在网站 https://travis-ci.com 进行，操作同 https://travis-ci.org
+wercker  https://axionl.me/2017/12/25/wercker-%E8%A9%A6%E6%B0%B4/ 我的 wercker.yml 内容为：</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Liu Tao" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Liu Tao" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/posts/" />
+<meta property="og:updated_time" content="2020-06-20T00:00:00+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install_powerline_fonts/" class="link black dim">
+        安装 powerline 的字体
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      git clone https://github.com/powerline/fonts ./install.sh http://www.darcysong.com/2015/09/11/powerline-font/index.html
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/config_of_my_raspberry_pi/" class="link black dim">
+        我的树莓派配置
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq git clone https://github.com/oblique/create_ap.git cd create_ap sudo make install #sudo create_ap wlan0 eth0 热点名 密码 sudo create_ap wlan0 eth0 a0 12345678..​ sudo create_ap --dhcp-hosts ./dhcp_hosts.conf wlan0 eth0 a0 12345678..​ sudo create_ap -w 2 -g 192.168.222.1 --dhcp-hosts ./dhcp_hosts.conf --daemon wlan0 eth0 a0 12345678..​ 把上述的启动命令添加到/etc/rc.local dhcp-range=192.168.222.200,192.168.222.260 dhcp-host:98:01:a7:b3:24:95,192.168.222.222 create_ap --dhcp-hosts ./dhcp_hosts.conf -g 192.168.1.1 MyAccessPoint 12345678 sudo create_ap --dhcp-hosts ./dhcp_hosts.conf -g 192.168.1.1 wlan0 eth0 a0 12345678.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/laravel_faker/" class="link black dim">
+        数据填充来批量生成假用户
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      $factory-&gt;define(App\Models\User::class, function (Faker $faker) { $date_time = $faker-&gt;date . &#39; &#39; . $faker-&gt;time; static $password; return [ &#39;name&#39; =&gt; $faker-&gt;name, &#39;email&#39; =&gt; $faker-&gt;safeEmail, &#39;password&#39; =&gt; $password ?: $password = bcrypt(&#39;secret&#39;), &#39;remember_token&#39; =&gt; str_random(10), &#39;created_at&#39; =&gt; $date_time, &#39;updated_at&#39; =&gt; $date_time, ]; }); php artisan make:seeder UsersTableSeeder class UsersTableSeeder extends Seeder { /** * Run the database seeds. * * @return void */ public function run() { $users = factory(User::class)-&gt;times(50)-&gt;make(); User::insert($users-&gt;makeVisible([&#39;password&#39;, &#39;remember_token&#39;])-&gt;toArray()); $user = User::find(1); $user-&gt;name = &#39;Aufree&#39;; $user-&gt;email = &#39;aufree@yousails.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/mysql_split_horizon/" class="link black dim">
+        数据库水平拆分
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在大中型项目中，在数据库设计的时候，考虑到数据库最大承受数据量，通常会把数据库或者数据表水平切分，以降低单个库，单个表的压力。我这里介绍两个我们项目中常用的数据表切分方法。当然这些方法都是在程序中使用一定的技巧来路由到具体的表的。首先我们要确认根据什么来水平切分？在我们的系统（SNS）中，用户的UID贯穿系统，唯一自增长，根据这个字段分表，再好不过。 方法一：使用MD5哈希 做法是对UID进行md5加密，然后取前几位（我们这里取前两位），然后就可以将不同的UID哈希到不同的用户表（user_xx）中了。
+function getTable( $uid ){ $ext = substr ( md5($uid) ,0 ,2 ); return &quot;user_&quot;.$ext; } 通过这个技巧，我们可以将不同的UID分散到256中用户表中，分别是user_00,user_01 &hellip;&hellip; user_ff。因为UID是数字且递增，根据md5的算法，可以将用户数据几乎很均匀的分别到不同的user表中。 但是这里有个问题是，如果我们的系统的用户越来越多，势必单张表的数据量越来越大，而且根据这种算法无法扩展表，这又会回到文章开头出现的问题了。 方法二：使用移位 具体方法是：
+public function getTable( $uid ) { return &quot;user_&quot; . sprintf( &quot;%04d&quot;, ($uid &gt;&gt; 20) ); } 这里，我们将uid向右移动20位，这样我们就可以把大约前100万的用户数据放在第一个表user_0000,第二个100万的用户数据放在第二个表user_0001中，这样一直下去，如果我们的用户越来越多，直接添加用户表就行了。由于我们保留的表后缀是四位，这里我们可以添加1万张用户表，即user_0000,user_0001 &hellip;&hellip; user_9999。一万张表，每张表100万数据，我们可以存100亿条用户记录。当然，如果你的用户数据比这还多，也不要紧，你只要改变保留表后缀来增加可以扩展的表就行了，如如果有1000亿条数据，每个表存100万，那么你需要10万张表，我们只要保留表后缀为6位即可。 上面的算法还可以写的灵活点：
+/** * 根据UID分表算法 * * @param int $uid //用户ID * @param int $bit //表后缀保留几位 * @param int $seed //向右移动位数 */ function getTable( $uid , $bit , $seed ){ return &quot;user_&quot; .
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install_zotero/" class="link black dim">
+        文献管理/知识管理 zotero
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      下载  方法1（仅适用于 mac ，且懂得 brew cask 的【高端】人士）：  brew cask install zotero 方法2： 官网下载 https://www.zotero.org/download/  chrome 插件 https://www.zotero.org/download/connectors 也支持 firefox 和 safari
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/man_hua_suan_fa/" class="link black dim">
+        漫画算法 笔记
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      复杂度 时间复杂度 是对一个算法运行时间长短的量度，用大O表示，记作T(n) = O(f(n))
+推导出时间复杂度，有如下几个原则：
+ 如果运行时间是常数量级，则用常数1表示 只保留时间函数中的最高阶项 如果最高阶项存在，则省去最高阶项前面的系数  常见算法的时间复杂度的比较：
+O(1) &lt; O(logn) &lt; O(n) &lt; O(n²)
+空间复杂度 是对一个算法在运行过程中临时占用存储空间大小的度量，用大O表示，记作S(n) = O(f(n))
+ 常量空间：O(1)，存储空间大小固定，和输入规模没有直接关系 线性空间：O(n)，空间是一个线性的集合（比如数组），并且集合大小和输入规模n成正比 二维空间：O(n²)空间是一个二维数组集合，并且集合的长度和宽度都与输入规模n成正比 递归空间：执行递归操作所需的内存空间和递归的深度成正比。纯粹的递归操作的空间复杂度也是线性的，如果递归的深度是n，那么空间复杂度就是O(n)  数据结构基础    * 查找 更新 插入 删除     数组 O(1) O(1) O(n) O(n)   链表 O(n) O(1) O(1) O(1)    可见： 对于读操作多、写操作少的场景来说，数组更适合一些； 如果需要在尾部频繁插入、删除元素，用链表更适合一些。
+   - - -     逻辑结构 线性结构（比如：顺序表、栈、队列） 非线性结构（比如：树、图）   物理结构 顺序存储结构（比如：数组） 链式存储结构（比如：链表）    排序算法    排序算法 平均时间复杂度 空间复杂度 是否稳定排序     冒泡排序 O(n^2) O(n^2) O(1)   鸡尾酒排序 O(n^2) O(n^2) O(1)   快速排序 O(nlogn) O(n^2) O(logn)   堆排序 O(nlogn) O(nlogn) O(1)   计数排序 O(n+m) O(n+m) O(m)   桶排序 O(n) O(nlogn) O(n)    重要参考 《漫画算法》笔记-上篇 - ESnail - 博客园
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/common_http_status_code/" class="link black dim">
+        状态码
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      200 OK - 对成功的 GET、PUT、PATCH 或 DELETE 操作进行响应。也可以被用在不创建新资源的 POST 操作上 201 Created - 对创建新资源的 POST 操作进行响应。应该带着指向新资源地址的 Location 头 202 Accepted - 服务器接受了请求，但是还未处理，响应中应该包含相应的指示信息，告诉客户端该去哪里查询关于本次请求的信息 204 No Content - 对不会返回响应体的成功请求进行响应（比如 DELETE 请求） 304 Not Modified - HTTP缓存header生效的时候用 400 Bad Request - 请求异常，比如请求中的body无法解析 401 Unauthorized - 没有进行认证或者认证非法 403 Forbidden - 服务器已经理解请求，但是拒绝执行它 404 Not Found - 请求一个不存在的资源 405 Method Not Allowed - 所请求的 HTTP 方法不允许当前认证用户访问 410 Gone - 表示当前请求的资源不再可用。当调用老版本 API 的时候很有用 415 Unsupported Media Type - 如果请求中的内容类型是错误的 422 Unprocessable Entity - 用来表示校验错误 429 Too Many Requests - 由于请求频次达到上限而被拒绝访问
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/imooc_docker_devops/" class="link black dim">
+        系统学习Docker 践行DevOps理念
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      本文来源于 慕课网课程 《系统学习Docker 践行DevOps理念》 本课程发布于2018年，部分知识可能已过时
+ 第3章 Vagrant 部署 sudo ip link add veth-test1 type veth peer name veth-test2 sudo ip netns add test1 sudo ip link set veth-test1 netns test1 sudo ip netns exec test1 ip link sudo ip netns add test2 sudo ip link set veth-test2 netns test2 sudo ip netns exec test1 ip addr add 192.168.1.1/24 dev veth-test1 sudo ip netns exec test2 ip addr add 192.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/editorconfig/" class="link black dim">
+        统一代码风格 editorconfig
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在 Laravel 应用的根目录下添加 .editorconfig 文件，并写入如下的配置信息：
+ root = true [*] indent_style = space indent_size = 4 end_of_line = lf charset = utf-8 trim_trailing_whitespace = true insert_final_newline = false [*.{js,html,blade.php,css,scss}] indent_style = space indent_size = 4 [*.md] trim_trailing_whitespace = false 
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/5/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/5/">5</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/6/">6</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/7/">7</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/7/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

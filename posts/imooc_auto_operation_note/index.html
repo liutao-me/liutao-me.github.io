@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>中小型企业通用自动化运维架构 学习笔记 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="中小型企业通用自动化运维架构 学习笔记" />
+<meta property="og:description" content="此课程涉及到的技术：ansible &#43; zabbix &#43; jumpServer（堡垒机） &#43; ELK &#43; Jenkins &#43; Gogs(Git 服务器，占用资源少)
+自动化运维的好处：
+ 批量管理 及时监控报警 项目的持续集成 运维数据的处理、统计、分析  机器管理：
+ansible -&gt; 运行日志 -&gt; zabbix 监控 -&gt; 触发器 -&gt; 报警 | | ELK -&gt; 统计、分析 ELK 收集数据：
+Logstash 收集数据 -&gt; 数据整理 -&gt; Elasticsearch -&gt; Kibana -&gt; 统计、分析、查询 持续集成:
+Git 提交 -&gt; hook 钩子 -&gt; Jenkins -&gt; 自动构建 Jenkins 构建日志 -&gt; Zabbix 监控 Jenkins 构建日志 -&gt; ELK -&gt; 统计 ansible /etc/ansible/hosts 文件示例：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/imooc_auto_operation_note/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="中小型企业通用自动化运维架构 学习笔记">
+<meta itemprop="description" content="此课程涉及到的技术：ansible &#43; zabbix &#43; jumpServer（堡垒机） &#43; ELK &#43; Jenkins &#43; Gogs(Git 服务器，占用资源少)
+自动化运维的好处：
+ 批量管理 及时监控报警 项目的持续集成 运维数据的处理、统计、分析  机器管理：
+ansible -&gt; 运行日志 -&gt; zabbix 监控 -&gt; 触发器 -&gt; 报警 | | ELK -&gt; 统计、分析 ELK 收集数据：
+Logstash 收集数据 -&gt; 数据整理 -&gt; Elasticsearch -&gt; Kibana -&gt; 统计、分析、查询 持续集成:
+Git 提交 -&gt; hook 钩子 -&gt; Jenkins -&gt; 自动构建 Jenkins 构建日志 -&gt; Zabbix 监控 Jenkins 构建日志 -&gt; ELK -&gt; 统计 ansible /etc/ansible/hosts 文件示例：">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="283">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="中小型企业通用自动化运维架构 学习笔记"/>
+<meta name="twitter:description" content="此课程涉及到的技术：ansible &#43; zabbix &#43; jumpServer（堡垒机） &#43; ELK &#43; Jenkins &#43; Gogs(Git 服务器，占用资源少)
+自动化运维的好处：
+ 批量管理 及时监控报警 项目的持续集成 运维数据的处理、统计、分析  机器管理：
+ansible -&gt; 运行日志 -&gt; zabbix 监控 -&gt; 触发器 -&gt; 报警 | | ELK -&gt; 统计、分析 ELK 收集数据：
+Logstash 收集数据 -&gt; 数据整理 -&gt; Elasticsearch -&gt; Kibana -&gt; 统计、分析、查询 持续集成:
+Git 提交 -&gt; hook 钩子 -&gt; Jenkins -&gt; 自动构建 Jenkins 构建日志 -&gt; Zabbix 监控 Jenkins 构建日志 -&gt; ELK -&gt; 统计 ansible /etc/ansible/hosts 文件示例："/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">中小型企业通用自动化运维架构 学习笔记</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><p>此课程涉及到的技术：ansible + zabbix + jumpServer（堡垒机） + ELK + Jenkins + Gogs(Git 服务器，占用资源少)</p>
+<p>自动化运维的好处：</p>
+<ul>
+<li>批量管理</li>
+<li>及时监控报警</li>
+<li>项目的持续集成</li>
+<li>运维数据的处理、统计、分析</li>
+</ul>
+<p>机器管理：</p>
+<pre><code>ansible -&gt; 运行日志 -&gt; zabbix 监控 -&gt; 触发器 -&gt; 报警
+              |
+              |
+             ELK -&gt; 统计、分析
+
+</code></pre><p>ELK 收集数据：</p>
+<pre><code>Logstash 收集数据 -&gt; 数据整理 -&gt; Elasticsearch -&gt; Kibana -&gt;  统计、分析、查询
+
+</code></pre><p>持续集成:</p>
+<pre><code>Git 提交 -&gt; hook 钩子 -&gt; Jenkins -&gt; 自动构建
+
+Jenkins 构建日志 -&gt; Zabbix 监控 
+Jenkins 构建日志 -&gt; ELK -&gt; 统计
+
+</code></pre><h2 id="ansible">ansible</h2>
+<p><code>/etc/ansible/hosts</code> 文件示例：</p>
+<pre><code>test ansible\_ssh\_port=22 ansible\_ssh\_host=192.168.0.110 ansible\_ssh\_user=ubuntu 
+</code></pre><pre><code>ansible test -m shell -a 'ls /home' --user=root
+ansible test -m shell -a 'ls /root' --user=root --ask-pass
+
+ansible centos7 -m yum -a &quot;name=mariadb-server state=latest&quot;
+
+ansible centos7 -m systemd -a &quot;name=mariadb state=started&quot;
+
+</code></pre><h3 id="playbook">playbook</h3>
+<p>yml 文件，示例如下：</p>
+<pre><code>- hosts: web1
+  remote_user: root
+  vars:
+    username: bob
+    password: 123
+
+  tasks:
+  - name: add user
+    user: name={{ username }} state=present
+    when: ansible_os_family == &quot;Debian&quot;
+  - name: set password
+    shell: echo {{ password }} |passwd --stdin {{ username }}
+  - name: install httpd php
+    yum: name={{ item }} state=present
+    with_items:
+      - httpd
+      - php
+  - name: add two users
+    user: name={{ item }} state=present groups={{ item.groups }}
+    with_items:
+    - { name: 'user1', groups: 'group1'}
+    - { name: 'user2', groups: 'group2'}
+
+</code></pre><h2 id="zabbix">Zabbix</h2>
+<p>安装参考官网。</p>
+<h3 id="zabbix-server">Zabbix-server</h3>
+<p>若用 CentOS，记得关闭 SeLinux，否则会遇到  cannot set resource limit</p>
+<p>核心内容：</p>
+<ul>
+<li>自动发现</li>
+<li>报警规则（添加、发送、接收）</li>
+<li>统计图表、聚合图表</li>
+<li>自定义监控</li>
+<li>zabbix_get 验证脚本是否正常工作</li>
+<li>API ，参见官网文档</li>
+</ul>
+<p>自定义监控：</p>
+<ul>
+<li>创建脚本</li>
+<li>创建 zabbix item</li>
+<li>创建 zabbix trigger</li>
+<li>创建 zabbix action</li>
+</ul>
+<p>zabbix item 通过关联自定义脚本来采集信息， trigger 进行判断，若为 true，则触发 action ，执行报警规则中定义的行为</p>
+<h3 id="zabbix-client">Zabbix-client</h3>
+<p>配置文件 <code>/etc/zabbix/zabbix-agentd.conf</code>，需修改其中的 Server 值</p>
+<h2 id="elk">ELK</h2>
+<p>默认需要 4G 内存</p>
+<h3 id="elasticsearch-head-插件">Elasticsearch head 插件</h3>
+<h3 id="logstash">Logstash</h3>
+<p>配置文件需要指定 input 和 output</p>
+<p><code>test.conf</code> 文件内容示例如下：</p>
+<pre><code>input {
+    tcp {
+        port =&gt; 12345 
+        codec =&gt; json {
+            charset =&gt; &quot;UTF-8&quot;
+        }
+    }
+}
+output {
+    elasticsearch {
+        hosts =&gt; &quot;127.0.0.1&quot;
+        index =&gt; &quot;logstash-%{+YYYY.MM.dd}&quot;
+        document_type =&gt; &quot;test&quot;
+    }
+}
+
+</code></pre><p>运行命令如下:
+<code>./bin/logstash -f ./test.conf</code></p>
+<h3 id="kibana">Kibana</h3>
+<ul>
+<li>Management</li>
+<li>Discover</li>
+</ul>
+<p>其他略</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

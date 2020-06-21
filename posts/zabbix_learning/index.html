@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>zabbix 学习 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="zabbix 学习" />
+<meta property="og:description" content="主动模式与被动模式，用哪个？ 一、zabbix agent主动模式与被动模式的区别 zabbix agent的运行模式有以下两种：
+1、被动模式：此模式为zabbix默认的工作模式，由zabbix server 向zabbix agent 发出指令获取数据，zabbix agent被动地去获取数据并返回给zabbix server，zabbix server会周期性地向agent索取数据。此模式的最大问题就是会增加zabbix server的工作量，在大量的服务器环境下，zabbix server不能及时获取到最新的数据。
+2、主动模式：即由zabbix agent 主动采集数据并返回给zabbix server，不需要zabbix server 的另行干预，因此使用主动模式能在一定程序上减轻zabbix server的压力。
+一些文章提到如下：
+zabbix_server端当主机数量过多的时候，由Server端去收集数据，Zabbix会出现严重的性能问题，主要表现如下： 1、当被监控端到达一个量级的时候，Web操作很卡，容易出现502 2、图层断裂 3、开启的进程（Pollar）太多，即使减少item数量，以后加入一定量的机器也会有问题 所以下面主要往两个优化方向考虑： 1、添加Proxy节点或者Node模式做分布式监控 2、调整Agentd为主动模式 第一个方案需要增加物理机器。另一篇文章中也提到，如果zabbix_server端当主机数量过多的时候，虽然可以通过增加代理的方式来进行收集数据，但是需要增加proxy机
+所以在预算有限的情况下，使用第二种方案
+如何配置 agent 的主动模式  zabbix agent的主动模式与被动模式及zabbix proxy - 简书
+  Zabbix3.X&mdash;Zabbix _Agent主动模式的监控（Active） - 背锅浩的博客 - CSDN博客
+  Zabbix Agent active批量调整客户端为主动模式监控 - reblue520的专栏 - CSDN博客
+ " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/zabbix_learning/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="zabbix 学习">
+<meta itemprop="description" content="主动模式与被动模式，用哪个？ 一、zabbix agent主动模式与被动模式的区别 zabbix agent的运行模式有以下两种：
+1、被动模式：此模式为zabbix默认的工作模式，由zabbix server 向zabbix agent 发出指令获取数据，zabbix agent被动地去获取数据并返回给zabbix server，zabbix server会周期性地向agent索取数据。此模式的最大问题就是会增加zabbix server的工作量，在大量的服务器环境下，zabbix server不能及时获取到最新的数据。
+2、主动模式：即由zabbix agent 主动采集数据并返回给zabbix server，不需要zabbix server 的另行干预，因此使用主动模式能在一定程序上减轻zabbix server的压力。
+一些文章提到如下：
+zabbix_server端当主机数量过多的时候，由Server端去收集数据，Zabbix会出现严重的性能问题，主要表现如下： 1、当被监控端到达一个量级的时候，Web操作很卡，容易出现502 2、图层断裂 3、开启的进程（Pollar）太多，即使减少item数量，以后加入一定量的机器也会有问题 所以下面主要往两个优化方向考虑： 1、添加Proxy节点或者Node模式做分布式监控 2、调整Agentd为主动模式 第一个方案需要增加物理机器。另一篇文章中也提到，如果zabbix_server端当主机数量过多的时候，虽然可以通过增加代理的方式来进行收集数据，但是需要增加proxy机
+所以在预算有限的情况下，使用第二种方案
+如何配置 agent 的主动模式  zabbix agent的主动模式与被动模式及zabbix proxy - 简书
+  Zabbix3.X&mdash;Zabbix _Agent主动模式的监控（Active） - 背锅浩的博客 - CSDN博客
+  Zabbix Agent active批量调整客户端为主动模式监控 - reblue520的专栏 - CSDN博客
+ ">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="53">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="zabbix 学习"/>
+<meta name="twitter:description" content="主动模式与被动模式，用哪个？ 一、zabbix agent主动模式与被动模式的区别 zabbix agent的运行模式有以下两种：
+1、被动模式：此模式为zabbix默认的工作模式，由zabbix server 向zabbix agent 发出指令获取数据，zabbix agent被动地去获取数据并返回给zabbix server，zabbix server会周期性地向agent索取数据。此模式的最大问题就是会增加zabbix server的工作量，在大量的服务器环境下，zabbix server不能及时获取到最新的数据。
+2、主动模式：即由zabbix agent 主动采集数据并返回给zabbix server，不需要zabbix server 的另行干预，因此使用主动模式能在一定程序上减轻zabbix server的压力。
+一些文章提到如下：
+zabbix_server端当主机数量过多的时候，由Server端去收集数据，Zabbix会出现严重的性能问题，主要表现如下： 1、当被监控端到达一个量级的时候，Web操作很卡，容易出现502 2、图层断裂 3、开启的进程（Pollar）太多，即使减少item数量，以后加入一定量的机器也会有问题 所以下面主要往两个优化方向考虑： 1、添加Proxy节点或者Node模式做分布式监控 2、调整Agentd为主动模式 第一个方案需要增加物理机器。另一篇文章中也提到，如果zabbix_server端当主机数量过多的时候，虽然可以通过增加代理的方式来进行收集数据，但是需要增加proxy机
+所以在预算有限的情况下，使用第二种方案
+如何配置 agent 的主动模式  zabbix agent的主动模式与被动模式及zabbix proxy - 简书
+  Zabbix3.X&mdash;Zabbix _Agent主动模式的监控（Active） - 背锅浩的博客 - CSDN博客
+  Zabbix Agent active批量调整客户端为主动模式监控 - reblue520的专栏 - CSDN博客
+ "/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">zabbix 学习</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><h2 id="主动模式与被动模式用哪个">主动模式与被动模式，用哪个？</h2>
+<h2 id="一zabbix-agent主动模式与被动模式的区别">一、zabbix agent主动模式与被动模式的区别</h2>
+<p>zabbix agent的运行模式有以下两种：<br>
+1、被动模式：此模式为zabbix默认的工作模式，由zabbix server 向zabbix agent 发出指令获取数据，zabbix agent被动地去获取数据并返回给zabbix server，zabbix server会周期性地向agent索取数据。此模式的最大问题就是会增加zabbix server的工作量，在大量的服务器环境下，zabbix server不能及时获取到最新的数据。<br>
+2、主动模式：即由zabbix agent 主动采集数据并返回给zabbix server，不需要zabbix server 的另行干预，因此使用主动模式能在一定程序上减轻zabbix server的压力。</p>
+<p>一些文章提到如下：</p>
+<pre><code>zabbix_server端当主机数量过多的时候，由Server端去收集数据，Zabbix会出现严重的性能问题，主要表现如下：
+
+
+1、当被监控端到达一个量级的时候，Web操作很卡，容易出现502
+
+2、图层断裂
+
+3、开启的进程（Pollar）太多，即使减少item数量，以后加入一定量的机器也会有问题
+
+所以下面主要往两个优化方向考虑：
+
+1、添加Proxy节点或者Node模式做分布式监控
+
+2、调整Agentd为主动模式
+
+</code></pre><p>第一个方案需要增加物理机器。另一篇文章中也提到，如果zabbix_server端当主机数量过多的时候，虽然可以通过增加代理的方式来进行收集数据，但是需要增加proxy机</p>
+<p>所以在预算有限的情况下，使用第二种方案</p>
+<h2 id="如何配置-agent-的主动模式">如何配置 agent 的主动模式</h2>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/c735e9bb1c66">zabbix agent的主动模式与被动模式及zabbix proxy - 简书</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://blog.csdn.net/weixin_39845407/article/details/80764200">Zabbix3.X&mdash;Zabbix _Agent主动模式的监控（Active） - 背锅浩的博客 - CSDN博客</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://blog.csdn.net/reblue520/article/details/54141653">Zabbix Agent active批量调整客户端为主动模式监控 - reblue520的专栏 - CSDN博客</a></p>
+</blockquote>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

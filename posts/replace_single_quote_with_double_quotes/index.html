@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>idea ( phpstorm, vim) 如何将一对单引号替换为双引号 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="idea ( phpstorm, vim) 如何将一对单引号替换为双引号" />
+<meta property="og:description" content="前提条件： 安装 ideaVim （ideaVim 默认安装了 surround.vim 插件）
+启用 surround.vim 在编辑器中临时启用 surround ：
+:set surround 或者将其写入配置文件中 ~/.ideavimrc:
+set surround 然后：
+cs&#39;&quot; 其他使用方法见 surround.vim 的文档。
+surround.vim 常见用法 Surround.vim is all about &ldquo;surroundings&rdquo;: parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+It&rsquo;s easiest to explain with examples. Presscs&quot;&#39;inside
+&quot;Hello world!&quot;  to change it to
+&#39;Hello world!&#39;  Now presscs&#39;&lt;q&gt;to change it to" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/replace_single_quote_with_double_quotes/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="idea ( phpstorm, vim) 如何将一对单引号替换为双引号">
+<meta itemprop="description" content="前提条件： 安装 ideaVim （ideaVim 默认安装了 surround.vim 插件）
+启用 surround.vim 在编辑器中临时启用 surround ：
+:set surround 或者将其写入配置文件中 ~/.ideavimrc:
+set surround 然后：
+cs&#39;&quot; 其他使用方法见 surround.vim 的文档。
+surround.vim 常见用法 Surround.vim is all about &ldquo;surroundings&rdquo;: parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+It&rsquo;s easiest to explain with examples. Presscs&quot;&#39;inside
+&quot;Hello world!&quot;  to change it to
+&#39;Hello world!&#39;  Now presscs&#39;&lt;q&gt;to change it to">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="229">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="idea ( phpstorm, vim) 如何将一对单引号替换为双引号"/>
+<meta name="twitter:description" content="前提条件： 安装 ideaVim （ideaVim 默认安装了 surround.vim 插件）
+启用 surround.vim 在编辑器中临时启用 surround ：
+:set surround 或者将其写入配置文件中 ~/.ideavimrc:
+set surround 然后：
+cs&#39;&quot; 其他使用方法见 surround.vim 的文档。
+surround.vim 常见用法 Surround.vim is all about &ldquo;surroundings&rdquo;: parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+It&rsquo;s easiest to explain with examples. Presscs&quot;&#39;inside
+&quot;Hello world!&quot;  to change it to
+&#39;Hello world!&#39;  Now presscs&#39;&lt;q&gt;to change it to"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">idea ( phpstorm, vim) 如何将一对单引号替换为双引号</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><p><strong>前提条件：</strong>
+安装 ideaVim （ideaVim 默认安装了 surround.vim 插件）</p>
+<h2 id="启用-surroundvim">启用 surround.vim</h2>
+<p>在编辑器中临时启用 surround ：</p>
+<pre><code>:set surround
+</code></pre><p>或者将其写入配置文件中 <code>~/.ideavimrc</code>:</p>
+<pre><code>set surround
+</code></pre><p>然后：</p>
+<pre><code>cs'&quot;
+</code></pre><p>其他使用方法见 surround.vim 的文档。</p>
+<h2 id="surroundvim-常见用法">surround.vim 常见用法</h2>
+<p>Surround.vim is all about &ldquo;surroundings&rdquo;: parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.</p>
+<p>It&rsquo;s easiest to explain with examples. Press<code>cs&quot;'</code>inside</p>
+<pre><code>&quot;Hello world!&quot;
+</code></pre>
+<p>to change it to</p>
+<pre><code>'Hello world!'
+</code></pre>
+<p>Now press<code>cs'&lt;q&gt;</code>to change it to</p>
+<pre><code>&lt;q&gt;Hello world!&lt;/q&gt;
+</code></pre>
+<p>To go full circle, press<code>cst&quot;</code>to get</p>
+<pre><code>&quot;Hello world!&quot;
+</code></pre>
+<p>To remove the delimiters entirely, press<code>ds&quot;</code>.</p>
+<pre><code>Hello world!
+</code></pre>
+<p>Now with the cursor on &ldquo;Hello&rdquo;, press<code>ysiw]</code>(<code>iw</code>is a text object).</p>
+<pre><code>[Hello] world!
+</code></pre>
+<p>Let&rsquo;s make that braces and add some space (use<code>}</code>instead of<code>{</code>for no space):<code>cs]{</code></p>
+<pre><code>{ Hello } world!
+</code></pre>
+<p>Now wrap the entire line in parentheses with<code>yssb</code>or<code>yss)</code>.</p>
+<pre><code>({ Hello } world!)
+</code></pre>
+<p>Revert to the original text:<code>ds{ds)</code></p>
+<pre><code>Hello world!
+</code></pre>
+<p>Emphasize hello:<code>ysiw&lt;em&gt;</code></p>
+<pre><code>&lt;em&gt;Hello&lt;/em&gt; world!
+</code></pre>
+<p>Finally, let&rsquo;s try out visual mode. Press a capital V (for linewise visual mode) followed by<code>S&lt;p class=&quot;important&quot;&gt;</code>.</p>
+<pre><code>&lt;p class=&quot;important&quot;&gt;
+  &lt;em&gt;Hello&lt;/em&gt; world!
+&lt;/p&gt;
+</code></pre>
+<p>This plugin is very powerful for HTML and XML editing, a niche which currently seems underfilled in Vim land. (As opposed to HTML/XML_inserting_, for which many plugins are available). Adding, changing, and removing pairs of tags simultaneously is a breeze.</p>
+<p>The<code>.</code>command will work with<code>ds</code>,<code>cs</code>, and<code>yss</code>if you install<a href="https://github.com/tpope/vim-repeat">repeat.vim</a>.</p>
+<blockquote>
+<p><a href="https://github.com/tpope/vim-surround">GitHub - tpope/vim-surround: surround.vim: quoting/parenthesizing made simple</a>
+<a href="https://github.com/JetBrains/ideavim#emulated-vim-plugins">GitHub - JetBrains/ideavim: Vim emulation plug-in for IDEs based on the IntelliJ platform.</a></p>
+</blockquote>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

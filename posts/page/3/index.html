@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Liu Tao" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Liu Tao" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/posts/" />
+<meta property="og:updated_time" content="2020-06-20T00:00:00+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/jmeter/" class="link black dim">
+        JMeter
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      性能测试整体认知 性能测试的分类  负载测试：通过逐步加压的方法，达到既定的性能阈值的目标。阈值的设定应是小于等于某个值，如 cpu 使用率小于等于80% 压力测试：通过逐步加压的方法，使得系统的某些资源达到饱和，甚至失效的状态，简单粗暴的解释就是什么条件能把系统压崩溃 并发测试：在同一时间内，多个虚拟用户同时访问同一模块、同一功能，通常的测试方法是设置集合点 容量测试：通常是指数据库层面的，目标是获取数据库的最佳容量的能力。又称之为容量预估。具体测试方法为在一定的并发用户，不同的基础数量量下，观察数据库的处理能力，即获取数据库的各项性能指标 可靠性测试：又称之为稳定性测试或疲劳测试。是指系统在高压情况下，长时间的运行系统是否稳定。如 cpu 使用率在80%以上，7*24 小时运行，系统是否稳定。 异常测试：又称之为失败测试。是指系统架构方面的测试。如果在负载均衡架构中，要测试宕机、节点挂掉等情况系统的反映  性能测试的工作流程  需求分析 性能指标制定 脚本开发 场景设置 监控部署 测试执行 性能分析 性能调优 测试报告  测试执行-》性能分析-》性能调优，此步骤循环执行，不断调优
+常见系统应用分层架构 显示层（view）：
+ web android ios H5  逻辑控制层（controller）：
+ Api  数据存储层（model）：
+ mysql mongodb redis &hellip;  性能测试指标定义 事务 从客户端发起的一个或多个请求（这些请求组成一个完整的操作），到客户端接收到从服务器返回的响应
+TPS( Transaction Per Second) 每秒钟系统能够处理的事务数
+请求响应时间 从客户端发起的一个请求开始，到客户端接收到从服务器返回的响应。整个过程所耗费的时间
+事务响应时间 事务可能是一个或多个请求组成的，事务响应时间主要是针对于用户的角度而言，如转账
+并发  没有严格意义上的并发。并发总有先后，无论差距是1毫秒或者是1微秒，总有一个时间差。所以并发讲的是一个时间范围内，比如1秒内 多用户在系统上进行同一操作，比如双十一时，大家都真的同一种商品进行秒杀 多用户在系统上进行不同操作，比如双十一时，大家针对不同商品进行秒杀，或者是大家有进行其他不同的操作，比如商品浏览  并发用户数 同一单位时间内对系统发起请求的用户数量
+吞吐量 一次性能测试过程中网络上传输的数据量的总和
+吞吐率 单位时间内网络上传输的数据量 吞吐率=吞吐量/传输时间
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/lamp/" class="link black dim">
+        LAMP 搭建
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      LAMP通常是指Linux+Apache+MySQL+PHP组合形成的一套可以运行PHP程序的体系，并不是一个软件的名称。没有安装MySQL的服务器依然可以在其它条件完备的情况下运行不涉及MySQL数据库读写操作的PHP程序，另外PHP并非只支持MySQL一种数据库产品，还支持其他的数据库产品。并非只有Apache可以通过扩展支持PHP的解析，Nginx，LightHttpd等其它软件同样可以。
+ https://linux.cn/article-7463-1.html https://linux.cn/article-3164-1.html
+ 网络设置 sudo vi /etc/network/interfaces 增加以下内容
+ auto enp0s7 iface enp0s7 inet static address 192.168.20.227 netmask 255.255.255.0 gateway 192.168.20.1 dns-nameserver 192.168.20.1
+ sudo vi /etc/resolvconf/resolv.conf.d/base
+增加以下内容
+ nameserver 8.8.8.8 nameserver 114.114.114.114
+ 保存后执行 sudo resolvconf -u
+用以下命令使网络设置生效
+service networking restart sudo /etc/init.d/networking restart LAMP环境安装总结 如果选择安装城市为中国，则不需要更改源，默认源配置中的资源会自动使用阿里云的
+sudo apt update Apache sudo apt install apache2 -y sudo systemctl start apache2.service sudo systemctl enable apache2.service sudo systemctl status apache2.service 防火墙设置
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/laravel_guest_redirect/" class="link black dim">
+        Laravel 修改未登录状态跳转的路由
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      app/Exceptions/Handler.php 里新增以下方法：
+use Illuminate\Auth\AuthenticationException; protected function unauthenticated($request, AuthenticationException $exception) { if ($request-&gt;expectsJson()) { return response()-&gt;json([&#39;error&#39; =&gt; &#39;Unauthenticated.&#39;], 401); } return redirect()-&gt;guest(&#39;login&#39;); //&lt;----- 修改这里 } 
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leanote_export_to_markdown/" class="link black dim">
+        Leanote导出Markdown
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Leanote导出Markdown-Wander
+ 核心步骤 resources\app\public\plugins\export_html\tpl\markdown.tpl,将内容全部删除，修改为 {content}
+resources\app\public\plugins\export_html\plugin.js, 从320行开始,修改为
+var name = note.Title ? note.Title: getMsg('Untitled'); name+=note.IsMarkdown?'.md':'.html'; name = me.fixFilename(name); 关闭leanote后在启动(注意新版的leanote不是点右上角的X就关闭的),这样以后就能导出纯markdown了
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/lvs_vs_nginx/" class="link black dim">
+        LVS 与 Nginx
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      什么时候用？ 先说结论：项目前期使用 Nginx + Keepalived 足以应付很多场景
+  网站建设初期（每日 PV 小于 100 万），可以选用 Nigix 作为反向代理负载均衡，因为其配置简单，性能也能满足一般的业务场景。如果考虑到负载均衡器是有单点问题，可以采用 Nginx + Keepalived 避免负载均衡器自身的单点问题
+  网站并发达到一定程度之后，为了提高稳定性和转发效率，可以使用 LVS、毕竟 LVS 比 Nginx 要更稳定，转发效率也更高。不过维护 LVS 对维护人员的要求也会更高，投入成本也更大
+  区别 参见以下文章：
+ LVS 与 Nginx 区别 - 简书 lvs与nginx区别 - 随心朝阳 - 博客园
+ haproxy HAproxy 多用于 mysql 集群，作 mysql 读取负载；
+LVS、Nginx、haproxy 特点  LVS Nginx 负载均衡区别 - 01234567 - 博客园
+ 
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/cannot_resolve_unknown_host/" class="link black dim">
+        Mac DNS 错误 域名解析不了 ping: cannot resolve Unknown host
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      如果出现
+ ping: cannot resolve www.baidu.com: Unknown host 连上网络后却无法访问 唤醒后无法上网  可通过如下命令解决：
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist 上述简化为一条命令：
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist &amp;&amp; sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist  Mac DNS 错误 域名解析不了 解决方式 - 简书
+ 
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install_magento/" class="link black dim">
+        Magento 安装
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      LAMP 安装简略步骤 服务器环境 Ubuntu 16.04
+sudo apt install apache2 -y #sudo systemctl start apache2.service #sudo systemctl enable apache2.service #sudo systemctl status apache2.service #sudo systemctl restart apache2.service sudo apt install mysql-server mysql-client sudo apt install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 sudo apt install php7.0-gd php7.0-mcrypt php7.0-intl php7.0-xsl php7.0-mbstring php7.0-zip sudo apt install php-xml apache 相关操作
+  新建一个 apache 站点，步骤略
+  apache 开启 rewrite
+a. 软链接 rewrite 模块 (详细命令，你懂的) b.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/mysql_master_and_slave/" class="link black dim">
+        Mysql 主从设置
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      #主数据库设置 server-id = 1 log_bin = /var/log/mysql/mysql-bin.log expire_logs_days = 10 max_binlog_size = 100M binlog_do_db = important_db #binlog_ignore_db = include_database_name  CREATE USER 'slave'@'%' IDENTIFIED BY 'mysql'; GRANT SELECT,REPLICATION SLAVE ON *.* TO 'slave'@'%'; #查询主数据库状态 mysql&gt; show master status; +------------------+----------+--------------+------------------+-------------------+ | File | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set | +------------------+----------+--------------+------------------+-------------------+ | mysql-bin.000001 | 154 | important_db | | | +------------------+----------+--------------+------------------+-------------------+ 1 row in set (0.00 sec) #从数据库设置 server-id = 2 log_bin = /var/log/mysql/mysql-bin.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/introduction_of_nginx/" class="link black dim">
+        nginx 基本配置
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      http://ninghao.net/blog/2087
+ nginx 是由一些模块组成的，不同的模块定义了各自的一些指令（Directives），指令控制了模块的行为，在 nginx 的配置文件里可以去配置这些指令。主要的配置文件是 nginx.conf ，在这个配置文件里，会用到 include 指令，把其它地方的配置文件包含到这个主要的配置文件里，用这种方法可以让配置文件更有条理，也更容易维护。
+找到 nginx.conf 在不同的系统下 nginx.conf 的位置可能不太一样，使用搜索可以很容易找到它：
+find / -name nginx.conf 意思是从根目录开始搜索 nginx.conf 文件的位置。在 CentOS 7 里，这个文件是在：
+/etc/nginx/nginx.conf 打开 /etc/nginx ，在这个目录下面，会包含一些其它的文件， .default 结尾的文件应该是原文件的备份，比如 nginx.conf 是真正用的配置文件，nginx.conf.default 是这个文件的一个备份，如果 nginx.conf 出了问题，你可以把 nginx.conf.default 重命名为 nginx.conf 代替原来的文件。
+理解配置文件 打开 nginx.conf，你会看到 nginx 的配置文件的样式，里面有些说明，这些内容前面都有 # 号，表示这是注释内容，nginx 不会理会这些用 # 开头的内容。真正生效的配置，是不带 # 号开头的。这些配置一般就是一个指令的名字，后面一个空格，再加上这个指令的参数值，结尾用一个分号。
+main user nginx; user 是指令的名字，这个指令可以设置系统运行 nginx 时候用的用户名，这里设置成了 nginx 这个用户。
+worker_processes 1; worker_processes 指令设置了 nginx 同时运行的进程数，或者叫 nginx 的实例。nginx 有一个 master 进程，还有一些 worker 进程。master 进程的主要工作是读取和鉴定配置，维护 worker 进程。真正提供服务的是 worker 进程，nginx 用了一种有效的方式，把请求分布到不同的 worker 进程上去处理。worker_processes 指令设置的就是这个 woker 进程的数量，这个数量可以根据服务器的 CPU 核心数来设定，8 核的 CPU 就设置成 8 个 worker 进程。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/4/">4</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/7/">7</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>dnsmasq &#43; laradock 本地开发自动解析域名，无需添加 hosts | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="dnsmasq &#43; laradock 本地开发自动解析域名，无需添加 hosts" />
+<meta property="og:description" content="使用场景 实际工作中有一些本地的域名需要修改 hosts 才可以访问，例如:test.laravel，develop.test。
+实现的目的： 在指定目录下新建 laravel 项目（比如 test）后，可以直接在浏览器中访问 http://test.laravel，无需再修改 hosts 文件
+基本原理：
+ 使用 dnsmasq 将 .laravel 域名代理到本地解析 使用 nginx 实现目录下的 泛域名解析  学习本文，你需要具备以下基本技能：
+ 程序员必备的基本技能（比如 vi/vim，终端命令） nginx dnsmasq （跟着本文即可知道大致用法） laradock （需要很熟练，需要会配置 nginx）  本文将以 .laravel 为例来说明。 在开始前，可以先 ping test.laravel,看一下结果（结果肯定是 ping 不通啦）
+dnsmasq brew install dnsmasq echo &quot;address=/laravel/127.0.0.1&quot; &gt;&gt; /usr/local/etc/dnsmasq.conf address=/laravel/127.0.0.1， 意思是访问 .laravel 直接引导到 127.0.0.1
+sudo mkdir -p /etc/resolver sudo tee /etc/resolver/laravel &lt;&lt;&lt; &quot;nameserver 127.0.0.1&quot; 这里新建的文件叫 laravel , 因为我配置的域名结尾是 ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/dnsmasq_and_laradock/" />
+<meta property="article:published_time" content="2020-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-10T00:00:00+00:00" />
+<meta itemprop="name" content="dnsmasq &#43; laradock 本地开发自动解析域名，无需添加 hosts">
+<meta itemprop="description" content="使用场景 实际工作中有一些本地的域名需要修改 hosts 才可以访问，例如:test.laravel，develop.test。
+实现的目的： 在指定目录下新建 laravel 项目（比如 test）后，可以直接在浏览器中访问 http://test.laravel，无需再修改 hosts 文件
+基本原理：
+ 使用 dnsmasq 将 .laravel 域名代理到本地解析 使用 nginx 实现目录下的 泛域名解析  学习本文，你需要具备以下基本技能：
+ 程序员必备的基本技能（比如 vi/vim，终端命令） nginx dnsmasq （跟着本文即可知道大致用法） laradock （需要很熟练，需要会配置 nginx）  本文将以 .laravel 为例来说明。 在开始前，可以先 ping test.laravel,看一下结果（结果肯定是 ping 不通啦）
+dnsmasq brew install dnsmasq echo &quot;address=/laravel/127.0.0.1&quot; &gt;&gt; /usr/local/etc/dnsmasq.conf address=/laravel/127.0.0.1， 意思是访问 .laravel 直接引导到 127.0.0.1
+sudo mkdir -p /etc/resolver sudo tee /etc/resolver/laravel &lt;&lt;&lt; &quot;nameserver 127.0.0.1&quot; 这里新建的文件叫 laravel , 因为我配置的域名结尾是 .">
+<meta itemprop="datePublished" content="2020-03-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-03-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="297">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="dnsmasq &#43; laradock 本地开发自动解析域名，无需添加 hosts"/>
+<meta name="twitter:description" content="使用场景 实际工作中有一些本地的域名需要修改 hosts 才可以访问，例如:test.laravel，develop.test。
+实现的目的： 在指定目录下新建 laravel 项目（比如 test）后，可以直接在浏览器中访问 http://test.laravel，无需再修改 hosts 文件
+基本原理：
+ 使用 dnsmasq 将 .laravel 域名代理到本地解析 使用 nginx 实现目录下的 泛域名解析  学习本文，你需要具备以下基本技能：
+ 程序员必备的基本技能（比如 vi/vim，终端命令） nginx dnsmasq （跟着本文即可知道大致用法） laradock （需要很熟练，需要会配置 nginx）  本文将以 .laravel 为例来说明。 在开始前，可以先 ping test.laravel,看一下结果（结果肯定是 ping 不通啦）
+dnsmasq brew install dnsmasq echo &quot;address=/laravel/127.0.0.1&quot; &gt;&gt; /usr/local/etc/dnsmasq.conf address=/laravel/127.0.0.1， 意思是访问 .laravel 直接引导到 127.0.0.1
+sudo mkdir -p /etc/resolver sudo tee /etc/resolver/laravel &lt;&lt;&lt; &quot;nameserver 127.0.0.1&quot; 这里新建的文件叫 laravel , 因为我配置的域名结尾是 ."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">dnsmasq &#43; laradock 本地开发自动解析域名，无需添加 hosts</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-03-10T00:00:00Z">March 10, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><h2 id="使用场景">使用场景</h2>
+<p>实际工作中有一些本地的域名需要修改 hosts 才可以访问，例如:<code>test.laravel</code>，<code>develop.test</code>。</p>
+<p><strong>实现的目的：</strong>
+在指定目录下新建 laravel 项目（比如 test）后，可以直接在浏览器中访问 <code>http://test.laravel</code>，无需再修改 hosts 文件</p>
+<p><strong>基本原理：</strong></p>
+<ul>
+<li>使用 dnsmasq 将 .laravel 域名代理到本地解析</li>
+<li>使用 nginx 实现目录下的 泛域名解析</li>
+</ul>
+<p>学习本文，你需要具备以下基本技能：</p>
+<ul>
+<li>程序员必备的基本技能（比如 vi/vim，终端命令）</li>
+<li>nginx</li>
+<li>dnsmasq （跟着本文即可知道大致用法）</li>
+<li>laradock （需要很熟练，需要会配置 nginx）</li>
+</ul>
+<p>本文将以 <code>.laravel</code> 为例来说明。
+在开始前，可以先 <code>ping test.laravel</code>,看一下结果（结果肯定是 ping 不通啦）</p>
+<h2 id="dnsmasq">dnsmasq</h2>
+<pre><code>brew install dnsmasq 
+
+echo &quot;address=/laravel/127.0.0.1&quot; &gt;&gt; /usr/local/etc/dnsmasq.conf
+</code></pre><p><code>address=/laravel/127.0.0.1</code>， 意思是访问 .laravel 直接引导到 127.0.0.1</p>
+<pre><code>sudo mkdir -p /etc/resolver  
+sudo tee /etc/resolver/laravel &lt;&lt;&lt; &quot;nameserver 127.0.0.1&quot;
+</code></pre><p>这里新建的文件叫 laravel , 因为我配置的域名结尾是 .laravel，假如大家配置的是 .test ，这里新文件应该叫：test。同理，如果配置多个域名后续，就必须写入多个文档哦！</p>
+<pre><code>sudo brew services start dnsmasq
+</code></pre><p>此时 <code>ping test.laravel</code> 会发现 响应ip 为 127.0.0.1
+浏览器访问 <code>http://test.laravel</code>，就会看到输出内容啦。</p>
+<p>命令合并写：</p>
+<pre><code>domain=&quot;laravel&quot; &amp;&amp; echo &quot;address=/$domain/127.0.0.1&quot; &gt;&gt; /usr/local/etc/dnsmasq.conf &amp;&amp; sudo tee /etc/resolver/$domain &lt;&lt;&lt; &quot;nameserver 127.0.0.1&quot; &amp;&amp; unset domain &amp;&amp; sudo brew services restart dnsmasq
+
+domain=&quot;test&quot; &amp;&amp; echo &quot;address=/$domain/127.0.0.1&quot; &gt;&gt; /usr/local/etc/dnsmasq.conf &amp;&amp; sudo tee /etc/resolver/$domain &lt;&lt;&lt; &quot;nameserver 127.0.0.1&quot; &amp;&amp; unset domain &amp;&amp; sudo brew services restart dnsmasq
+
+</code></pre><pre><code>//刷新DNS缓存 
+sudo killall -HUP mDNSResponder
+</code></pre><p><strong>提示：</strong>
+dnsmasq 可以加载本地 <code>/etc/hosts</code>，可配置<code>resolv-file</code>，具体内容可以参考其配置说明。</p>
+<h2 id="laradock-项目配置重点nginx-泛域名解析代理">laradock 项目配置（重点，nginx 泛域名解析代理）</h2>
+<p>本小节实现的目的是，给目录里的每个项目自动配置泛域名代理
+目录结构为：</p>
+<pre><code>~/code
+├── todo
+└── sanctum
+</code></pre><p>如上例，<code>code</code> 文件夹是我存放所有 laravel项目的地方，<code>todo</code> 和 <code>sanctum</code> 是两个已有的项目。</p>
+<h3 id="dns-配置">dns 配置</h3>
+<p>前文已配置好</p>
+<h3 id="项目环境配置">项目环境配置</h3>
+<p>配置 laradock 的 <code>.env</code> ：</p>
+<pre><code>APP_CODE_PATH_HOST=~/code
+</code></pre><pre><code>vi nginx/sites/laravel.conf
+</code></pre><p>写入以下内容：</p>
+<pre><code>server {
+
+    listen 80;
+    listen [::]:80;
+
+    server_name ~^(?&lt;subdomain&gt;.+)\.laravel$;
+    root /var/www/$subdomain/public;
+    index index.php index.html index.htm;
+
+    location / {
+         try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri /index.php =404;
+        fastcgi_pass php-upstream;
+        fastcgi_index index.php;
+        fastcgi_buffers 16 16k;
+        fastcgi_buffer_size 32k;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        #fixes timeouts
+        fastcgi_read_timeout 600;
+        include fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/letsencrypt/;
+        log_not_found off;
+    }
+
+    error_log /var/log/nginx/laravel_error.log;
+    access_log /var/log/nginx/laravel_access.log;
+}
+</code></pre><p>注意，核心内容是：</p>
+<pre><code>    server_name ~^(?&lt;subdomain&gt;.+)\.laravel$;
+    root /var/www/$subdomain/public;
+    index index.php index.html index.htm;
+</code></pre><p>启动 laradock <code>docker-compose up -d nginx </code>。
+在浏览器中访问 <code>http://todo.laravel</code> 和 <code>http://sanctum.laravel</code>。</p>
+<p>当然，你可以在 <code>~/code</code> 目录中，<code>laravel new test</code>,然后就能直接访问 <code>http://test.laravel</code> 啦。</p>
+<h2 id="错误排查">错误排查</h2>
+<ul>
+<li>如果 <code>ping todo.laravel</code> 没有返回 127.0.0.1 ，应该是 dnsmasq 配置不正确，或者没有重启服务</li>
+<li>如果浏览器访问<code>http://todo.laravel</code>不成功，应该是 laradock 没有配置好</li>
+<li>本人只有 mac 环境，其他平台请根据原理自行测试</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<blockquote>
+<p><a href="https://www.dazhuanlan.com/2019/12/09/5dede664b5ac0">Mac 下安装 dnsmasq 来配置开发环境</a>
+<a href="https://www.cnblogs.com/mysticbinary/archive/2020/04/04/12633233.html">用brew安装nginx并配置 - Mysticbinary - 博客园</a>
+部分参考 <a href="https://www.cnblogs.com/jasondayee/p/12021984.html">mac os 搭建私有DNS 之 dnsmasq - jasondayee - 博客园</a></p>
+</blockquote>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

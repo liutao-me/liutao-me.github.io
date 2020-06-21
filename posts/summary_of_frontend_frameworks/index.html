@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>前端框架总结 笔记 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="前端框架总结 笔记" />
+<meta property="og:description" content="前端框架及项目面试_聚焦Vue、React、Webpack-慕课网实战
+ 第1章 常见面试流程 一面：基础知识
+ js 基础知识 框架基本使用  二面：高级特性 &#43; 原理
+ 框架高级特性 框架原理  三面：设计 &#43; 经验
+ 项目设计能力 工作经验和环境  第2章 先看几个面试题 Vue 面试题  v-show 和 v-if 的区别 为何 v-for 中要用 key 描述 Vue 组件生命周期（有父子组件的情况） Vue 组件如何通讯 描述组件渲染和更新的过程 双向数据绑定 v-model 的实现原理  React 面试题  React 组件如何通讯 jsx 本质是什么 context 是什么，有何用途 shouldComponentUpdate 的用途 描述 redux 单项数据流 setState 是同步还是异步？  框架综合应用  基于 React 设计一个 todolist （组件结构，redux state 数据结构） 基于 Vue 设计一个购物车（ 组件结构，vuex state 数据结构）  webpack 面试题  前端代码为何要进行构建和打包？ module chunk bundle 分别什么意思，有何区别 loader 和 plugin 的区别 webpack 如何实现懒加载 webpack 常见性能优化 babel-runtime 和babel-polyfill 的区别  如何应对？  框架的使用 框架的原理 框架的实际应用，即设计能力  第3章 Vue 使用 基本使用 vue-cli 创建项目 指令、插值 computed、watch computed 有缓存，data 不变则不会重新计算 watch 如何深度监听？(handler(oldVal,val){},deep:true) watch 监听引用类型时，拿不到 oldValue" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/summary_of_frontend_frameworks/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="前端框架总结 笔记">
+<meta itemprop="description" content="前端框架及项目面试_聚焦Vue、React、Webpack-慕课网实战
+ 第1章 常见面试流程 一面：基础知识
+ js 基础知识 框架基本使用  二面：高级特性 &#43; 原理
+ 框架高级特性 框架原理  三面：设计 &#43; 经验
+ 项目设计能力 工作经验和环境  第2章 先看几个面试题 Vue 面试题  v-show 和 v-if 的区别 为何 v-for 中要用 key 描述 Vue 组件生命周期（有父子组件的情况） Vue 组件如何通讯 描述组件渲染和更新的过程 双向数据绑定 v-model 的实现原理  React 面试题  React 组件如何通讯 jsx 本质是什么 context 是什么，有何用途 shouldComponentUpdate 的用途 描述 redux 单项数据流 setState 是同步还是异步？  框架综合应用  基于 React 设计一个 todolist （组件结构，redux state 数据结构） 基于 Vue 设计一个购物车（ 组件结构，vuex state 数据结构）  webpack 面试题  前端代码为何要进行构建和打包？ module chunk bundle 分别什么意思，有何区别 loader 和 plugin 的区别 webpack 如何实现懒加载 webpack 常见性能优化 babel-runtime 和babel-polyfill 的区别  如何应对？  框架的使用 框架的原理 框架的实际应用，即设计能力  第3章 Vue 使用 基本使用 vue-cli 创建项目 指令、插值 computed、watch computed 有缓存，data 不变则不会重新计算 watch 如何深度监听？(handler(oldVal,val){},deep:true) watch 监听引用类型时，拿不到 oldValue">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2683">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="前端框架总结 笔记"/>
+<meta name="twitter:description" content="前端框架及项目面试_聚焦Vue、React、Webpack-慕课网实战
+ 第1章 常见面试流程 一面：基础知识
+ js 基础知识 框架基本使用  二面：高级特性 &#43; 原理
+ 框架高级特性 框架原理  三面：设计 &#43; 经验
+ 项目设计能力 工作经验和环境  第2章 先看几个面试题 Vue 面试题  v-show 和 v-if 的区别 为何 v-for 中要用 key 描述 Vue 组件生命周期（有父子组件的情况） Vue 组件如何通讯 描述组件渲染和更新的过程 双向数据绑定 v-model 的实现原理  React 面试题  React 组件如何通讯 jsx 本质是什么 context 是什么，有何用途 shouldComponentUpdate 的用途 描述 redux 单项数据流 setState 是同步还是异步？  框架综合应用  基于 React 设计一个 todolist （组件结构，redux state 数据结构） 基于 Vue 设计一个购物车（ 组件结构，vuex state 数据结构）  webpack 面试题  前端代码为何要进行构建和打包？ module chunk bundle 分别什么意思，有何区别 loader 和 plugin 的区别 webpack 如何实现懒加载 webpack 常见性能优化 babel-runtime 和babel-polyfill 的区别  如何应对？  框架的使用 框架的原理 框架的实际应用，即设计能力  第3章 Vue 使用 基本使用 vue-cli 创建项目 指令、插值 computed、watch computed 有缓存，data 不变则不会重新计算 watch 如何深度监听？(handler(oldVal,val){},deep:true) watch 监听引用类型时，拿不到 oldValue"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">前端框架总结 笔记</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><blockquote>
+<p><a href="https://coding.imooc.com/class/419.html">前端框架及项目面试_聚焦Vue、React、Webpack-慕课网实战</a></p>
+</blockquote>
+<h2 id="第1章-常见面试流程">第1章 常见面试流程</h2>
+<p>一面：基础知识</p>
+<ul>
+<li>js 基础知识</li>
+<li>框架基本使用</li>
+</ul>
+<p>二面：高级特性 + 原理</p>
+<ul>
+<li>框架高级特性</li>
+<li>框架原理</li>
+</ul>
+<p>三面：设计 + 经验</p>
+<ul>
+<li>项目设计能力</li>
+<li>工作经验和环境</li>
+</ul>
+<h2 id="第2章-先看几个面试题">第2章 先看几个面试题</h2>
+<h3 id="vue-面试题">Vue 面试题</h3>
+<ul>
+<li>v-show 和 v-if 的区别</li>
+<li>为何 v-for 中要用 key</li>
+<li>描述 Vue 组件生命周期（有父子组件的情况）</li>
+<li>Vue 组件如何通讯</li>
+<li>描述组件渲染和更新的过程</li>
+<li>双向数据绑定 v-model 的实现原理</li>
+</ul>
+<h3 id="react-面试题">React 面试题</h3>
+<ul>
+<li>React 组件如何通讯</li>
+<li>jsx 本质是什么</li>
+<li>context 是什么，有何用途</li>
+<li>shouldComponentUpdate 的用途</li>
+<li>描述 redux 单项数据流</li>
+<li>setState 是同步还是异步？</li>
+</ul>
+<h3 id="框架综合应用">框架综合应用</h3>
+<ul>
+<li>基于 React 设计一个 todolist （组件结构，redux state 数据结构）</li>
+<li>基于 Vue 设计一个购物车（ 组件结构，vuex state 数据结构）</li>
+</ul>
+<h3 id="webpack-面试题">webpack 面试题</h3>
+<ul>
+<li>前端代码为何要进行构建和打包？</li>
+<li>module chunk bundle 分别什么意思，有何区别</li>
+<li>loader 和 plugin 的区别</li>
+<li>webpack 如何实现懒加载</li>
+<li>webpack 常见性能优化</li>
+<li>babel-runtime 和babel-polyfill 的区别</li>
+</ul>
+<h3 id="如何应对">如何应对？</h3>
+<ul>
+<li>框架的使用</li>
+<li>框架的原理</li>
+<li>框架的实际应用，即设计能力</li>
+</ul>
+<h2 id="第3章-vue-使用">第3章 Vue 使用</h2>
+<h3 id="基本使用">基本使用</h3>
+<h4 id="vue-cli-创建项目">vue-cli 创建项目</h4>
+<h4 id="指令插值">指令、插值</h4>
+<h4 id="computedwatch">computed、watch</h4>
+<p>computed 有缓存，data 不变则不会重新计算
+watch 如何深度监听？(handler(oldVal,val){},deep:true)
+watch 监听引用类型时，拿不到 oldValue</p>
+<p>watch 的值用于 双向绑定（v-model）时，必须要使用 get、set</p>
+<h4 id="classstyle">class、style</h4>
+<ul>
+<li>使用动态属性</li>
+<li>使用驼峰式写法</li>
+</ul>
+<p>class 可以是对象写法，也可以是数组写法
+style 动态使用时，里面的属性值要使用驼峰式写法</p>
+<pre><code>&lt;p :style=&quot;styleData&quot;&gt;&lt;/p&gt;
+
+styleData:{
+fontSize:'40px',
+color:'red',
+backgroundColor:'#ccc'
+}
+</code></pre><h4 id="条件渲染">条件渲染</h4>
+<p>v-if v-else 的写法。可使用变量，也可以使用 === 表达式
+v-if 和 v-show 的区别？应用场景？</p>
+<h4 id="循环列表渲染">循环（列表）渲染</h4>
+<p>v-for
+key 的重要性
+v-for 和 v-if 不能一起使用</p>
+<h4 id="事件">事件</h4>
+<ul>
+<li>event 参数，自定义参数</li>
+</ul>
+<pre><code>&lt;button @click=&quot;increment1&quot;&gt; +1 &lt;/button&gt;
+&lt;button @click=&quot;increment2(2,$event)&quot;&gt; +2 &lt;/button&gt;
+
+methods:{
+increment1(event){},
+increment2(val,event){}
+}
+
+</code></pre><p>event 是原生的 event 对象，
+事件是注册（挂载）在当前元素</p>
+<ul>
+<li>事件修饰符，按键修饰符
+.stop
+.prevent
+.cupture
+.self
+.ctrl
+.exact
+事件修饰符可以串联，比如： .stop.prevent</li>
+</ul>
+<h4 id="表单">表单</h4>
+<p>v-model
+常见表单项：textarea,checkbox,radio,select
+修饰符：lazy,number,trim</p>
+<h3 id="vue-组件使用">Vue 组件使用</h3>
+<h4 id="props-和-emit">props 和 $emit</h4>
+<h4 id="组件间通讯---自定义事件">组件间通讯 - 自定义事件</h4>
+<pre><code>event.$on(&quot;onAdd&quot;,func)
+
+event.$emit(&quot;onAdd&quot;,args)
+
+event.$off(&quot;onAdd&quot;,func)
+</code></pre><h4 id="组件生命周期">组件生命周期</h4>
+<ul>
+<li>挂载 (beforeCreate,created,beforeMount,mounted)
+created  阶段 页面还没有渲染</li>
+<li>更新 (beforeUpdate,updated)</li>
+<li>销毁 (beforeDestroy,destroyed)</li>
+</ul>
+<ol>
+<li>
+<p>加载渲染过程
+同步引入时生命周期顺序为：
+父 beforeCreate、created、beforeMount &ndash;&gt;
+子 beforeCreate、created、beforeMount &ndash;&gt;
+子 mounted &ndash;&gt;
+父 mounted
+异步引入时生命周期顺序：
+父 beforeCreate、created、beforeMount、mounted &ndash;&gt;
+子 beforeCreate、created、beforeMount、mounted</p>
+</li>
+<li>
+<p>子组件更新过程
+父 beforeUpdate-&gt;
+子 beforeUpdate-&gt;
+子 updated-&gt;
+父 updated</p>
+</li>
+<li>
+<p>父组件更新过程<br>
+父 beforeUpdate-&gt;
+父 updated</p>
+</li>
+<li>
+<p>销毁过程
+父 beforeDestroy-&gt;
+子 beforeDestroy-&gt;
+子 destroyed-&gt;
+父 destroyed</p>
+</li>
+</ol>
+<h4 id="vue-高级特性">Vue 高级特性</h4>
+<ul>
+<li>自定义 v-model
+父组件:</li>
+</ul>
+<pre><code>&lt;CustomVModel v-model=&quot;name&quot;&gt;
+</code></pre><p>子组件 CustomVModel</p>
+<pre><code>&lt;input type=&quot;text&quot; :value=&quot;text1&quot; @input=&quot;$emit('change1',$event.target.value)&quot;&gt;
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span>{
+<span style="color:#a6e22e">model</span><span style="color:#f92672">:</span>{
+<span style="color:#a6e22e">prop</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;text1&#39;</span>,
+<span style="color:#a6e22e">event</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;change1&#39;</span>
+},
+<span style="color:#a6e22e">props</span><span style="color:#f92672">:</span>{
+<span style="color:#a6e22e">text1</span><span style="color:#f92672">:</span>String,
+<span style="color:#66d9ef">default</span>(){
+<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;&#39;</span>
+}
+}
+}
+
+</code></pre></div><ul>
+<li>$nextTick</li>
+</ul>
+<pre><code>this.$nextTick(()=&gt;{
+const ul = this.$refs.ul
+console.log(ul.childNodes.length)
+})
+</code></pre><ul>
+<li>slot
+插槽
+作用域插槽
+具名插槽</li>
+</ul>
+<pre><code>&lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;
+
+&lt;template v-slot:header&gt;
+  &lt;h1&gt;header&lt;/h1&gt;
+&lt;/template&gt;
+</code></pre><ul>
+<li>动态、异步组件</li>
+</ul>
+<p>动态组件</p>
+<pre><code>&lt;component :is=&quot;component-name&quot;&gt;&lt;/component&gt;
+</code></pre><p>异步组件</p>
+<pre><code>export default(){
+  components:{
+    FormDemo:()=&gt;require('../FormDemo')
+  }
+}
+</code></pre><ul>
+<li>keep-alive</li>
+</ul>
+<p>缓存组件，直接将需缓存的组件用 keep-live 包裹起来</p>
+<pre><code>&lt;keep-alive&gt;
+  &lt;componentA v-if=&quot;&quot;&gt;&lt;/componentA&gt;
+  &lt;componentB v-if=&quot;&quot;&gt;&lt;/componentB&gt;
+&lt;/keep-alive&gt;
+</code></pre><ul>
+<li>mixin
+多个组件有相同的逻辑，抽离出来
+mixin 并不是完美的解决方案，会有一些问题
+Vue 3 提出的 Composition API 旨在解决这些问题</li>
+</ul>
+<p>mixin 的问题:
+变量来源不明确，不利于阅读
+多 mixin 可能会造成命名冲突
+mixin 和组件可能出现多对多的关系，复杂度较高</p>
+<h3 id="vuex">Vuex</h3>
+<p>state
+getters
+action
+mutation
+dispatch
+commit
+mapState
+mapGetters
+mapActions
+mapMutations</p>
+<h3 id="vue-router">Vue-router</h3>
+<p>路由模式（hash、H5 history）
+hash 模式（默认），如  <code>http://abc.com/#/user/10</code>
+H5 history 模式，如 <code>http://abc.com/user/10</code> ，需要 server 端支持</p>
+<p>路由配置（动态路由、懒加载）
+动态路由：</p>
+<pre><code>// 配置
+const router = new VueRouter({
+  routers:[
+    { path: '/user/:id',component:User}
+  ]
+})
+
+// 使用
+const User = {
+  template: '&lt;div&gt;User {{$route.params.id}} &lt;/div&gt;'
+}
+</code></pre><p>懒加载：</p>
+<pre><code>export default new VueRouter({
+  routes:[
+    {
+      path:'/',
+      component:()=&gt;import('../components/Navigator')
+    },
+    {
+      path: '/feedback',
+      component: ()=&gt;import('../components/FeedBack')
+    }
+  ]
+})
+</code></pre><h2 id="第-4-章-vue-原理">第 4 章 Vue 原理</h2>
+<h3 id="组件化">组件化</h3>
+<p>MVVM</p>
+<h3 id="响应式">响应式</h3>
+<p>核心 API Object.defineProperty
+(Vue 3.0 启用 Proxy，Proxy 兼容性不好，且无法 polyfill)</p>
+<p>监听对象，监听数组
+复杂对象，深度监听</p>
+<p>Object.defineProperty 缺点</p>
+<ul>
+<li>深度监听，需要递归到底，一次性计算量大</li>
+<li>无法监听新增属性/删除属性 （ Vue.set Vue.delete ）</li>
+<li>无法原始监听数组，需要特殊处理</li>
+</ul>
+<h3 id="vdom-和-diff">vdom 和 diff</h3>
+<h4 id="vdom">vdom</h4>
+<p>vdom 是实现 vue 和 React 的重要基石
+diff 算法是 vdom 中最核心、最关键的部分
+vdom 是一个热门话题，也是面试中的热门问题</p>
+<p>dom 操作非常耗费性能
+vdom - 用 JS 模拟 dom 结构，计算出最小的变更，操作 dom
+<a href="https://github.com/snabbdom/snabbdom">GitHub - snabbdom/snabbdom: A virtual DOM library with focus on simplicity, modularity, powerful features and performance.</a></p>
+<h4 id="diff-算法">diff 算法</h4>
+<p>diff 算法是 vdom 中最核心、最关键的部分
+diff 算法能在日常使用 vue react 中体现出来（如 key）
+diff 算法是前端热门话题，面试“宠儿”
+diff 即对比，是一个广泛的概念，如 linux diff，git diff 等
+两个 js 对象也可以做 diff，如 <a href="https://github.com/cujojs/jiff">https://github.com/cujojs/jiff</a>
+两棵树做 diff ，如 vdom diff</p>
+<p>树 diff 的时间复杂度 O(n^3)
+优化时间复杂度到 O(n):</p>
+<ul>
+<li>只比较同一层级，不跨级比较</li>
+<li>tag 不相同，则直接删掉重建，不再深度比较</li>
+<li>tag 和 key，两者都相同，则认为是相同节点，不再深度比较</li>
+</ul>
+<p>vdom 核心概念：
+h、vnode、patch、diff、key 等
+vdom 存在的价值： 数据驱动视图，控制 dom 操作</p>
+<ul>
+<li>模板编译</li>
+</ul>
+<ol>
+<li>前置知识： js 的 with 语法</li>
+</ol>
+<pre><code>// 改变 {} 内自由变量的查找规则，当做 obj 属性来查找
+// 如果找不到匹配的 obj 属性，就会报错
+// with 要慎用，它大打破了作用域规则，易读性变差
+
+obj = {a:1,b:2}
+with(obj){
+  console.log(a) // 等价于 obj.a
+  console.log(b) // 等价于 obj.b
+  console.log(c) // 报错
+}
+</code></pre><ol start="2">
+<li>vue template complier 将模板编译为 render 函数</li>
+</ol>
+<pre><code>mkdir vue-compiler-test
+cd vue-compiler-test
+npm init -y
+npm i vue-template-compiler --save
+</code></pre><p>模板编译为 render 函数，执行 render 函数返回 vnode
+基于 vnode 再执行 patch 和 diff
+使用 webpack vue-loader ，会在开发环境下编译模板（重要）</p>
+<ol start="3">
+<li>执行 render 函数生成 vnode
+vue 组件可以用 render 代替 template</li>
+</ol>
+<ul>
+<li>渲染过程
+一个组件渲染到页面，修改 data 触发更新（数据驱动视图）</li>
+</ul>
+<p>响应式： 监听 data 属性 getter setter （包括数组）
+模板编译：模板到 render 函数，再到 vnode
+vdom： patch(elem,vnode) 和 patch(vnode,newVnode)</p>
+<ol>
+<li>
+<p>初次渲染过程
+解析模板为 render 函数（或在开发环境已完成，vue-loader）
+触发响应式，监听 data 属性 getter setter
+执行 render 函数，生成 vnode，patch(elem,vnode)</p>
+</li>
+<li>
+<p>更新过程
+修改 data，触发 setter （ 此前在 getter 中已被监听）
+重新执行 render 函数，生成 newVnode
+patch(vnode,newVnode)</p>
+</li>
+<li>
+<p>异步渲染
+回顾 $nextTick
+汇总 data 的修改，一次性更新视图
+减少 dom 操作次数，提高性能</p>
+</li>
+</ol>
+<ul>
+<li>前端路由
+稍微复杂一点的 SPA，都需要路由
+vue-router 是 vue 全家桶的标配之一
+属于“和日常使用相关联的原理”，面试常考</li>
+</ul>
+<p>vue-router 的路由模式： hash/H5 history</p>
+<pre><code>// hash
+// http://127.0.0.1:8881/01-hash.html?a=100&amp;b=20#/aaa/bbb
+
+location.protocol  // http:
+
+location.hostname // '127.0.0.1:8881'
+
+location.port  // '8881'
+
+location.pathname // '/01-hash.html'
+
+location.search // '?a=100&amp;b=20'
+
+location.hash // '#/aaa/bbb'
+
+</code></pre><p>hash 变化会触发网页跳转，即浏览器的前进、后退
+hash 变化不会刷新页面，SPA 必需的特点
+hash 永远不会提交到 server 端（前端自生自灭）</p>
+<pre><code>hash 修改：
+1. js 修改 url
+2. 手动修改 url 的 hash
+3. 浏览器前进、后退
+</code></pre><pre><code>window.onhashchange = (event)=&gt;{
+  console.log(event.oldURL)
+  console.log(event.newURL)
+  console.log(event.hash)
+}
+</code></pre><p>H5 history
+用 url 规范的路由，但跳转时不刷新页面
+history.pushState
+window.onpopstate</p>
+<p>to B 的系统推荐使用 hash，简单易用，对 url 规范不敏感
+to C 的系统，可以考虑 H5 history，但需要服务端支持
+能选择简单的，就别用复杂的，要考虑成本和收益</p>
+<h2 id="第-5-章-vue-面试真题演练">第 5 章 Vue 面试真题演练</h2>
+<ol>
+<li>v-show 和 v-if 的区别</li>
+</ol>
+<ul>
+<li>v-show 通过 CSS display 控制显示和隐藏</li>
+<li>v-if 组件真正的渲染和销毁，而不是显示和隐藏</li>
+<li>频繁切换显示状态用 v-show，否则用 v-if</li>
+</ul>
+<ol start="2">
+<li>为何在 v-for 中用 key</li>
+</ol>
+<ul>
+<li>必须用 key，且不能是 index 和 random</li>
+<li>diff 算法中通过 tag 和 key 来判断，是否是 sameNode</li>
+<li>减少渲染次数，提升渲染性能</li>
+</ul>
+<ol start="3">
+<li>
+<p>描述 Vue 组件生命周期（父子组件）
+单组件生命周期图
+父子组件生命周期关系</p>
+</li>
+<li>
+<p>Vue 组件如何通讯（常见）</p>
+</li>
+</ol>
+<ul>
+<li>父子组件 props 和 this.$emit</li>
+<li>自定义事件 event.$on event.$off event.$emit</li>
+<li>vuex</li>
+</ul>
+<ol start="5">
+<li>
+<p>描述组件渲染和更新的过程</p>
+</li>
+<li>
+<p>双向数据绑定 v-model 的实现原理</p>
+</li>
+</ol>
+<ul>
+<li>input 元素的 value = this.name</li>
+<li>绑定 input 事件 this.name = $event.target.value</li>
+<li>data 更新触发 re-render</li>
+</ul>
+<ol start="7">
+<li>
+<p>对 MVVM 的理解
+View ViewModel Model</p>
+</li>
+<li>
+<p>computed 有何特点</p>
+</li>
+</ol>
+<ul>
+<li>缓存，data 不变，不会重新计算</li>
+<li>提高性能</li>
+</ul>
+<ol start="9">
+<li>
+<p>为何组件 data 必须是一个函数
+每一个 vue 文件实际上是一个 class，使用时相当于实例化类。如果不是函数，在多次引用该文件时，会导致它的属性（data）被修改。如果是一个函数，相当于在闭包中，不会出现上述问题</p>
+</li>
+<li>
+<p>ajax 请求应该放在哪个生命周期
+mounted
+js 是单线程的， ajax 异步获取数据
+放在 mounted 之前没有用，只会让逻辑更加混乱</p>
+</li>
+<li>
+<p>如何将组件所有 props 传递给子组件
+$props
+<code>&lt;User v-bind=&quot;$props&quot; /&gt;</code></p>
+</li>
+<li>
+<p>如何自己实现  v-model</p>
+</li>
+<li>
+<p>多个组件有相同的逻辑，如何抽离？
+mixin</p>
+</li>
+<li>
+<p>何时要使用异步组件</p>
+</li>
+</ol>
+<ul>
+<li>加载大组件</li>
+<li>路由异步加载</li>
+</ul>
+<ol start="15">
+<li>
+<p>何时需要使用 keep-live
+缓存组件，不需要重复渲染（如多个静态 tab 页的切换）
+优化性能</p>
+</li>
+<li>
+<p>何时需要使用 beforeDestory</p>
+</li>
+</ol>
+<ul>
+<li>解绑自定义事件 event.$off</li>
+<li>清除定时器</li>
+<li>解绑自动以的 dom 事件，如 window scroll 等</li>
+</ul>
+<ol start="17">
+<li>
+<p>什么是作用域插槽
+核心 v-slot</p>
+</li>
+<li>
+<p>Vuex 中 action 和 mutation 有何区别</p>
+</li>
+</ol>
+<ul>
+<li>action 中处理异步，mutation 不可以</li>
+<li>mutation 做原子操作</li>
+<li>action 可以整合多个 mutation</li>
+</ul>
+<ol start="19">
+<li>Vue-router 常用的路由模式</li>
+</ol>
+<ul>
+<li>hash，默认</li>
+<li>h5 history（需服务端支持）</li>
+</ul>
+<ol start="20">
+<li>如何配置 Vue-router 异步加载</li>
+</ol>
+<pre><code>export default new VueRouter({
+  routes:[
+    {
+      path:'/',
+      component:()=&gt;import('../components/Navigator')
+    },
+    {
+      path: '/feedback',
+      component: ()=&gt;import('../components/FeedBack')
+    }
+  ]
+})
+
+</code></pre><ol start="21">
+<li>请用 vnode 描述一个 dom 结构</li>
+</ol>
+<pre><code>    &lt;div id=&quot;div1&quot; class=&quot;container&quot;&gt;
+        &lt;p&gt;vdom&lt;/p&gt;
+        &lt;ul style=&quot;font-size: 20px&quot;&gt;
+            &lt;li&gt;a&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+</code></pre><pre><code>      {
+            tag: 'div',
+            props: {
+                className: 'container',
+                id: 'div1'
+            },
+            children: [
+                {
+                    tag: 'p',
+                    children: 'vdom'
+                },
+                {
+                    tag: 'ul',
+                    props: {style: 'font-size:20px'},
+                    children: [
+                        {
+                            tag: 'li',
+                            children: 'a'
+                        }
+                    ]
+                }
+            ]
+        }
+</code></pre><ol start="22">
+<li>
+<p>监听 data 变化的核心 api 是什么
+Object.defineProperty</p>
+</li>
+<li>
+<p>Vue 如何监听数组变化</p>
+</li>
+</ol>
+<ul>
+<li>Object.defineProperty 不能监听数组变化</li>
+<li>重新定义原型，重写 push pop 等方法，实现监听</li>
+<li>Proxy 可以原生支持监听数组变化</li>
+</ul>
+<ol start="24">
+<li>请描述响应式原理</li>
+</ol>
+<ul>
+<li>监听 data 变化</li>
+<li>组件渲染和更新的流程</li>
+</ul>
+<ol start="25">
+<li>diff 算法的时间复杂度</li>
+</ol>
+<ul>
+<li>O(n)</li>
+<li>在 O(n^3) 基础上做了一些调整（比如：只比较同一层级，tag 不相同，直接销毁重建；比较 tag 和 key，判断是否同一个组件）</li>
+</ul>
+<ol start="26">
+<li>简述 diff 算法过程</li>
+</ol>
+<ul>
+<li>patch(elem,vnode) patch(vnode,newVnode)</li>
+<li>patchVnode addVnodes removevnodes</li>
+<li>updateChildren (key 的重要性)</li>
+</ul>
+<ol start="27">
+<li>Vue 为何是异步渲染，$nextTick 何用？</li>
+</ol>
+<ul>
+<li>异步渲染（以及合并 data 修改），以提高渲染性能</li>
+<li>$nextTick 在 dom 更新完之后，触发回调</li>
+</ul>
+<ol start="28">
+<li>Vue 常见性能优化方式</li>
+</ol>
+<ul>
+<li>合理使用 v-show 和 v-if</li>
+<li>合理使用 computed</li>
+<li>v-for 时加 key，以及避免和 v-if 同时使用</li>
+<li>自定义事件、dom 事件及时销毁</li>
+<li>合理使用异步组件</li>
+<li>合理使用 keep-live</li>
+<li>data 层级不要太深</li>
+<li>使用 vue-loader 在开发环境做模板编译（预编译）</li>
+<li>webpack 层面的优化</li>
+<li>前端通用的性能优化，如图片懒加载</li>
+<li>使用 SSR</li>
+</ul>
+<h2 id="第6章-vue3预学习">第6章 Vue3预学习</h2>
+<ul>
+<li>全部用 ts 重写（响应式、vdom、模板编译等）</li>
+<li>性能提升，代码量减少</li>
+<li>会跳转部分 api</li>
+</ul>
+<h3 id="reflect-作用">Reflect 作用</h3>
+<ul>
+<li>和 Proxy 一一对应</li>
+<li>规范化、标准化、函数式</li>
+<li>替代掉 Object 上的工具函数</li>
+</ul>
+<h3 id="proxy-实现响应式">Proxy 实现响应式</h3>
+<ul>
+<li>深度监听，性能更好</li>
+<li>可监听 新增/删除 属性</li>
+<li>可监听数组变化</li>
+</ul>
+<h3 id="总结">总结</h3>
+<ul>
+<li>Proxy 能规避 Object.defineProperty  的问题</li>
+<li>Proxy 无法兼容所有浏览器，无法 polyfill</li>
+</ul>
+<h2 id="第-7-章-react-使用">第 7 章 React 使用</h2>
+<p>富文本渲染</p>
+<pre><code>import React from 'react';
+
+function RawHtmlElem() {
+    const rawHtml = '&lt;span&gt;富文本内容&lt;h1&gt;标题&lt;/h1&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;b&gt;加粗&lt;/b&gt;&lt;/span&gt;'
+    const rawHtmlData = {
+        __html: rawHtml
+    }
+    const rawHtmlElem = (
+        &lt;div&gt;
+            &lt;p dangerouslySetInnerHTML={rawHtmlData}&gt;&lt;/p&gt;
+            &lt;p&gt;{rawHtml}&lt;/p&gt;
+        &lt;/div&gt;
+    )
+    return rawHtmlElem
+}
+
+export default RawHtmlElem;
+</code></pre><pre><code>// 静态绑定，这样就不需要 bind(this)
+clickHandler = (event)=&gt;{
+event.preventDefault()
+event.stopPropagation()
+}
+</code></pre><pre><code>event.target // 指向当前元素，即当前元素触发
+event.currentTarget // 指向当前元素，假象！！！
+event.nativeEvent // 原生 event
+event.nativeEvent.target // 指向当前元素，即当前元素触发
+event.nativeEvent.currentTarget // 指向 document ！！！
+</code></pre><p>react 的 event，不是原生的 devent ，而是 syntheticEvent。
+所有的时间，都被挂载到 document 上
+和 DOM 事件不一样，和 Vue 事件也不一样</p>
+<h3 id="表单-1">表单</h3>
+<p>受控组件
+input textarea select
+非受控组件</p>
+<h3 id="组件使用">组件使用</h3>
+<p>props 传递数据
+props 传递函数
+props 类型检查</p>
+<p>状态（数据）提升</p>
+<h3 id="setstate">setState</h3>
+<p>this.setState({},()=&gt;{})</p>
+<ul>
+<li>
+<p>不可变值
+在修改状态时不能改变原来的状态state</p>
+</li>
+<li>
+<p>可能是异步更新
+正常情况下是异步
+setTimeout 中 setState 是同步的
+自定义的 dom 事件，setState 是同步的</p>
+</li>
+<li>
+<p>可能会被合并
+传入对象，会被合并</p>
+</li>
+</ul>
+<pre><code>this.setState({count:this.state.count+1})
+</code></pre><p>传入函数，不会被合并</p>
+<pre><code>this.setState((prevState,props)=&gt;{
+  return {count:prevState.count+1}
+})
+</code></pre><h3 id="组件生命周期-1">组件生命周期</h3>
+<p>单组件生命周期
+父子组件生命周期，和 Vue 的一样</p>
+<h3 id="函数组件">函数组件</h3>
+<p>只接收 props 时，可以使用函数组件
+纯函数，输入props，输出 jsx
+没有实例，没有生命周期，没有 state</p>
+<h3 id="非受控组件">非受控组件</h3>
+<p>ref
+defaultValue、defaultChecked
+手动操作 dom 元素</p>
+<pre><code>construct(){
+
+this.nameInputRef = React.createRef()
+}
+
+&lt;input defaultValue={this.state.name} ref={this.nameInputRef} /&gt;
+
+const elem = this.nameInputRef.current
+
+</code></pre><p>使用场景：</p>
+<ul>
+<li>必须手动操作 dom 元素，setState 实现不了</li>
+<li>文件上传 <code>&lt;input type=file&gt;</code></li>
+<li>某些富文本编辑器，需要传入 dom 元素</li>
+</ul>
+<p>优先使用受控组件，符合 react 设计原则
+必须操作 dom 时，再使用非受控组件</p>
+<h3 id="portals">portals</h3>
+<p>组件默认会按照既定层次嵌套渲染
+如何让组件渲染到父组件以外</p>
+<pre><code>render(){
+return ReactDOM.createPortal(
+&lt;div className=&quot;modal&quot;&gt;{this.props.children}&lt;/div&gt;,document.body
+)
+}
+</code></pre><p>使用场景：</p>
+<ul>
+<li>overflow:hidden</li>
+<li>父组件 z-index 值太小</li>
+<li>fixed 需要放在 body 第一层级</li>
+</ul>
+<h3 id="context">context</h3>
+<p>公共信息（语言、主题）如何传递个每个组件
+用 props 太繁琐
+用 redux 小题大做</p>
+<blockquote>
+<p><a href="https://react.docschina.org/docs/context.html">Context – React</a></p>
+</blockquote>
+<pre><code>
+
+// Context 可以让我们无须明确地传遍每一个组件，就能将值深入传递进组件树。
+// 为当前的 theme 创建一个 context（“light”为默认值）。
+const ThemeContext = React.createContext('light');
+class App extends React.Component {
+  render() {
+    // 使用一个 Provider 来将当前的 theme 传递给以下的组件树。
+    // 无论多深，任何组件都能读取这个值。
+    // 在这个例子中，我们将 “dark” 作为当前的值传递下去。
+    return (
+      &lt;ThemeContext.Provider value=&quot;dark&quot;&gt;
+        &lt;Toolbar /&gt;
+      &lt;/ThemeContext.Provider&gt;
+    );
+  }
+}
+
+// 中间的组件再也不必指明往下传递 theme 了。
+function Toolbar() {
+  return (
+    &lt;div&gt;
+      &lt;ThemedButton /&gt;
+    &lt;/div&gt;
+  );
+}
+
+class ThemedButton extends React.Component {
+  // 指定 contextType 读取当前的 theme context。
+  // React 会往上找到最近的 theme Provider，然后使用它的值。
+  // 在这个例子中，当前的 theme 值为 “dark”。
+  static contextType = ThemeContext;
+  // ThemedButton.contextType = ThemeContext
+  render() {
+    return &lt;Button theme={this.context} /&gt;;
+  }
+}
+</code></pre><h3 id="异步组件">异步组件</h3>
+<ul>
+<li>import()</li>
+<li>React.lazy</li>
+<li>React.Suspense</li>
+</ul>
+<pre><code>const contextDemo = React.lazy(()=&gt;import('./ContextDemo'))
+
+
+&lt;div&gt;
+&lt;React.Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+&lt;ContextDemo&gt;
+&lt;/React.Suspense&gt;
+&lt;/div&gt;
+
+
+</code></pre><h3 id="性能优化">性能优化</h3>
+<ul>
+<li>shouldComponentUpdate (SCU)</li>
+<li>PureComponent 和 React.memo</li>
+<li>不可变值 immutable.js</li>
+</ul>
+<h4 id="scu">SCU</h4>
+<p>SCU 默认返回 true，即 react 默认重新渲染所有子组件
+必须配合“不可变值”一起使用
+可先不用 SCU，有性能问题时再考虑使用</p>
+<h4 id="purecomponent-memo">PureComponent memo</h4>
+<p>PureComponent, SCU 中实现了浅比较
+memo，函数组件中的 PureComponent
+浅比较已使用大部分情况（尽量不要做深度比较）</p>
+<h4 id="immutablejs">immutable.js</h4>
+<p>彻底拥抱“不可变值”
+基于共享数据（不是深拷贝），速度好
+有一定学习和迁移成本，按需使用</p>
+<h3 id="组件公共逻辑的抽离">组件公共逻辑的抽离</h3>
+<p>mixin，已被 react 弃用
+高阶组件 HOC
+Render Props</p>
+<h4 id="hoc">HOC</h4>
+<p>高阶组件不是一种功能，而是一种模式</p>
+<h3 id="redux">redux</h3>
+<pre><code>import { createStore } from 'redux';
+
+/**
+ * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。
+ * 描述了 action 如何把 state 转变成下一个 state。
+ *
+ * state 的形式取决于你，可以是基本类型、数组、对象、
+ * 甚至是 Immutable.js 生成的数据结构。惟一的要点是
+ * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。
+ *
+ * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)
+ * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。
+ */
+function counter(state = 0, action) {
+  switch (action.type) {
+  case 'INCREMENT':
+    return state + 1;
+  case 'DECREMENT':
+    return state - 1;
+  default:
+    return state;
+  }
+}
+
+// 创建 Redux store 来存放应用的状态。
+// API 是 { subscribe, dispatch, getState }。
+let store = createStore(counter);
+
+// 可以手动订阅更新，也可以事件绑定到视图层。
+store.subscribe(() =&gt;
+  console.log(store.getState())
+);
+
+// 改变内部 state 惟一方法是 dispatch 一个 action。
+// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行
+store.dispatch({ type: 'INCREMENT' });
+// 1
+store.dispatch({ type: 'INCREMENT' });
+// 2
+store.dispatch({ type: 'DECREMENT' });
+// 1
+</code></pre><ol>
+<li>dispatch(action)</li>
+<li>reducer -&gt; newState</li>
+<li>subscribe 触发通知</li>
+</ol>
+<p>要点：</p>
+<ol>
+<li>provider</li>
+<li>connect</li>
+<li>mapStateToProps</li>
+<li>mapDispatchToProps</li>
+</ol>
+<h4 id="异步-action">异步 action</h4>
+<pre><code>// 同步
+export const addTodo = text=&gt;{
+  return {
+    type:'ADD_TODO',
+    id:nextToodId++,
+    text
+  }
+}
+
+// 异步
+import thunk form 'redux-thunk';
+import rootReducer form './reducers/index';
+
+const store = createStore(rootReducer,applyMiddleware(thunk));
+
+export const addTodoAsync = text=&gt;{
+  return (dispatch)=&gt;{
+    fetch(url).then(res=&gt;{
+      dispatch(addTodo(res.text))
+    })
+  }
+}
+</code></pre><h3 id="redux-中间件">redux 中间件</h3>
+<pre><code>const store = createStore(
+  reducer,
+  applyMiddleware(thunk,logger)
+)
+
+// logger 实现
+// 自己修改 dispatch ，增加 logger
+let next = store.dispatch
+store.dispatch = function dispatchAndLog(action){
+  console.log('dispatching',action);
+  next(action);
+  console.log('next state',store.getState());
+}
+</code></pre><h3 id="react-router">react-router</h3>
+<ul>
+<li>路由模式 hash、 h5 history，同 vue-router</li>
+<li>路由配置（动态路由、懒加载），同 vue-router</li>
+</ul>
+<h2 id="第-8-章-react-原理">第 8 章 react 原理</h2>
+<h3 id="函数式编程">函数式编程</h3>
+<p>一种编程范式，概念比较多
+纯函数
+不可变值</p>
+<h3 id="vdom-和-diff-1">vdom 和 diff</h3>
+<p>h 函数
+vnode 数据结构
+patch 函数
+diff 算法：</p>
+<p>只比较同一层级，不跨级比较
+tag 不相同，则直接删掉重建，不再深度比较
+tag 和 key，两者都相同，则认为是相同节点，不再深度比较</p>
+<p>Vue2.x Vue3.0 React 三者实现 vdom 细节都不同
+核心概念和实现思路，都一样</p>
+<h3 id="jsx-本质">jsx 本质</h3>
+<p>jsx 等同于 Vue 模板
+Vue 模板不是 html
+jsx 也不是 js</p>
+<p><a href="https://www.babeljs.cn/repl">Babel 中文网 · Babel - 下一代 JavaScript 语法的编译器</a></p>
+<p>React.createElement 即 h 函数，返回 vnode
+第一个参数，可能是组件，也可能是 html tag
+组件名，首字母必须大写（ react 规定）</p>
+<h3 id="合成事件">合成事件</h3>
+<p>所有事件挂载到 document 上
+event 不是原生的，是 syntheticEvent 合成事件对象
+和 vue 事件不同， 和 dom 事件也不同</p>
+<p>为什么要合成事件机制？</p>
+<ul>
+<li>更好的兼容性和跨平台</li>
+<li>载到 document ，减少内存消耗，避免频繁解绑</li>
+<li>方便事件的统一管理（如事务机制）</li>
+</ul>
+<h3 id="setstate-batchupdate">setState batchUpdate</h3>
+<p>有时异步（普通使用），有时同步（setTimeout、DOM 事件）
+有时合并（对象形式），有时不合并（函数形式）。后者比较好理解（像 Object.assign）</p>
+<p>判断 setState 异步还是同步？</p>
+<ul>
+<li>setState 无所谓异步还是同步</li>
+<li>看是否命中 batchUpdate 机制</li>
+<li>判断 isBatchingUpdates</li>
+</ul>
+<p>哪些能命中 batchUpdate 机制</p>
+<ul>
+<li>生命周期（和它调用的函数）</li>
+<li>react 中注册的事件（和它调用的函数）</li>
+<li>react 可以“管理” 的入口</li>
+</ul>
+<p>哪些不能命中 batchUpdate 机制：</p>
+<ul>
+<li>setTimeout setinterval 等（和它调用的函数）</li>
+<li>自定义的 dom 事件（和它调用的函数）</li>
+<li>react “管不到”的入口</li>
+</ul>
+<h3 id="dirtycomponents">dirtyComponents</h3>
+<h3 id="transaction-事务机制">transaction 事务机制</h3>
+<h3 id="组件渲染过程">组件渲染过程</h3>
+<p>jsx 如何渲染为页面
+setState 之后如何更新页面</p>
+<h3 id="回顾">回顾</h3>
+<p>jsx 本质即 createElement 函数</p>
+<p>组件渲染过程：
+render() 执行生成 vnode
+patch(elem,vnode)
+patch(vnode,newVnode)</p>
+<p>组件更新过程：
+setState(newState) -&gt; dirtyComponents （可能有子组件）
+render() 生成 newVonde
+patch(vnode,newVnode)</p>
+<p>更新的两个阶段：
+上述的 patch 被拆分为两个阶段：</p>
+<ol>
+<li>reconciliation 阶段 - 执行 diff 算法，纯 js 计算</li>
+<li>commit 阶段 - 将 diff 结果渲染 dom</li>
+</ol>
+<p>如果不分，可能会有性能问题：</p>
+<ul>
+<li>js 是单线程，且和 dom 渲染共用一个线程</li>
+<li>当组件足够复杂，组件更新时计算和渲染都压力大</li>
+<li>同时再有 dom 操作需求（动画，鼠标拖拽等），将卡顿</li>
+</ul>
+<p>解决方案：fiber</p>
+<ul>
+<li>将 reconciliation 阶段进行任务拆分（commit 无法拆分）</li>
+<li>dom 需要渲染时暂停，空闲时恢复</li>
+<li>window.requestIdleCallback</li>
+</ul>
+<h2 id="第-9-章-react-面试真题演练">第 9 章 react 面试真题演练</h2>
+<ol>
+<li>组件如何通讯</li>
+</ol>
+<ul>
+<li>父子组件 props</li>
+<li>自定义事件</li>
+<li>redux 和 context</li>
+</ul>
+<ol start="2">
+<li>jsx 本质是什么</li>
+</ol>
+<ul>
+<li>createElement</li>
+<li>执行返回 vnode</li>
+</ul>
+<ol start="3">
+<li>context 是什么，如何应用？</li>
+</ol>
+<ul>
+<li>父组件向其下所有子孙组件传递信息</li>
+<li>如一些简单的公共信息：主题色、语言等</li>
+<li>复杂的公共信息，请用 redux</li>
+</ul>
+<ol start="4">
+<li>shouldComponentUpdate 用途</li>
+</ol>
+<ul>
+<li>性能优化</li>
+<li>配合 “ 不可变值” 一起使用，否则会出错</li>
+</ul>
+<ol start="5">
+<li>
+<p>redux 单项数据流
+view
+action
+dispatch
+reducer
+state</p>
+</li>
+<li>
+<p>setState 场景题</p>
+</li>
+<li>
+<p>什么是纯函数</p>
+</li>
+</ol>
+<ul>
+<li>返回一个新值，没有副作用（不会“偷偷”修改其他值）</li>
+<li>重点：不可变值</li>
+<li>如： arr1=arr.slice()</li>
+</ul>
+<ol start="8">
+<li>
+<p>react 组件生命周期
+单组件生命周期
+父子组件生命周期
+注意 SCU</p>
+</li>
+<li>
+<p>react 发起 ajax 应该在哪个生命周期
+componentDidMount</p>
+</li>
+<li>
+<p>渲染列表，为何使用key
+同 vue。必须用 key，且不能是 index 和 random
+diff 算法中通过 tag 和 key 来判断，是否是 sameNode
+减少渲染次数，提升渲染性能</p>
+</li>
+<li>
+<p>函数组件和 class 组件区别
+纯函数，输入 props ，输出 jsx
+没有实例，没有生命周期，没有 state
+不能扩展其他方法</p>
+</li>
+<li>
+<p>什么是受控组件
+表单的值，受 state 控制
+需要自行监听 onChange，更新 state</p>
+</li>
+<li>
+<p>何时使用异步组件
+加载大组件
+路由懒加载</p>
+</li>
+<li>
+<p>多个组件有公共逻辑，如何抽离
+高阶组件 hoc
+render props
+mixin 已被 react 废弃</p>
+</li>
+<li>
+<p>redux 如何进行异步请求
+使用异步 action
+如 redux-thunk</p>
+</li>
+<li>
+<p>react-router 如何配置懒加载
+lazy import</p>
+</li>
+<li>
+<p>PureComponent 有何区别
+实现了浅比较的 SCU
+优化性能
+但要结合不可变值使用</p>
+</li>
+<li>
+<p>react 事件和 dom 事件的区别
+所有时间挂载到 document 上
+event 不是原生的，是 syntheticEvent 合成事件对象
+dispatchEvent</p>
+</li>
+<li>
+<p>react 性能优化
+渲染列表时加 key
+自定义事件、dom 事件 及时销毁
+合理使用异步组件
+减少函数 bind this 的次数
+合理使用 scu PureComponent 和 memo
+合理使用 Immutable.js
+webpack 层面的优化
+前端通用的性能优化，如图片懒加载
+使用 SSR</p>
+</li>
+<li>
+<p>react 和 vue 的区别
+共同点：</p>
+</li>
+</ol>
+<ul>
+<li>都支持组件化</li>
+<li>都是数据驱动视图</li>
+<li>都使用 vdom 操作 dom</li>
+</ul>
+<p>区别：</p>
+<ul>
+<li>react 使用 jsx 拥抱 js，vue 使用模板拥抱 html</li>
+<li>react 函数式编程，vue 声明式编程</li>
+<li>react 更多需要自力更生，vue 把想要的都给你</li>
+</ul>
+<h2 id="第-10-章-webpack">第 10 章 webpack</h2>
+<h3 id="基本配置">基本配置</h3>
+<h4 id="拆分配置和-merge">拆分配置和 merge</h4>
+<h4 id="启动本地服务">启动本地服务</h4>
+<h4 id="heading"></h4>
+<p>loader 的执行顺序是从后向前</p>
+<h3 id="高级配置">高级配置</h3>
+<h4 id="多入口文件">多入口文件</h4>
+<h4 id="抽离-css">抽离 css</h4>
+<p>mini-css-extract-plugin</p>
+<p>压缩：
+terser-webpack-plugin
+optimize-css-assets-webpack</p>
+<h4 id="抽离公共代码">抽离公共代码</h4>
+<pre><code>splitChunks:{
+  chunks:'all',
+  cacheGroups:{
+    vendor:{
+      name:'vendor',
+      priority:1, // 值越高，权限更高，优先抽离，重要！！！
+      test:/node_modules/
+      minSize:0, // 大小限制
+      minChunks:1 // 最少复用过次数
+    },
+    common:{
+      name:'common',
+      priority:0,
+      minSize:0,
+      minChunks:2
+    }
+  }
+}
+</code></pre><h4 id="懒加载">懒加载</h4>
+<pre><code>setTimeout(()=&gt;{
+  import('./dynamic-data.js').then(res=&gt;{
+    console.log(res.default.message)
+  })
+},1500)
+
+</code></pre><p>webpack 默认支持，不需要额外配置</p>
+<h4 id="处理-jsx">处理 jsx</h4>
+<pre><code>// .babelrc
+{
+&quot;presets&quot;:[&quot;@babel/preset-react&quot;]
+}
+</code></pre><h4 id="处理-vue">处理 vue</h4>
+<pre><code>rules:[
+  {
+    test:/\.vue$/,
+    loader:['vue-loader'],
+    include:srcPath
+  }
+]
+</code></pre><h3 id="module-chunk-bundle-的区别">module chunk bundle 的区别</h3>
+<pre><code>module 各个源码文件，webpack 中一切皆模块
+chunk 多模块合并成的，如 entry import() splitChunk
+bundle 最终的输出文件
+</code></pre><h3 id="webpack-性能优化">webpack 性能优化</h3>
+<h4 id="优化打包构建速度---开发体验和效率">优化打包构建速度 - 开发体验和效率</h4>
+<ol>
+<li>优化 babel-loader
+两个方面：</li>
+</ol>
+<ul>
+<li>开启缓存 <code>use:['babel-loader?cacheDirectory']</code></li>
+<li>排除范围， include 和 exclude 两者选一个即可。<code>exclude: path.resolve(__dirname,'node_modules')</code></li>
+</ul>
+<ol start="2">
+<li>
+<p>IgnorePlugin</p>
+</li>
+<li>
+<p>noParse</p>
+</li>
+<li>
+<p>happyPack
+js 本身是单线程。 happyPack 开始多进程打包
+提高构建速度（特别是多核 cpu）</p>
+</li>
+</ol>
+<pre><code>const HappyPack = require('happypack')
+
+
+rules:[
+  {
+    test:/\.js$/,
+    use:['happypack/loader?id=babel'],
+    include:srcPath
+  }
+]
+
+
+plugins:[
+  new HappyPcak({
+    id:'babel',
+    loaders:['babel-loader?cacheDirectory']
+  })
+]
+
+</code></pre><ol start="5">
+<li>ParallelUglifyPlugin
+webpack 内置 Uglify 工具压缩 js
+js 单线程，ParallelUglifyPlugin 开启多进程压缩更快
+和 happyPack 同理</li>
+</ol>
+<pre><code>const ParalleUglifyPlugin = require('webpack-parallel-uglify-plugin')
+
+
+
+plugins:[
+  new ParalleuglifyPlugin({
+    uglifyJS:{
+      output:{
+        beautify: false, // 最紧凑的输出
+        comments: false, // 删除所有的注释
+      },
+      compress:{
+        // 删除所有 console
+        drop_console:true,
+        // 内嵌 定义了但是只用到一次的变量
+        comllapse_vars:true,
+        // 提取出 出现毒刺但是没有定义成变量去引用的静态值
+        reduce_vars: true,
+      }
+    }
+  })
+]
+
+</code></pre><ol start="6">
+<li>
+<p>自动刷新
+无需自己配置。
+当使用 devServer 时，会自动配置自动刷新</p>
+</li>
+<li>
+<p>热更新
+自动刷新：整个网页全部刷新，速度较慢，状态会丢失</p>
+</li>
+</ol>
+<p>热更新：新代码生效，网页不刷新，状态不丢失</p>
+<pre><code>const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin')
+
+
+entry:{
+  // index: path.join(strPath,'index.js')
+  index:[
+    'webpack-dev-server/client?http://localhost:8080/',
+    'webpack/hot/dev-server',
+    path.join(srcPath,'index.js')
+  ]
+}
+
+
+plugins:[
+  new HotmoduleReplacementPlugin()
+]
+
+devServer:[
+  hot: true
+]
+
+// 开启热更新后的代码逻辑
+if(module.hot){
+  module.hot.accept(['./math'],()=&gt;{
+      const sumRes = sum(10,20)
+      console.log(sumRes)
+  })
+}
+
+
+</code></pre><ol start="8">
+<li>DllPlugin 动态链接库插件
+webpack 已内置 DllPlugin 支持
+DllPlugin - 打包出 dll 文件
+DllReferencePlugin - 使用 dll 文件</li>
+</ol>
+<h3 id="webpack-优化构建速度可以用于生产环境">webpack 优化构建速度（可以用于生产环境）</h3>
+<ol>
+<li>优化 babel-loader</li>
+<li>IgnorePlugin</li>
+<li>noParse</li>
+<li>happyPack</li>
+<li>ParallelUglifyPlugin</li>
+</ol>
+<h3 id="webpack-优化构建速度不可用于生产环境">webpack 优化构建速度（不可用于生产环境！）</h3>
+<ol>
+<li>自动刷新</li>
+<li>热更新</li>
+<li>DllPlugin</li>
+</ol>
+<h3 id="webpack-性能优化---产出代码">webpack 性能优化 - 产出代码</h3>
+<p>特点：</p>
+<ul>
+<li>体积更小</li>
+<li>合理分包，不重复加载</li>
+<li>速度更快、内存使用更少</li>
+</ul>
+<p>如何做？</p>
+<ul>
+<li>小图片 base64 编码</li>
+<li>bundle 加 hash</li>
+<li>懒加载</li>
+<li>提取公共代码</li>
+<li>IngorePlugin</li>
+<li>使用 cdn 加速</li>
+<li>使用 production</li>
+<li>Scope Hosting</li>
+</ul>
+<h4 id="production">production</h4>
+<pre><code>mode:'production'
+</code></pre><p>默认会启用以下功能：
+会自动开启代码压缩
+Vue react 等会自动删掉调试代码（如开发环境的 warning)
+启动 tree-shaking （es6 module 才能让 tree-shaing 生效，commonjs 就不行）</p>
+<h4 id="es6-module-和-common-js-区别">es6 module 和 common js 区别</h4>
+<p>es6 module 是静态引入，编译时引入
+commonjs 是动态引入，执行时引入
+只有 es6 module 才能静态分析，实现 tree-shaking</p>
+<h4 id="scope-hosting-作用域提升">Scope Hosting 作用域提升</h4>
+<ul>
+<li>代码体积更小</li>
+<li>创建函数作用域更少</li>
+<li>代码可读性更好
+考虑到Scope Hoisting依赖源码需采用 ES6 模块化语法，还需要配置mainFields。</li>
+</ul>
+<pre><code>const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+
+module.exports = {
+  resolve: {
+    // 针对 Npm 中的第三方模块优先采用 jsnext:main 中指向的 ES6 模块化语法的文件
+    mainFields: ['jsnext:main', 'browser', 'main']
+  },
+  plugins: [
+    // 开启 Scope Hoisting
+    new ModuleConcatenationPlugin(),
+  ],
+};
+</code></pre><p>对于采用了非ES6模块化语法的代码，Webpack会降级处理不使用Scope Hoisting优化，为了知道 Webpack对哪些代码做了降级处理， 你可以在启动Webpack时带上<code>--display-optimization-bailout</code>参数，这样在输出日志中就会包含类似如下的日志：</p>
+<pre><code>[0] ./main.js + 1 modules 80 bytes {0} [built]
+    ModuleConcatenation bailout: Module is not an ECMAScript module
+</code></pre><blockquote>
+<p><a href="https://www.jianshu.com/p/aad010894cf2">https://www.jianshu.com/p/aad010894cf2</a></p>
+</blockquote>
+<h3 id="babel">babel</h3>
+<p>前端开发环境必备工具</p>
+<p>babel 环境搭建和基本配置
+.babelrc 配置
+presets 和 plugins</p>
+<ul>
+<li>babel-polyfill
+是 core-js 和 regenerator 的集合
+regenerator 是用来处理 yield
+babel 7.4 之后弃用 babel-polyfill，推荐直接使用 core-js 和 regenerator</li>
+</ul>
+<ol>
+<li>引入 polyfill
+需要 webpack 配合</li>
+</ol>
+<pre><code>import '@babel/polyfill'
+</code></pre><ol start="2">
+<li>按需引入 polyfill</li>
+</ol>
+<p>.babelrc 文件配置</p>
+<pre><code>{
+  &quot;presets&quot;:[
+    [
+      &quot;@babel/preset-env&quot;,
+      {
+        &quot;useBuiltIns&quot;:&quot;usage&quot;,
+        &quot;corejs&quot;:3
+      }
+    ]
+  ]
+}
+
+</code></pre><p>babel-polyfill 的问题：
+会污染全局环境</p>
+<ul>
+<li>babel-runtime</li>
+</ul>
+<p>.babelrc 文件配置</p>
+<pre><code>{
+ &quot;plugins&quot;:[
+   [
+     &quot;@babel/plugin-transform-runtime&quot;,
+     {
+       &quot;absoluteRuntime&quot;:false,
+       &quot;corejs&quot;:3,
+       &quot;helpers&quot;:true,
+       &quot;regenerator&quot;:true,
+       &quot;useESModules&quot;:false
+     }
+   ]
+ ]
+}
+</code></pre><h4 id="前端为何要进行打包和构建">前端为何要进行打包和构建</h4>
+<ul>
+<li>体积更小（ Tree-shaking、压缩、合并），加载更快</li>
+<li>编译高级语言或语法（TS、ES6+，模块化，scss）</li>
+<li>兼容性和错误检查（Polyfill、postcss、eslint）</li>
+<li>统一、高效的开发环境</li>
+<li>统一的构建流程和产出标准</li>
+<li>集成公司构建规范（提测、上线等）</li>
+</ul>
+<h3 id="loader-和-plugin-的区别">loader 和 plugin 的区别</h3>
+<p>loader 模块转换器，如 less -&gt; css
+plugin 扩展插件，如 HtmlWebpackPlugin</p>
+<h4 id="常见-loader-和-plugin">常见 loader 和 plugin</h4>
+<blockquote>
+<p><a href="https://www.webpackjs.com/loaders/">loaders | webpack 中文网</a>
+<a href="https://www.webpackjs.com/plugins">Plugins | webpack 中文网</a></p>
+</blockquote>
+<h3 id="babel-和-webpack-的区别">babel 和 webpack 的区别</h3>
+<p>babel-js 新语法编译工具，不关心模块化
+webpack 打包构建工具，是多个 loader plugin 的集合</p>
+<h3 id="如何产出一个-lib">如何产出一个 lib</h3>
+<pre><code>output:{
+ // lib 的文件名
+ filename:'lodash.js',
+ // 输出 lib 到 dist 目录下
+ path:distPath,
+ // lib 的全局变量名
+ library:'lodash'
+}
+</code></pre><h3 id="babel--polyfill-和-babel-runtime-的区别">babel -polyfill 和 babel-runtime 的区别</h3>
+<p>babel-polyfill 会污染全局
+babel-runtime 不会污染全局
+产出第三方 lib 要用 babel-runtime</p>
+<h3 id="webpack-如何实现懒加载">webpack 如何实现懒加载</h3>
+<p>import()
+结合 vue react 异步组件
+结合 vue-router react-router 异步加载路由</p>
+<h3 id="为何-proxy-不能被-polyfill">为何 proxy 不能被 polyfill</h3>
+<p>可以使用 polyfill 的场景：
+如 Class 可以用 function 模拟
+如 Promise 可以用 callback 来模拟</p>
+<p>但 Proxy 的功能用 Object.defineProperty 无法模拟（没有现成的语法或者功能可以模拟出 proxy）</p>
+<h2 id="第-11-章-项目设计">第 11 章 项目设计</h2>
+<p>组件和状态设计</p>
+<p>考察重点</p>
+<p>数据驱动视图
+状态：数据结构设计（React-state，Vue-data）
+视图：组件结构和拆分</p>
+<h3 id="回顾面试题">回顾面试题</h3>
+<ul>
+<li>react 设计 todolist（组件结构，redux state 数据结构）</li>
+<li>vue 设计购物车（组件结构，vuex state 数据结构）</li>
+</ul>
+<h3 id="react-实现-todolist">react 实现 todolist</h3>
+<ol>
+<li>state 数据结构设计</li>
+</ol>
+<p>用数据描述所有的内容
+数据要结构化，易于程序操作（遍历、查找）
+数据要可扩展，以便增加新的功能</p>
+<pre><code>this.state = {
+  list:[
+    {
+      id:1,
+      title:'标题',
+      completed:false
+    }
+  ]
+}
+</code></pre><ol start="2">
+<li>组件设计（拆分、组合）和组件通讯</li>
+</ol>
+<p>从功能上拆分层次
+尽量让组件原子化
+容器组件（只管理数据）&amp; UI 组件（只显示视图）</p>
+<h3 id="vue-实现购物车">vue 实现购物车</h3>
+<h2 id="第-11-章-项目流程">第 11 章 项目流程</h2>
+<p>项目分多人、多角色参与
+项目分多阶段
+项目需要计划和执行</p>
+<p>PM 想在项目开发过程中增加需求，该怎么办？
+项目即将延期，该怎么办？
+你将如何保证项目质量？</p>
+<h3 id="项目角色">项目角色：</h3>
+<ul>
+<li>PM 产品经理</li>
+<li>UE 视觉设计师</li>
+<li>FE 前端开发</li>
+<li>RD 后端开发</li>
+<li>CRD 移动端开发</li>
+<li>QA 测试人员</li>
+</ul>
+<h3 id="完整项目流程前端-fe-角度">完整项目流程（前端 FE 角度）</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>参与人员</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需求分析</td>
+<td>各个角色</td>
+</tr>
+<tr>
+<td>技术方案设计</td>
+<td>FE RD CRD</td>
+</tr>
+<tr>
+<td>开发</td>
+<td>FE</td>
+</tr>
+<tr>
+<td>联调</td>
+<td>FE RD CRD</td>
+</tr>
+<tr>
+<td>测试</td>
+<td>FE QA</td>
+</tr>
+<tr>
+<td>上线</td>
+<td>FE</td>
+</tr>
+</tbody>
+</table>
+<p>stage 1 需求分析:
+了解背景
+质疑需求是否合理
+需求是否闭环
+开发难度支持
+是否需要其他支持
+不要急于给排期</p>
+<p>stage 2 技术方案设计
+求简，不过渡设计
+产出文档
+找准设计重点
+组内评审
+和 RD CRD 沟通
+发出会议结论</p>
+<p>stage 3 开发
+如何反馈排期
+符合规范
+写出开发文档
+及时单元测试
+mock api
+code review</p>
+<p>stage 4 联调
+和 RD CRD 技术联调
+让 UE 确定视觉效果
+让 PM 确定产品功能</p>
+<p>stage 5 测试
+提测发邮件，抄送项目组
+测试问题要详细记录
+有问题及时沟通，QA 和 FE 天生信息不对称</p>
+<p>stage 6 上线
+上线之后及时通知 QA 回归测试
+上线之后及时同步给 PM 和项目组
+如有问题，及时回滚。先止损，再排查问题</p>
+<h3 id="pm-加需求怎么办">PM 加需求怎么办？</h3>
+<p>不能拒绝，走需求变更流程即可
+如果公司有规定，则按规定走。否则，发起项目组和 leader 的评审，重新评估排期</p>
+<h3 id="我电脑没问题呀">“我电脑没问题呀”：</h3>
+<p>不要说这句话！
+当面讨论，让 QA 帮你复现
+如果需要特定设备才能复现，让 QA 提供设备</p>
+<h3 id="项目沟通">项目沟通</h3>
+<p>多人协作，沟通是最重要的事情
+每日一沟通（如站会），有事说事，无事报平安
+及时识别风险，及时汇报</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Ubuntu 16.04 安装  MariaDB 10.4 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Ubuntu 16.04 安装  MariaDB 10.4" />
+<meta property="og:description" content="我的安装方法 摘自官网:
+ MariaDB Package Repository Setup and Usage - MariaDB Knowledge Base
+ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash sudo apt-get install mariadb-server mariadb-client root 密码是什么？ 按照其他人的教程，会有提示输入密码（见上图）。可是，什么提示都没有，就告诉我安装完了!!!
+然后，使用 mysql -uroot -p ，会提示输入密码，可是根本就没有让我们输入过密码，怎么试都不对。
+结论 我找的安装教程，都是 10.4之前的版本。可能是因为新版本改了，也有可能是我的安装方法稍有不同导致的。但最终的解决方法如下：
+ sudo mysql_secure_installation  NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY! In order to log into MariaDB to secure it, we&#39;ll need the current password for the root user." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/ubuntu_16.04_install_mariadb_10.04/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="Ubuntu 16.04 安装  MariaDB 10.4">
+<meta itemprop="description" content="我的安装方法 摘自官网:
+ MariaDB Package Repository Setup and Usage - MariaDB Knowledge Base
+ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash sudo apt-get install mariadb-server mariadb-client root 密码是什么？ 按照其他人的教程，会有提示输入密码（见上图）。可是，什么提示都没有，就告诉我安装完了!!!
+然后，使用 mysql -uroot -p ，会提示输入密码，可是根本就没有让我们输入过密码，怎么试都不对。
+结论 我找的安装教程，都是 10.4之前的版本。可能是因为新版本改了，也有可能是我的安装方法稍有不同导致的。但最终的解决方法如下：
+ sudo mysql_secure_installation  NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY! In order to log into MariaDB to secure it, we&#39;ll need the current password for the root user.">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="666">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ubuntu 16.04 安装  MariaDB 10.4"/>
+<meta name="twitter:description" content="我的安装方法 摘自官网:
+ MariaDB Package Repository Setup and Usage - MariaDB Knowledge Base
+ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash sudo apt-get install mariadb-server mariadb-client root 密码是什么？ 按照其他人的教程，会有提示输入密码（见上图）。可是，什么提示都没有，就告诉我安装完了!!!
+然后，使用 mysql -uroot -p ，会提示输入密码，可是根本就没有让我们输入过密码，怎么试都不对。
+结论 我找的安装教程，都是 10.4之前的版本。可能是因为新版本改了，也有可能是我的安装方法稍有不同导致的。但最终的解决方法如下：
+ sudo mysql_secure_installation  NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY! In order to log into MariaDB to secure it, we&#39;ll need the current password for the root user."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">Ubuntu 16.04 安装  MariaDB 10.4</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><h2 id="我的安装方法">我的安装方法</h2>
+<p>摘自官网:</p>
+<blockquote>
+<p><a href="https://mariadb.com/kb/en/library/mariadb-package-repository-setup-and-usage/">MariaDB Package Repository Setup and Usage - MariaDB Knowledge Base</a></p>
+</blockquote>
+<pre><code>curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
+
+sudo apt-get install mariadb-server mariadb-client
+</code></pre><h2 id="root-密码是什么">root 密码是什么？</h2>
+<p><img src="https://images2018.cnblogs.com/blog/534030/201804/534030-20180402144023726-833740287.png" alt="534030-20180402144023726-833740287.png"></p>
+<p>按照其他人的教程，会有提示输入密码（见上图）。可是，什么提示都没有，就告诉我安装完了!!!</p>
+<p>然后，使用 <code>mysql -uroot -p</code> ，会提示输入密码，可是根本就没有让我们输入过密码，怎么试都不对。</p>
+<p><em>结论</em>
+我找的安装教程，都是 10.4之前的版本。可能是因为新版本改了，也有可能是我的安装方法稍有不同导致的。但最终的解决方法如下：</p>
+<pre><code>
+sudo mysql_secure_installation 
+</code></pre><pre><code>
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user. If you've just installed MariaDB, and
+haven't set the root password yet, you should just press enter here.
+
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+
+Setting the root password or using the unix_socket ensures that nobody
+can log into the MariaDB root user without the proper authorisation.
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Switch to unix_socket authentication [Y/n] y
+Enabled successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Change the root password? [Y/n] y
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] y
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+
+</code></pre><pre><code>$ mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 27
+Server version: 10.4.7-MariaDB-1:10.4.7+maria~xenial-log mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]&gt; select version();
++------------------------------------------+
+| version()                                |
++------------------------------------------+
+| 10.4.7-MariaDB-1:10.4.7+maria~xenial-log |
++------------------------------------------+
+1 row in set (0.000 sec)
+</code></pre><h2 id="查看状态">查看状态</h2>
+<pre><code>netstat -an | grep 3306
+
+service mariadb status
+service mysql status
+
+</code></pre><h2 id="修改字符集">修改字符集</h2>
+<p>查看字符集:</p>
+<pre><code>MariaDB [(none)]&gt; SHOW VARIABLES LIKE 'character%';
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | latin1                     |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | latin1                     |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.001 sec)
+
+</code></pre><p>编辑配置文件 <code>vi /etc/mysql/my.cnf</code>，在以下节点处新增配置：</p>
+<pre><code>[client]
+default-character-set=utf8mb4
+[mysqld]
+character-set-server=utf8mb4
+[mysql]
+default-character-set=utf8mb4
+</code></pre><p>重启服务 <code>service mysql restart</code></p>
+<p>修改后的结果如下：</p>
+<pre><code>MariaDB [(none)]&gt; SHOW VARIABLES LIKE 'character%';
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    9
+Current database: *** NONE ***
+
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | utf8mb4                    |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | utf8mb4                    |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.002 sec)
+</code></pre><h2 id="创建数据库">创建数据库</h2>
+<pre><code>CREATE DATABASE `mydb` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+</code></pre><h2 id="如果需要重新安装-mariadb如何彻底删除">如果需要重新安装 MariaDB，如何彻底删除？</h2>
+<pre><code>sudo apt-get remove mysql-*
+dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
+sudo apt-get install mysql-client mysql-server
+sudo service mysql status
+</code></pre><h2 id="致谢">致谢</h2>
+<p>感谢下文拯救了我（当然你也可以试试下文中的安装方法。各位看官自便）：</p>
+<blockquote>
+<p><a href="https://computingforgeeks.com/how-to-install-mariadb-on-debian/">How To Install MariaDB 10.4 on Debian 10 (Buster) - Computing for Geeks</a></p>
+</blockquote>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

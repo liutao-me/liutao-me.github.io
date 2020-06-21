@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>漫画算法 笔记 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="漫画算法 笔记" />
+<meta property="og:description" content="复杂度 时间复杂度 是对一个算法运行时间长短的量度，用大O表示，记作T(n) = O(f(n))
+推导出时间复杂度，有如下几个原则：
+ 如果运行时间是常数量级，则用常数1表示 只保留时间函数中的最高阶项 如果最高阶项存在，则省去最高阶项前面的系数  常见算法的时间复杂度的比较：
+O(1) &lt; O(logn) &lt; O(n) &lt; O(n²)
+空间复杂度 是对一个算法在运行过程中临时占用存储空间大小的度量，用大O表示，记作S(n) = O(f(n))
+ 常量空间：O(1)，存储空间大小固定，和输入规模没有直接关系 线性空间：O(n)，空间是一个线性的集合（比如数组），并且集合大小和输入规模n成正比 二维空间：O(n²)空间是一个二维数组集合，并且集合的长度和宽度都与输入规模n成正比 递归空间：执行递归操作所需的内存空间和递归的深度成正比。纯粹的递归操作的空间复杂度也是线性的，如果递归的深度是n，那么空间复杂度就是O(n)  数据结构基础    * 查找 更新 插入 删除     数组 O(1) O(1) O(n) O(n)   链表 O(n) O(1) O(1) O(1)    可见： 对于读操作多、写操作少的场景来说，数组更适合一些； 如果需要在尾部频繁插入、删除元素，用链表更适合一些。
+   - - -     逻辑结构 线性结构（比如：顺序表、栈、队列） 非线性结构（比如：树、图）   物理结构 顺序存储结构（比如：数组） 链式存储结构（比如：链表）    排序算法    排序算法 平均时间复杂度 空间复杂度 是否稳定排序     冒泡排序 O(n^2) O(n^2) O(1)   鸡尾酒排序 O(n^2) O(n^2) O(1)   快速排序 O(nlogn) O(n^2) O(logn)   堆排序 O(nlogn) O(nlogn) O(1)   计数排序 O(n&#43;m) O(n&#43;m) O(m)   桶排序 O(n) O(nlogn) O(n)    重要参考 《漫画算法》笔记-上篇 - ESnail - 博客园" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/man_hua_suan_fa/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="漫画算法 笔记">
+<meta itemprop="description" content="复杂度 时间复杂度 是对一个算法运行时间长短的量度，用大O表示，记作T(n) = O(f(n))
+推导出时间复杂度，有如下几个原则：
+ 如果运行时间是常数量级，则用常数1表示 只保留时间函数中的最高阶项 如果最高阶项存在，则省去最高阶项前面的系数  常见算法的时间复杂度的比较：
+O(1) &lt; O(logn) &lt; O(n) &lt; O(n²)
+空间复杂度 是对一个算法在运行过程中临时占用存储空间大小的度量，用大O表示，记作S(n) = O(f(n))
+ 常量空间：O(1)，存储空间大小固定，和输入规模没有直接关系 线性空间：O(n)，空间是一个线性的集合（比如数组），并且集合大小和输入规模n成正比 二维空间：O(n²)空间是一个二维数组集合，并且集合的长度和宽度都与输入规模n成正比 递归空间：执行递归操作所需的内存空间和递归的深度成正比。纯粹的递归操作的空间复杂度也是线性的，如果递归的深度是n，那么空间复杂度就是O(n)  数据结构基础    * 查找 更新 插入 删除     数组 O(1) O(1) O(n) O(n)   链表 O(n) O(1) O(1) O(1)    可见： 对于读操作多、写操作少的场景来说，数组更适合一些； 如果需要在尾部频繁插入、删除元素，用链表更适合一些。
+   - - -     逻辑结构 线性结构（比如：顺序表、栈、队列） 非线性结构（比如：树、图）   物理结构 顺序存储结构（比如：数组） 链式存储结构（比如：链表）    排序算法    排序算法 平均时间复杂度 空间复杂度 是否稳定排序     冒泡排序 O(n^2) O(n^2) O(1)   鸡尾酒排序 O(n^2) O(n^2) O(1)   快速排序 O(nlogn) O(n^2) O(logn)   堆排序 O(nlogn) O(nlogn) O(1)   计数排序 O(n&#43;m) O(n&#43;m) O(m)   桶排序 O(n) O(nlogn) O(n)    重要参考 《漫画算法》笔记-上篇 - ESnail - 博客园">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="93">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="漫画算法 笔记"/>
+<meta name="twitter:description" content="复杂度 时间复杂度 是对一个算法运行时间长短的量度，用大O表示，记作T(n) = O(f(n))
+推导出时间复杂度，有如下几个原则：
+ 如果运行时间是常数量级，则用常数1表示 只保留时间函数中的最高阶项 如果最高阶项存在，则省去最高阶项前面的系数  常见算法的时间复杂度的比较：
+O(1) &lt; O(logn) &lt; O(n) &lt; O(n²)
+空间复杂度 是对一个算法在运行过程中临时占用存储空间大小的度量，用大O表示，记作S(n) = O(f(n))
+ 常量空间：O(1)，存储空间大小固定，和输入规模没有直接关系 线性空间：O(n)，空间是一个线性的集合（比如数组），并且集合大小和输入规模n成正比 二维空间：O(n²)空间是一个二维数组集合，并且集合的长度和宽度都与输入规模n成正比 递归空间：执行递归操作所需的内存空间和递归的深度成正比。纯粹的递归操作的空间复杂度也是线性的，如果递归的深度是n，那么空间复杂度就是O(n)  数据结构基础    * 查找 更新 插入 删除     数组 O(1) O(1) O(n) O(n)   链表 O(n) O(1) O(1) O(1)    可见： 对于读操作多、写操作少的场景来说，数组更适合一些； 如果需要在尾部频繁插入、删除元素，用链表更适合一些。
+   - - -     逻辑结构 线性结构（比如：顺序表、栈、队列） 非线性结构（比如：树、图）   物理结构 顺序存储结构（比如：数组） 链式存储结构（比如：链表）    排序算法    排序算法 平均时间复杂度 空间复杂度 是否稳定排序     冒泡排序 O(n^2) O(n^2) O(1)   鸡尾酒排序 O(n^2) O(n^2) O(1)   快速排序 O(nlogn) O(n^2) O(logn)   堆排序 O(nlogn) O(nlogn) O(1)   计数排序 O(n&#43;m) O(n&#43;m) O(m)   桶排序 O(n) O(nlogn) O(n)    重要参考 《漫画算法》笔记-上篇 - ESnail - 博客园"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">漫画算法 笔记</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><h2 id="复杂度">复杂度</h2>
+<h3 id="时间复杂度">时间复杂度</h3>
+<p>是对一个算法运行时间长短的量度，用大O表示，记作T(n) = O(f(n))</p>
+<p>推导出时间复杂度，有如下几个原则：</p>
+<ul>
+<li>如果运行时间是常数量级，则用常数1表示</li>
+<li>只保留时间函数中的最高阶项</li>
+<li>如果最高阶项存在，则省去最高阶项前面的系数</li>
+</ul>
+<p>常见算法的时间复杂度的比较：<br>
+O(1) &lt; O(logn) &lt; O(n) &lt; O(n²)</p>
+<h3 id="空间复杂度">空间复杂度</h3>
+<p>是对一个算法在运行过程中临时占用存储空间大小的度量，用大O表示，记作S(n) = O(f(n))</p>
+<ul>
+<li>常量空间：O(1)，存储空间大小固定，和输入规模没有直接关系</li>
+<li>线性空间：O(n)，空间是一个线性的集合（比如数组），并且集合大小和输入规模n成正比</li>
+<li>二维空间：O(n²)空间是一个二维数组集合，并且集合的长度和宽度都与输入规模n成正比</li>
+<li>递归空间：执行递归操作所需的内存空间和递归的深度成正比。纯粹的递归操作的空间复杂度也是线性的，如果递归的深度是n，那么空间复杂度就是O(n)</li>
+</ul>
+<h2 id="数据结构基础">数据结构基础</h2>
+<table>
+<thead>
+<tr>
+<th>*</th>
+<th>查找</th>
+<th>更新</th>
+<th>插入</th>
+<th>删除</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数组</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>链表</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<p>可见：
+对于读操作多、写操作少的场景来说，数组更适合一些；
+如果需要在尾部频繁插入、删除元素，用链表更适合一些。</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>逻辑结构</td>
+<td>线性结构（比如：顺序表、栈、队列）</td>
+<td>非线性结构（比如：树、图）</td>
+</tr>
+<tr>
+<td>物理结构</td>
+<td>顺序存储结构（比如：数组）</td>
+<td>链式存储结构（比如：链表）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="排序算法">排序算法</h2>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>平均时间复杂度</th>
+<th>空间复杂度</th>
+<th>是否稳定排序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冒泡排序</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>鸡尾酒排序</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(nlogn)</td>
+<td>O(n^2)</td>
+<td>O(logn)</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>O(n+m)</td>
+<td>O(n+m)</td>
+<td>O(m)</td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td>O(n)</td>
+<td>O(nlogn)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="重要参考">重要参考</h2>
+<p><a href="https://www.cnblogs.com/EnSnail/p/11037209.html">《漫画算法》笔记-上篇 - ESnail - 博客园</a></p>
+<p><a href="https://www.cnblogs.com/EnSnail/p/11086919.html">《漫画算法》笔记-下篇 - ESnail - 博客园</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

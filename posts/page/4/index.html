@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Liu Tao" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Liu Tao" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/posts/" />
+<meta property="og:updated_time" content="2020-06-20T00:00:00+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/reverse_proxy_of_nginx/" class="link black dim">
+        nginx 端口转发
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      http-server 示例 http-server， 用于在本地搭建 web 服务器，亦可使用 nginx 或其他 web 服务器。我为什么要用这个？因为开启 web 服务简单、轻便。
+安装 http-server 略
+mkdir test &amp;&amp; cd test echo &quot;hello,, this is a local website&quot; &gt; index.html http-server -p 80 ./ 现在访问 http://localhost，就能看到我们写入 index.htnl 中的内容了。
+nginx 反向代理 开启两个端口的 web 服务 此小节会将 http://test1.laravel 代理到 8081, http://test2.laravel 代理到 8082
+mkdir web1 &amp;&amp; tee ./web1/index.html &lt;&lt;&lt; 'this is web 1' mkdir web2 &amp;&amp; tee ./web2/index.html &lt;&lt;&lt; 'this is web 2' http-server -p 8081 .
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/pyenv/" class="link black dim">
+        pyenv
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      $ brew install pyenv To enable pyenv in your Bash shell, you need to run: $ eval &#34;$(pyenv init -)&#34; To do this automatically for Bash upon startup, add that line to your ~/.bash_profile. 1 Usage: Once you have installed pyenv and activated it, you can install different versions of python and choose which one you can use. Example: $ pyenv install 2.7.5 You can check the versions you have installed with: $ pyenv versions And you can switch between python versions with the command: $ pyenv global 3.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/spacemacs_magit/" class="link black dim">
+        spacemacs magit 笔记
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      SPC g s，弹出新窗口，在新窗口中：
+   命令 描述     s stage file   u unstage file   c commit   p push       命令 描述     SPC g s git status   SPC g S git add    SPC g u git add -u     
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ubuntu_16.04_swapfile/" class="link black dim">
+        Ubuntu 16.04 交换分区
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      sudo swapon --show free -h sudo fallocate -l 4G /swapfile ls -lh /swapfile sudo chmod 600 /swapfile ls -lh /swapfile sudo mkswap /swapfile sudo swapon /swapfile sudo swapon --show free -h sudo cp /etc/fstab /etc/fstab.bak echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab  https://blog.csdn.net/u010429286/article/details/79219230
+ 
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ubuntu_16.04_install_mariadb_10.04/" class="link black dim">
+        Ubuntu 16.04 安装  MariaDB 10.4
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      我的安装方法 摘自官网:
+ MariaDB Package Repository Setup and Usage - MariaDB Knowledge Base
+ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash sudo apt-get install mariadb-server mariadb-client root 密码是什么？ 按照其他人的教程，会有提示输入密码（见上图）。可是，什么提示都没有，就告诉我安装完了!!!
+然后，使用 mysql -uroot -p ，会提示输入密码，可是根本就没有让我们输入过密码，怎么试都不对。
+结论 我找的安装教程，都是 10.4之前的版本。可能是因为新版本改了，也有可能是我的安装方法稍有不同导致的。但最终的解决方法如下：
+ sudo mysql_secure_installation  NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY! In order to log into MariaDB to secure it, we'll need the current password for the root user.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ubuntu_16.04_install_ansible/" class="link black dim">
+        Ubuntu 16.04 安装 ansible
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      安装 sudo apt update sudo apt install software-properties-common sudo apt-add-repository --yes --update ppa:ansible/ansible sudo apt install ansible pip install ansible brew install ansible ansible --version ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.1 ssh-copy-id -i ~/.ssh/id_rsa.pub jobs@10.37.129.201 配置 Hosts 文件： /etc/ansible/hosts 需要去官网下载示例配置
+ansible all -m ping ansible 10.37.129.201 -m ping --user=jobs ansible 10.37.129.201 -m shell -a &quot;ls /home&quot; --user=jobs ansible 10.37.129.201 -m shell -a &quot;ls /home&quot; --user=root --ask-pass ERROR! to use the &lsquo;ssh&rsquo; connection type with passwords, you must install the sshpass program
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ubuntu_16.04_install_pyenv/" class="link black dim">
+        Ubuntu 16.04 安装 pyenv
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      curl https://pyenv.run | bash export PATH=&quot;/home/ubuntu/.pyenv/bin:$PATH&quot; eval &quot;$(pyenv init -)&quot; eval &quot;$(pyenv virtualenv-init -)&quot; pyenv install 3.6.9 -v pyenv install --list 
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ubuntu_install_docker/" class="link black dim">
+        ubuntu install docker
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Set up the repository  Set up the Docker CE repository on Ubuntu. The lsb_release -cs sub-command prints the name of your Ubuntu version, like xenial or trusty.
+sudo apt-get -y install \ apt-transport-https \ ca-certificates \ curl curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - #此处官方文档没有提及 sudo apt-get install python-software-properties sudo apt-get install software-properties-common sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; sudo apt-get update Get Docker CE  Install the latest version of Docker CE on Ubuntu:
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/mac_install_vagrant/" class="link black dim">
+        vagrant
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      vagrant 卸载 rm -rf /opt/vagrant rm -f /usr/local/bin/vagrant sudo pkgutil --forget com.vagrant.vagrant virtualbox 卸载 打开下载安装包，找到卸载程序
+安装 brew cask install virtualbox brew cask install vagrant 
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/3/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/4/">4</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/5/">5</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/7/">7</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/5/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/7/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

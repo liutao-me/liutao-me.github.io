@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Install Hugo | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Install Hugo" />
+<meta property="og:description" content="按照官方文档操作即可，不再赘述。 https://gohugo.io/getting-started/quick-start/
+ brew install hugo hugo version hugo new site blog cd blog git init git submodule add https://github.com/panr/hugo-theme-terminal.git themes/terminal echo &#39;theme = &quot;terminal&quot;&#39; &gt;&gt; config.toml hugo new posts/install_hugo.md hugo server -D Deploy to GitHub Page  参考 https://segmentfault.com/a/1190000012975914
+ 需注意，配置项中有一处错误，正确的如下
+script: hugo  备用参考： https://axdlog.com/zh/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/
+ Add travis-ci badge 获取链接，将其写入 readme 即可。获取方法如下：
+Use private repository of github travis-ci 需要在网站 https://travis-ci.com 进行，操作同 https://travis-ci.org
+wercker  https://axionl.me/2017/12/25/wercker-%E8%A9%A6%E6%B0%B4/ 我的 wercker.yml 内容为：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/install_hugo/" />
+
+<meta itemprop="name" content="Install Hugo">
+<meta itemprop="description" content="按照官方文档操作即可，不再赘述。 https://gohugo.io/getting-started/quick-start/
+ brew install hugo hugo version hugo new site blog cd blog git init git submodule add https://github.com/panr/hugo-theme-terminal.git themes/terminal echo &#39;theme = &quot;terminal&quot;&#39; &gt;&gt; config.toml hugo new posts/install_hugo.md hugo server -D Deploy to GitHub Page  参考 https://segmentfault.com/a/1190000012975914
+ 需注意，配置项中有一处错误，正确的如下
+script: hugo  备用参考： https://axdlog.com/zh/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/
+ Add travis-ci badge 获取链接，将其写入 readme 即可。获取方法如下：
+Use private repository of github travis-ci 需要在网站 https://travis-ci.com 进行，操作同 https://travis-ci.org
+wercker  https://axionl.me/2017/12/25/wercker-%E8%A9%A6%E6%B0%B4/ 我的 wercker.yml 内容为：">
+
+<meta itemprop="wordCount" content="106">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Install Hugo"/>
+<meta name="twitter:description" content="按照官方文档操作即可，不再赘述。 https://gohugo.io/getting-started/quick-start/
+ brew install hugo hugo version hugo new site blog cd blog git init git submodule add https://github.com/panr/hugo-theme-terminal.git themes/terminal echo &#39;theme = &quot;terminal&quot;&#39; &gt;&gt; config.toml hugo new posts/install_hugo.md hugo server -D Deploy to GitHub Page  参考 https://segmentfault.com/a/1190000012975914
+ 需注意，配置项中有一处错误，正确的如下
+script: hugo  备用参考： https://axdlog.com/zh/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/
+ Add travis-ci badge 获取链接，将其写入 readme 即可。获取方法如下：
+Use private repository of github travis-ci 需要在网站 https://travis-ci.com 进行，操作同 https://travis-ci.org
+wercker  https://axionl.me/2017/12/25/wercker-%E8%A9%A6%E6%B0%B4/ 我的 wercker.yml 内容为："/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">Install Hugo</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="0001-01-01T00:00:00Z">January 1, 0001</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><blockquote>
+<p>按照官方文档操作即可，不再赘述。 <a href="https://gohugo.io/getting-started/quick-start/">https://gohugo.io/getting-started/quick-start/</a></p>
+</blockquote>
+<pre><code>brew install hugo
+hugo version
+hugo new site blog
+cd blog
+git init
+
+git submodule add https://github.com/panr/hugo-theme-terminal.git themes/terminal
+echo 'theme = &quot;terminal&quot;' &gt;&gt; config.toml
+
+hugo new posts/install_hugo.md
+
+hugo server -D
+
+</code></pre><h2 id="deploy-to-github-page">Deploy to GitHub Page</h2>
+<blockquote>
+<p>参考 <a href="https://segmentfault.com/a/1190000012975914">https://segmentfault.com/a/1190000012975914</a></p>
+</blockquote>
+<p>需注意，配置项中有一处错误，正确的如下</p>
+<pre><code>script:
+    hugo
+</code></pre><blockquote>
+<p>备用参考： <a href="https://axdlog.com/zh/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/">https://axdlog.com/zh/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/</a></p>
+</blockquote>
+<h3 id="add-travis-ci-badge">Add travis-ci badge</h3>
+<p>获取链接，将其写入 readme 即可。获取方法如下：</p>
+<h3 id="use-private-repository-of-github">Use private repository of github</h3>
+<h4 id="travis-ci">travis-ci</h4>
+<p>需要在网站 <code>https://travis-ci.com</code> 进行，操作同 <code>https://travis-ci.org</code></p>
+<h4 id="wercker">wercker</h4>
+<blockquote>
+<p><a href="https://axionl.me/2017/12/25/wercker-%E8%A9%A6%E6%B0%B4/">https://axionl.me/2017/12/25/wercker-%E8%A9%A6%E6%B0%B4/</a>
+我的 wercker.yml 内容为：</p>
+</blockquote>
+<pre><code>box: debian
+build:
+  steps:
+    - install-packages:
+        packages: git ssh-client
+    - pahnev/gh-pages@0.3.1:
+        token: $GIT_TOKEN
+        branch: master
+        repo: liutao-me/liutao-me.github.io
+        domain: liutao-me.github.io
+        basedir: public
+</code></pre><h4 id="netlify">netlify</h4>
+<p>暂未尝试，下次可以试一下</p>
+<blockquote>
+<p><a href="https://segmentfault.com/a/1190000015756932">Hexo+Netlify快速搭建个人博客 - 个人文章 - SegmentFault 思否</a>
+<a href="https://blog.einverne.info/post/2018/10/use-hub-command-to-interact-with-github.html">https://blog.einverne.info/post/2018/10/use-hub-command-to-interact-with-github.html</a></p>
+</blockquote>
+<h3 id="add-comments">add comments</h3>
+<p>新建文件 layouts/partials/comments.html ，内容为:
+<code>{{ template &quot;_internal/disqus.html&quot; . }}</code></p>
+<h3 id="自定义域名">自定义域名</h3>
+<blockquote>
+<p><a href="https://edward852.github.io/post/hugo%E6%B7%BB%E5%8A%A0algolia%E6%90%9C%E7%B4%A2%E6%94%AF%E6%8C%81/">https://edward852.github.io/post/hugo%E6%B7%BB%E5%8A%A0algolia%E6%90%9C%E7%B4%A2%E6%94%AF%E6%8C%81/</a></p>
+</blockquote>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

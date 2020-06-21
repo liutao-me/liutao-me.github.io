@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Magento 安装 | Liu Tao</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.70.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Magento 安装" />
+<meta property="og:description" content="LAMP 安装简略步骤 服务器环境 Ubuntu 16.04
+sudo apt install apache2 -y #sudo systemctl start apache2.service #sudo systemctl enable apache2.service #sudo systemctl status apache2.service #sudo systemctl restart apache2.service sudo apt install mysql-server mysql-client sudo apt install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 sudo apt install php7.0-gd php7.0-mcrypt php7.0-intl php7.0-xsl php7.0-mbstring php7.0-zip sudo apt install php-xml apache 相关操作
+  新建一个 apache 站点，步骤略
+  apache 开启 rewrite
+a. 软链接 rewrite 模块 (详细命令，你懂的) b." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/install_magento/" />
+<meta property="article:published_time" content="2019-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-01T00:00:00+00:00" />
+<meta itemprop="name" content="Magento 安装">
+<meta itemprop="description" content="LAMP 安装简略步骤 服务器环境 Ubuntu 16.04
+sudo apt install apache2 -y #sudo systemctl start apache2.service #sudo systemctl enable apache2.service #sudo systemctl status apache2.service #sudo systemctl restart apache2.service sudo apt install mysql-server mysql-client sudo apt install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 sudo apt install php7.0-gd php7.0-mcrypt php7.0-intl php7.0-xsl php7.0-mbstring php7.0-zip sudo apt install php-xml apache 相关操作
+  新建一个 apache 站点，步骤略
+  apache 开启 rewrite
+a. 软链接 rewrite 模块 (详细命令，你懂的) b.">
+<meta itemprop="datePublished" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="238">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Magento 安装"/>
+<meta name="twitter:description" content="LAMP 安装简略步骤 服务器环境 Ubuntu 16.04
+sudo apt install apache2 -y #sudo systemctl start apache2.service #sudo systemctl enable apache2.service #sudo systemctl status apache2.service #sudo systemctl restart apache2.service sudo apt install mysql-server mysql-client sudo apt install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 sudo apt install php7.0-gd php7.0-mcrypt php7.0-intl php7.0-xsl php7.0-mbstring php7.0-zip sudo apt install php-xml apache 相关操作
+  新建一个 apache 站点，步骤略
+  apache 开启 rewrite
+a. 软链接 rewrite 模块 (详细命令，你懂的) b."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Liu Tao
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+      <h1 class="f1 athelas mt3 mb1">Magento 安装</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-01T00:00:00Z">October 1, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-90-l"><h2 id="lamp-安装简略步骤">LAMP 安装简略步骤</h2>
+<p>服务器环境 Ubuntu 16.04</p>
+<pre><code>sudo apt install apache2 -y
+#sudo systemctl start apache2.service
+#sudo systemctl enable apache2.service
+#sudo systemctl status apache2.service
+#sudo systemctl restart apache2.service
+
+sudo apt install mysql-server mysql-client
+
+sudo apt install php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0
+sudo apt install php7.0-gd php7.0-mcrypt  php7.0-intl php7.0-xsl php7.0-mbstring php7.0-zip
+
+sudo apt install php-xml
+
+</code></pre><p><strong>apache  相关操作</strong></p>
+<ol>
+<li>
+<p>新建一个 apache 站点，步骤略</p>
+</li>
+<li>
+<p>apache 开启 rewrite</p>
+<p>a. 软链接 rewrite 模块 (详细命令，你懂的)
+b. 修改配置文件
+<code>sudo vi /etc/apache2/apache2.conf</code>
+将其中的 AllowOverride None 改为 AllowOverride All，效果如下:</p>
+<pre><code>&lt;Directory /var/www/&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+&lt;/Directory&gt;
+</code></pre></li>
+</ol>
+<p><strong>mysql 创建数据库及用户</strong></p>
+<pre><code>CREATE DATABASE IF NOT EXISTS magento DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create user 'magento@localhost' IDENTIFIED BY 'magento1234567';
+grant all privileges on *.* to magento@localhost identified by 'magento1234567';
+</code></pre><h2 id="安装-magento">安装 magento</h2>
+<p>magento.com 官网注册账号，步骤略</p>
+<p>在后续的 composer 操作步骤中会出现填写 username 和 password ，实际上对应的是 Public Key 和 Private Key
+获取地址为 <a href="https://marketplace.magento.com/customer/accessKeys/list/">https://marketplace.magento.com/customer/accessKeys/list/</a>  (如果已在 <a href="https://magento.com">https://magento.com</a> 注册，则可以直接用来登录)</p>
+<blockquote>
+<p>以下操作步骤依照  <a href="http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install_ce.html">http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install_ce.html</a> ，以下为回忆的操作步骤，不一定准确，请以官方文档为准</p>
+</blockquote>
+<pre><code>cd /var/www/
+
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
+
+#用户权限部分根据官方文档中【 Set ownership and permissions for two users 】的操作
+
+#添加用户
+sudo adduser magento
+
+ps aux | grep apache
+
+usermod -g www-data magento
+
+groups magento
+
+
+cd &lt;your Magento install dir&gt;
+find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
+find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+chown -R :&lt;web server group&gt; .
+chmod u+x bin/magento
+
+
+sudo chmod -R magento:www-data /var/www/magento
+su magento
+</code></pre><p>现在应该可以正常访问网站了，根据安装指南一步一步的来就可以了</p>
+<h2 id="汉化步骤">汉化步骤</h2>
+<p>汉化包地址: <code>https://github.com/Magento2Translations/language_zh_hans_cn</code></p>
+<pre><code>cd &lt;your magento path&gt;
+composer require magento2translations/language_zh_hans_cn:dev-master
+php bin/magento cache:clean
+</code></pre><p>前台设置语言在：Stores-Configuration-General-Country Options下面设置
+后台语言设置在：System-All Users-指定User-Interface Locale设置</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Liu Tao 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
